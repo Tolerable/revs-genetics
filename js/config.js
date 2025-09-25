@@ -1,7 +1,7 @@
-// Rev's Genetics - Configuration File
-// Exclusive F1 Genetics and Early Generation Breeding Lines by ᵗʰᵉ Rev™
+// Seed Collective - Configuration File
+				// Edit this file to customize your site
 
-window.siteConfig = {
+				window.siteConfig = {
     "site": {
         "name": "Rev's Genetics",
         "tagline": "Exclusive F1 Hunters & Early Generation Lines by ᵗʰᵉ Rev™",
@@ -10,14 +10,13 @@ window.siteConfig = {
         "socialPreview": "social-preview.jpg",
         "showHeroText": true,
         "email": "genetics@revsgeneticslab.com",
-        "orderEmail": "hunts@revsgeneticslab.com",
         "socialLinks": [
             {
                 "name": "Discord",
                 "url": "https://discord.gg/revsgeneticslab"
             },
             {
-                "name": "Instagram", 
+                "name": "Instagram",
                 "url": "https://instagram.com/revsgeneticslab"
             },
             {
@@ -28,13 +27,13 @@ window.siteConfig = {
         "copyright": "© 2025 Rev's Genetics by ᵗʰᵉ Rev™. All rights reserved."
     },
     "colors": {
-        "primary": "#2E7D32",
-        "secondary": "#8BC34A", 
+        "primary": "#2e7d32",
+        "secondary": "#8bc34a",
         "tertiary": "#795548",
-        "highlight": "#FFC107",
-        "alert": "#F44336",
-        "background": "#1B2D1C",
-        "text": "#FFFFFF"
+        "highlight": "#ffc107",
+        "alert": "#f44336",
+        "background": "#1b2d1c",
+        "text": "#ffffff"
     },
     "background": {
         "image": "genetics-lab-bg.jpg",
@@ -46,7 +45,7 @@ window.siteConfig = {
     },
     "terminology": {
         "category1": "F1 Hunters",
-        "category2": "Early Generation", 
+        "category2": "Early Generation",
         "category3": "Signature Lines",
         "productTerm": "Genetics Pack",
         "productPluralTerm": "Genetics Packs",
@@ -74,10 +73,10 @@ window.siteConfig = {
         }
     },
     "strainTree": {
-        "enabled": true,
-        "title": "Breeding Lineage Explorer",
-        "description": "Explore the genetic relationships and crossing patterns in our breeding program.",
-        "dataPath": "data/revs-lineage.json"
+        "enabled": false,
+        "title": "Strain Genetics Explorer",
+        "description": "Explore the genetic relationships between our strains.",
+        "dataPath": "data/straindata.json"
     },
     "legal": {
         "enableDisclaimer": true,
@@ -93,7 +92,7 @@ window.siteConfig = {
                 "name": "ᵗʰᵉ Rev™ Tolerant",
                 "title": "Head Breeder & Genetic Architect",
                 "bio": "With decades of experience in genetic selection and breeding program development, ᵗʰᵉ Rev™ has developed some of the most sought-after early generation lines in the industry. Specializing in unique crosses that showcase genetic diversity and breeding potential.",
-                "image": "team-rev.jpg"
+                "image": "team1.jpg"
             }
         ],
         "historyItems": [
@@ -103,13 +102,13 @@ window.siteConfig = {
                 "description": "ᵗʰᵉ Rev™ established the breeding program with focus on genetic diversity and F1 development."
             },
             {
-                "year": "2022", 
+                "year": "2022",
                 "title": "First F1 Releases",
                 "description": "Initial Pink Cloudberry and Remo Chemo x Mango Bubba F1 lines released to select hunters."
             },
             {
                 "year": "2024",
-                "title": "Breeding Program Expansion", 
+                "title": "Breeding Program Expansion",
                 "description": "Expanded crossing program to include auto/photo selections and rare phenotype hunting."
             },
             {
@@ -124,25 +123,30 @@ window.siteConfig = {
                 "content": "Every pack from Rev's Genetics represents a genetic adventure. Our F1 crosses and early generation lines aren't just seeds - they're genetic treasure maps. You might discover the next legendary auto-flowering cultivar, uncover unique terpene profiles, or find breeding stock that becomes the foundation of your own program.\n\nWe believe the real value lies not in predetermined outcomes, but in the journey of discovery. That's why we focus on crosses that haven't been fully explored, giving you first access to genetic combinations that larger operations won't touch because they can't guarantee uniform results."
             },
             {
-                "title": "Breeding Philosophy", 
+                "title": "Breeding Philosophy",
                 "content": "Our approach is different. While others stabilize lines to F4, F5, and beyond, we specialize in the excitement of F1 and F2 generations where genetic diversity peaks. Each cross is carefully planned to maximize the potential for discovering something truly special - whether that's exceptional auto-flowering traits, unique cannabinoid profiles, or novel growth characteristics.\n\nEvery release is limited and exclusive. Once a hunt is complete, we move on to new genetic territories, ensuring that Rev's Genetics hunters always have access to the latest and most unique genetic combinations."
             }
         ]
     },
-"products": {
+    "products": {
         "defaultStatus": "available",
         "enableRatings": true,
         "showPackOptions": true,
         "defaultPackOptions": [
             {
-                "size": "6 Pack Regular",
-                "regularPrice": 36,
+                "size": "3 Pack",
+                "regularPrice": 35,
                 "salePrice": 30
             },
             {
-                "size": "5 Pack Feminized", 
-                "regularPrice": 40,
-                "salePrice": 35
+                "size": "5 Pack",
+                "regularPrice": 50,
+                "salePrice": 45
+            },
+            {
+                "size": "10 Pack",
+                "regularPrice": 95,
+                "salePrice": 80
             }
         ],
         "items": {
@@ -304,7 +308,8 @@ window.siteConfig = {
                         "salePrice": 70
                     }
                 ],
-                "displayOrder": 5
+                "displayOrder": 5,
+                "hidden": true
             },
             "bifrost-brine-pickles": {
                 "id": "bifrost-brine-pickles",
@@ -363,12 +368,13 @@ window.siteConfig = {
                         "salePrice": 70
                     }
                 ],
-                "displayOrder": 7
+                "displayOrder": 7,
+                "hidden": true
             },
             "pickle-bandit": {
                 "id": "pickle-bandit",
                 "name": "Pickle Bandit",
-                "type": "F1 Hunters", 
+                "type": "F1 Hunters",
                 "status": "available",
                 "delivery": "physical",
                 "image": "pickle-bandit.jpg",
@@ -395,7 +401,8 @@ window.siteConfig = {
                         "salePrice": 65
                     }
                 ],
-                "displayOrder": 8
+                "displayOrder": 8,
+                "hidden": true
             },
             "pink-cloudberry-bx1": {
                 "id": "pink-cloudberry-bx1",
@@ -583,7 +590,7 @@ window.siteConfig = {
     "friendLinksShowcase": {
         "enabled": true,
         "style": "cards",
-        "title": "Breeding Network Partners"
+        "title": "Friends and Sponsors"
     },
     "showFooterFriendLinks": true,
     "advanced": {
@@ -592,7 +599,7 @@ window.siteConfig = {
         "checkoutMethod": "email",
         "externalCheckoutUrl": "",
         "analyticsId": "",
-        "orderEmail": "hunts@revsgeneticslab.com",
+        "orderEmail": "orders@example.com",
         "enableAgeCheck": true,
         "ageCheckMinimum": 21,
         "ageRedirectUrl": "https://www.google.com"

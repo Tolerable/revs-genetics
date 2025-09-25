@@ -194,7 +194,7 @@ window.siteConfig = {
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Exclusive",
                 "rarity": "Auto Regular",
-                "details": "Parentage: Pink Zydonia F1 x Auto selection. Known for producing stunning pink and purple expressions in auto-flowering format. Excellent for hunters seeking colorful genetics or breeders looking to introduce color traits into their programs.",
+                "details": "Parentage: Pink Zydonia F1 x Forged Pickles. Known for producing stunning pink and purple expressions in auto-flowering format. Excellent for hunters seeking colorful genetics or breeders looking to introduce color traits into their programs.",
                 "notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding collection. Regular seeds provide breeding opportunities while offering potential for spectacular colored auto phenotypes. Male plants valuable for color breeding projects.",
                 "packOptions": [
                     {
@@ -349,7 +349,7 @@ window.siteConfig = {
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Exclusive",
                 "rarity": "Auto Regular",
-                "details": "Parentage: GSC x Highwayman. Known for producing distinctive berry-forward auto-flowering phenotypes with robust growth characteristics. Males provide valuable genetic material for berry-focused breeding programs.",
+                "details": "Parentage: GSC x Highwayman x Cloudberry. Known for producing distinctive berry-forward auto-flowering phenotypes with robust growth characteristics. Males provide valuable genetic material for berry-focused breeding programs.",
                 "notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding collection. Regular format provides complete genetic toolkit for berry-focused breeding or phenotype hunting with outlaw characteristics.",
                 "packOptions": [
                     {
@@ -381,7 +381,7 @@ window.siteConfig = {
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Development",
                 "rarity": "Auto Regular",
-                "details": "Parentage: GSC x Highwayman. Features unique genetic expressions combining bandit characteristics with pickle influences. Excellent for hunters seeking distinctive auto traits or breeders looking for unusual genetic foundations.",
+                "details": "Parentage: GSC x Highwayman x Forged Pickles. Features unique genetic expressions combining bandit characteristics with pickle influences. Excellent for hunters seeking distinctive auto traits or breeders looking for unusual genetic foundations.",
                 "notes": "Exclusive ᵗʰᵉ Rev™ genetics offering both finished cultivar potential and breeding stock opportunities. Regular format provides complete genetic toolkit for unique breeding projects.",
                 "packOptions": [
                     {
@@ -413,7 +413,7 @@ window.siteConfig = {
                 "rating": "Advanced Generation",
                 "origin": "Rev's Lab Development",
                 "rarity": "Backcross Auto",
-                "details": "Parentage: Pink Cloudberry x Pink Zydonia F1. Backcross generation provides increased genetic focus while maintaining diversity. Expect more consistent Pink Cloudberry expressions with enhanced traits from the Pink Zydonia influence.",
+                "details": "Parentage: Pink Zydonia F1 x Pink Cloudberry. Backcross generation provides increased genetic focus while maintaining diversity. Expect more consistent Pink Cloudberry expressions with enhanced traits from the Pink Zydonia influence.",
                 "notes": "Advanced generation genetics offering improved consistency while preserving the hunting experience. Regular format provides breeding value and finished cultivar potential with enhanced stability.",
                 "packOptions": [
                     {
@@ -477,7 +477,7 @@ window.siteConfig = {
                 "rating": "Advanced Line",
                 "origin": "Rev's Lab Development",
                 "rarity": "Limited Photo",
-                "details": "Parentage: Remo Chemo x Mango Bubba F1 x Selected female. Limited quantities available featuring advanced photoperiod genetics with proven F1 foundation. Excellent for breeding programs seeking feminized options or hunters seeking unique photoperiod expressions.",
+                "details": "Parentage: Remo Chemo x Mango Bubba F1 x GSC x Highwayman (R). Limited quantities available featuring advanced photoperiod genetics with proven F1 foundation. Excellent for breeding programs seeking feminized options or hunters seeking unique photoperiod expressions.",
                 "notes": "Limited availability genetics with proven foundation parentage. Feminized format eliminates males while preserving exceptional genetic potential for breeding and finished cultivation.",
                 "packOptions": [
                     {
@@ -509,7 +509,7 @@ window.siteConfig = {
                 "rating": "Rare Expression",
                 "origin": "Rev's Lab Exclusive",
                 "rarity": "Rare Photo Regular",
-                "details": "Parentage: GSC x Highwayman. Rare genetics producing unique and unusual phenotypic expressions in photoperiod format. Excellent breeding value for programs seeking distinctive genetic characteristics and unusual traits.",
+                "details": "Parentage: GSC x Highwayman x Remo Chemo x Mango Bubba F1. Rare genetics producing unique and unusual phenotypic expressions in photoperiod format. Excellent breeding value for programs seeking distinctive genetic characteristics and unusual traits.",
                 "notes": "Rare genetics with unusual expressions and exceptional breeding potential. Regular format provides complete genetic toolkit for advanced breeding programs seeking truly unique characteristics.",
                 "packOptions": [
                     {
@@ -536,7 +536,7 @@ window.siteConfig = {
                 "rating": "Moderate Rarity",
                 "origin": "Rev's Lab Development",
                 "rarity": "Color Photo Regular",
-                "details": "Parentage: Pink Zydonia F1 x Remo Chemo x Mango Bubba F1. Moderate quantities available of this colorful photoperiod line. Known for producing stunning pink and purple expressions with excellent breeding potential and finished cultivar value.",
+                "details": "Parentage: Pink Zydonia x Remo Chemo x Mango Bubba F1. Moderate quantities available of this colorful photoperiod line. Known for producing stunning pink and purple expressions with excellent breeding potential and finished cultivar value.",
                 "notes": "Colorful photoperiod genetics combining Pink Zydonia traits with proven RCxMB F1 foundation. Regular format provides breeding opportunities for color-focused breeding programs.",
                 "packOptions": [
                     {

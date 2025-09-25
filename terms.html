@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Loading...</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="css/base-styles.css">
+    
+    <!-- Dynamic CSS will be injected here -->
+    <style id="dynamic-styles"></style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="background"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo-container">
+                    <a href="index.html" class="logo-link">
+                        <img src="" alt="" class="header-logo" id="site-logo">
+                        <h1 class="site-title" id="site-name">Loading...</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul id="main-navigation">
+                        <!-- Navigation items will be dynamically inserted here -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <div class="main-content">
+        <div class="container">
+            <h1 class="section-title">Terms of Service</h1>
+            
+            <div class="legal-content">
+                <h2>1. Introduction</h2>
+                <p>Welcome to <span id="company-name">Loading...</span>. These Terms of Service govern your use of our website and the products and services offered by <span id="company-name-2">Loading...</span> (referred to as "we," "us," or "our"). By accessing or using our website, you agree to be bound by these Terms of Service.</p>
+                
+                <h2>2. Products</h2>
+                <p>All products displayed on our website are intended as <span id="product-terms">collectible items</span>. We do not encourage any illegal activity. Customers are responsible for complying with their local laws and regulations regarding our products.</p>
+                
+                <h2>3. Order Processing</h2>
+                <p>When you place an order through our website, you are making an offer to purchase our products. We reserve the right to accept or decline your offer at our discretion. Once we accept your order, you will receive an order confirmation via email.</p>
+                <p>Shipping details, including costs and delivery timeframes, will be determined on a per-order basis and communicated to you during the order process.</p>
+                
+                <h2>4. Pricing and Payment</h2>
+                <p>All prices displayed on our website are in US dollars and do not include shipping costs. We reserve the right to change prices at any time without prior notice.</p>
+                <p>Payment details will be provided after order submission. We do not store payment information on our website.</p>
+                
+                <h2>5. Intellectual Property</h2>
+                <p>All content on this website, including text, graphics, logos, images, and software, is the property of <span id="company-name-3">Loading...</span> and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works from this content without our express written consent.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p><span id="company-name-4">Loading...</span> will not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your access to or use of our website or products.</p>
+                
+                <h2>7. Website Use</h2>
+                <p>You agree to use our website only for lawful purposes and in a way that does not infringe upon the rights of others or restrict their use of the website.</p>
+                
+                <h2>8. Age Restrictions</h2>
+                <p>By using our website, you confirm that you are at least <span id="minimum-age">21</span> years old. Our website and products are not intended for individuals under the age of <span id="minimum-age-2">21</span>.</p>
+                
+                <h2>9. Third-Party Links</h2>
+                <p>Our website may contain links to third-party websites. We are not responsible for the content, privacy policies, or practices of any third-party websites.</p>
+                
+                <h2>10. Changes to Terms</h2>
+                <p>We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting on the website. Your continued use of the website after changes are posted constitutes your acceptance of the modified terms.</p>
+                
+                <h2>11. Contact Information</h2>
+                <p>If you have questions about these Terms of Service, please contact us at <span id="contact-email">Loading...</span>.</p>
+                
+                <h2>12. Governing Law</h2>
+                <p>These Terms of Service shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.</p>
+                
+                <p><strong>Last updated:</strong> <span id="last-updated">Loading...</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 id="footerSiteName">Loading...</h3>
+                    <ul id="footerNav">
+                        <!-- Footer navigation items will be dynamically inserted here -->
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section" id="contact">
+                    <h3>Contact</h3>
+                    <ul id="contact-links">
+                        <!-- Contact links will be dynamically inserted here -->
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Friends</h3>
+                    <ul id="friend-links-display">
+                        <!-- Friend links will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p id="copyright-text">Loading...</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/config.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.siteConfig) {
+                applySiteConfig();
+            } else {
+                console.error('Site configuration not loaded');
+            }
+        });
+
+        function applySiteConfig() {
+            const config = window.siteConfig;
+            
+            // Update page title and meta
+            document.title = `Terms of Service - ${config.site.name}`;
+            
+            // Update site branding
+            document.getElementById('site-logo').src = config.site.logo.startsWith('img/') ? config.site.logo : `img/${config.site.logo}`;
+            document.getElementById('site-logo').alt = config.site.name;
+            document.getElementById('site-name').textContent = config.site.name;
+            document.getElementById('footerSiteName').textContent = config.site.name;
+            
+            // Update content
+            const companyNameElements = document.querySelectorAll('[id^="company-name"]');
+            companyNameElements.forEach(el => el.textContent = config.site.name);
+            
+            document.getElementById('contact-email').textContent = config.site.email;
+            document.getElementById('copyright-text').textContent = config.site.copyright;
+            
+            // Set product terminology
+            const productTerm = config.terminology?.productPluralTerm || 'collectible items';
+            document.getElementById('product-terms').textContent = productTerm.toLowerCase();
+            
+            // Set minimum age from config
+            const minAge = config.advanced?.ageCheckMinimum || 21;
+            document.getElementById('minimum-age').textContent = minAge;
+            document.getElementById('minimum-age-2').textContent = minAge;
+            
+            // Set last updated date
+            document.getElementById('last-updated').textContent = new Date().toLocaleDateString();
+            
+            // Apply navigation
+            const mainNav = document.getElementById('main-navigation');
+            mainNav.innerHTML = '';
+            config.navigation.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="index.html${item.url}">${item.name}</a>`;
+                mainNav.appendChild(li);
+            });
+            
+            // Apply footer navigation
+            const footerNav = document.getElementById('footerNav');
+            footerNav.innerHTML = '';
+            config.navigation.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="index.html${item.url}">${item.name}</a>`;
+                footerNav.appendChild(li);
+            });
+            
+            // Apply contact links
+            const contactLinks = document.getElementById('contact-links');
+            contactLinks.innerHTML = '';
+            
+            // Add email with obfuscation
+            const emailParts = config.site.email.split('@');
+            const emailItem = document.createElement('li');
+            emailItem.innerHTML = `<a href="#" onclick="window.location.href='mailto:' + '${emailParts[0]}' + '@' + '${emailParts[1]}'; return false;">${emailParts[0]}[at]${emailParts[1]}</a>`;
+            contactLinks.appendChild(emailItem);
+            
+            // Add social links
+            if (config.site.socialLinks) {
+                config.site.socialLinks.forEach(socialLink => {
+                    const socialItem = document.createElement('li');
+                    socialItem.innerHTML = `<a href="${socialLink.url}" target="_blank">${socialLink.name}</a>`;
+                    contactLinks.appendChild(socialItem);
+                });
+            }
+            
+            // Apply friend links
+            if (config.friendLinks) {
+                const friendLinksDisplay = document.getElementById('friend-links-display');
+                friendLinksDisplay.innerHTML = '';
+                config.friendLinks.forEach(link => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${link.url}" target="_blank">${link.name}</a>`;
+                    friendLinksDisplay.appendChild(li);
+                });
+            }
+            
+            // Apply custom styles
+            applyCustomStyles(config);
+        }
+
+        function applyCustomStyles(config) {
+            let dynamicStyles = document.getElementById('dynamic-styles');
+            if (!dynamicStyles) {
+                dynamicStyles = document.createElement('style');
+                dynamicStyles.id = 'dynamic-styles';
+                document.head.appendChild(dynamicStyles);
+            }
+            
+            dynamicStyles.textContent = `
+                :root {
+                    --primary-color: ${config.colors?.primary || '#003B6F'};
+                    --secondary-color: ${config.colors?.secondary || '#00FF9F'};
+                    --tertiary-color: ${config.colors?.tertiary || '#6A0DAD'};
+                    --highlight-color: ${config.colors?.highlight || '#FFD700'};
+                    --alert-color: ${config.colors?.alert || '#FF5722'};
+                    --background-color: ${config.colors?.background || '#0A0E17'};
+                    --text-color: ${config.colors?.text || '#FFFFFF'};
+                    
+                    --font-heading: ${config.fonts?.heading || "'Orbitron', sans-serif"};
+                    --font-body: ${config.fonts?.body || "'Exo 2', sans-serif"};
+                }
+                
+                .legal-content {
+                    background: rgba(10, 14, 23, 0.8);
+                    border-radius: 15px;
+                    padding: 30px;
+                    margin-bottom: 50px;
+                    border: 2px solid var(--primary-color);
+                    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+                }
+                
+                .legal-content h2 {
+                    color: var(--secondary-color);
+                    font-family: var(--font-heading);
+                    margin: 30px 0 15px;
+                    font-size: 1.6rem;
+                }
+                
+                .legal-content h2:first-child {
+                    margin-top: 0;
+                }
+                
+                .legal-content p {
+                    margin-bottom: 15px;
+                    color: var(--text-color);
+                }
+                
+                .legal-content ul, .legal-content ol {
+                    margin-bottom: 15px;
+                    margin-left: 30px;
+                    color: var(--text-color);
+                }
+                
+                .legal-content li {
+                    margin-bottom: 5px;
+                }
+                
+                .section-title {
+                    text-align: center;
+                    font-family: var(--font-heading);
+                    font-size: 3rem;
+                    margin-bottom: 40px;
+                    text-transform: uppercase;
+                    color: var(--highlight-color);
+                    text-shadow: 3px 3px 0 var(--tertiary-color);
+                    letter-spacing: 2px;
+                }
+                
+                .main-content {
+                    padding: 130px 0 40px;
+                }
+            `;
+        }
+    </script>
+</body>
+</html>

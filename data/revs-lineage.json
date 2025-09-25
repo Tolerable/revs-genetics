@@ -316,12 +316,11 @@
 		  "children": [
 			{
 			  "name": "Remo Chemo x Mango Bubba F2",
-			  "children": [
-				{
-				  "name": "PINK APEX",
-				  "children": []
-				}
-			  ]
+			  "children": []
+			},
+			{
+			  "name": "PINK APEX",
+			  "children": []
 			}
 		  ]
 		}

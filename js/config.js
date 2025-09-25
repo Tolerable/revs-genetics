@@ -1,131 +1,81 @@
-// Rev's Genetics - Configuration File
-// Exclusive F1 Genetics and Early Generation Breeding Lines by ᵗʰᵉ Rev™
+// Seed Collective - Configuration File
+				// Edit this file to customize your site
 
-window.siteConfig = {
+				window.siteConfig = {
     "site": {
-        "name": "Rev's Genetics",
-        "tagline": "Exclusive F1 Hunters & Early Generation Lines by ᵗʰᵉ Rev™",
+        "name": "Bean Farm ",
+        "tagline": "Unique Collectible Beans from Around the World ",
         "logo": "logo.jpg",
         "heroBackground": "hero-bg.jpg",
-        "socialPreview": "social-preview.jpg",
-        "showHeroText": true,
-        "email": "genetics@revsgeneticslab.com",
-        "orderEmail": "hunts@revsgeneticslab.com",
-        "socialLinks": [
-            {
-                "name": "Discord",
-                "url": "https://discord.gg/revsgeneticslab"
-            },
-            {
-                "name": "Instagram", 
-                "url": "https://instagram.com/revsgeneticslab"
-            },
-            {
-                "name": "YouTube",
-                "url": "https://youtube.com/@revsgeneticslab"
-            }
-        ],
-        "copyright": "© 2025 Rev's Genetics by ᵗʰᵉ Rev™. All rights reserved."
+        "email": "contact@example.com",
+        "socialLinks": {
+            "discord": "https://discord.gg/yourcollective",
+            "youtube": "https://youtube.com/@yourchannel",
+            "tiktok": "https://tiktok.com/@yourhandle"
+        },
+        "copyright": "© 2025 Bean Farm. All rights reserved."
     },
     "colors": {
-        "primary": "#2E7D32",
-        "secondary": "#8BC34A", 
-        "tertiary": "#795548",
-        "highlight": "#FFC107",
-        "alert": "#F44336",
-        "background": "#1B2D1C",
-        "text": "#FFFFFF"
-    },
-    "background": {
-        "image": "genetics-lab-bg.jpg",
-        "sectionImage": "dna-texture.jpg"
+        "primary": "#ff5722",
+        "secondary": "#ffc107",
+        "tertiary": "#9c27b0",
+        "highlight": "#ffeb3b",
+        "alert": "#f44336",
+        "background": "#1f1414",
+        "text": "#ffffff"
     },
     "fonts": {
         "heading": "'Orbitron', sans-serif",
         "body": "'Exo 2', sans-serif"
     },
     "terminology": {
-        "category1": "F1 Hunters",
-        "category2": "Early Generation", 
-        "category3": "Signature Lines",
-        "productTerm": "Genetics Pack",
-        "productPluralTerm": "Genetics Packs",
-        "packTerm": "Hunt Pack",
-        "cartTerm": "Genetics Collection",
-        "soldOutLabel": "HUNT COMPLETE",
-        "comingSoonLabel": "IN DEVELOPMENT"
+        "category1": "Premium ",
+        "category2": "Signature ",
+        "category3": "Hybrid ",
+        "productTerm": "Bean",
+        "productPluralTerm": "Beans",
+        "packTerm": "Bean Pack",
+        "cartTerm": "Beans Pack",
+        "soldOutLabel": "UNAVAILABLE",
+        "comingSoonLabel": "COMING SOON"
     },
     "effects": {
         "backgroundEffect": {
             "enabled": true,
-            "type": "particles",
-            "intensity": "medium"
+            "type": "stars",
+            "intensity": "high"
         },
         "specialFeature": {
             "enabled": true,
             "type": "floatingObject",
             "image": "img/floating-object.png",
             "behavior": "float"
-        },
-        "backgroundAudio": {
-            "enabled": false,
-            "file": "",
-            "volume": 0.3
         }
     },
-    "strainTree": {
-        "enabled": true,
-        "title": "Breeding Lineage Explorer",
-        "description": "Explore the genetic relationships and crossing patterns in our breeding program.",
-        "dataPath": "data/revs-lineage.json"
-    },
-    "legal": {
-        "enableDisclaimer": true,
-        "disclaimerText": "Rev's Genetics sells genetics for novelty, souvenir and collectible purposes only. Products may not be legal in some countries and Rev's Genetics strongly advises you not to take products where they are not permitted. Rev's Genetics does not accept any responsibility for any violation of customs regulations or local laws. All responsibility falls on the purchaser to determine the legal status of products in their country of residence. Any information provided is for educational purposes only."
-    },
     "about": {
-        "title": "About Rev's Genetics",
-        "subtitle": "Pioneering F1 Hunting & Early Generation Development",
-        "image": "about-revs-lab.jpg",
-        "description": "Welcome to Rev's Genetics, where cutting-edge breeding meets the thrill of genetic exploration. Led by ᵗʰᵉ Rev™, our laboratory specializes in creating exclusive F1 crosses and early generation lines that offer hunters the unique opportunity to discover rare phenotypes and breeding potential that larger operations simply can't provide.\n\nOur philosophy is simple: instead of locking down genetics to single phenotypes, we offer you the keys to genetic diversity. Each pack represents a hunting expedition into uncharted genetic territory, where the next great cultivar might be waiting for your discovery.",
+        "title": "About Bean Farm",
+        "subtitle": "Our Story and Mission",
+        "image": "about.jpg",
+        "description": "Founded in 2025, Bean Farm is dedicated to bringing unique collectible beans to enthusiasts around the world. We carefully curate our collections to ensure only the highest quality items reach our customers.",
         "teamMembers": [
             {
-                "name": "ᵗʰᵉ Rev™ Tolerant",
-                "title": "Head Breeder & Genetic Architect",
-                "bio": "With decades of experience in genetic selection and breeding program development, ᵗʰᵉ Rev™ has developed some of the most sought-after early generation lines in the industry. Specializing in unique crosses that showcase genetic diversity and breeding potential.",
-                "image": "team-rev.jpg"
+                "name": "ᵗʰᵉ Rev™",
+                "title": "Founder & CEO",
+                "bio": "ᵗʰᵉ Rev™ has spent 40 years searching for magic beans.",
+                "image": "team1.jpg"
             }
         ],
         "historyItems": [
             {
-                "year": "2020",
-                "title": "Laboratory Founded",
-                "description": "ᵗʰᵉ Rev™ established the breeding program with focus on genetic diversity and F1 development."
-            },
-            {
-                "year": "2022", 
-                "title": "First F1 Releases",
-                "description": "Initial Pink Cloudberry and Remo Chemo x Mango Bubba F1 lines released to select hunters."
-            },
-            {
-                "year": "2024",
-                "title": "Breeding Program Expansion", 
-                "description": "Expanded crossing program to include auto/photo selections and rare phenotype hunting."
-            },
-            {
                 "year": "2025",
-                "title": "Public Launch",
-                "description": "Rev's Genetics opens to the public, offering exclusive access to unreleased F1 and early generation genetics."
+                "title": "Company Founded",
+                "description": "Proof of concept and founding of the domain completed with great success!"
             }
         ],
         "additionalSections": [
             {
-                "title": "The F1 Hunter Experience",
-                "content": "Every pack from Rev's Genetics represents a genetic adventure. Our F1 crosses and early generation lines aren't just seeds - they're genetic treasure maps. You might discover the next legendary auto-flowering cultivar, uncover unique terpene profiles, or find breeding stock that becomes the foundation of your own program.\n\nWe believe the real value lies not in predetermined outcomes, but in the journey of discovery. That's why we focus on crosses that haven't been fully explored, giving you first access to genetic combinations that larger operations won't touch because they can't guarantee uniform results."
-            },
-            {
-                "title": "Breeding Philosophy", 
-                "content": "Our approach is different. While others stabilize lines to F4, F5, and beyond, we specialize in the excitement of F1 and F2 generations where genetic diversity peaks. Each cross is carefully planned to maximize the potential for discovering something truly special - whether that's exceptional auto-flowering traits, unique cannabinoid profiles, or novel growth characteristics.\n\nEvery release is limited and exclusive. Once a hunt is complete, we move on to new genetic territories, ensuring that Rev's Genetics hunters always have access to the latest and most unique genetic combinations."
+                "title": "The Story...",
+                "content": "...Once upon a time... it was rumored magic beans could be found that would grow plants to the clouds. Only problem with this fantastic tale is that no one ever returned from climbing these super tall plants. If no one ever returned, how can anyone know if it is true? Obviously magic beans have to be grown to be experienced! Start your magic journey today!"
             }
         ]
     },
@@ -135,466 +85,231 @@ window.siteConfig = {
         "showPackOptions": true,
         "defaultPackOptions": [
             {
-                "size": "6 Pack Regular",
-                "regularPrice": 36,
+                "size": "3 Pack",
+                "regularPrice": 35,
                 "salePrice": 30
             },
             {
-                "size": "5 Pack Feminized", 
-                "regularPrice": 40,
-                "salePrice": 35
+                "size": "5 Pack",
+                "regularPrice": 50,
+                "salePrice": 45
+            },
+            {
+                "size": "10 Pack",
+                "regularPrice": 95,
+                "salePrice": 80
             }
         ],
         "items": {
-            "forged-pickles-f2": {
-                "id": "forged-pickles-f2",
-                "name": "Forged Pickles F2 (Gardulla Phenomme)",
-                "type": "F1 Hunters",
+            "product-1": {
+                "id": "product-1",
+                "name": "FROST FINGERS",
+                "type": "Premium Collection",
                 "status": "available",
-                "delivery": "physical",
-                "image": "forged-pickles-f2.jpg",
+                "image": "product1.jpg",
                 "additionalImages": [
-                    "forged-pickles-detail1.jpg",
-                    "forged-pickles-phenos.jpg"
+                    "product1-detail1.jpg"
                 ],
-                "description": "Auto regular F2 generation from the legendary Forged Pickles line. The Gardulla Phenomme represents exceptional auto-flowering genetics with diverse expressions waiting to be discovered by dedicated hunters.",
-                "variety": "AUTO REG F2",
-                "rating": "ᵗʰᵉ Rev™ Line",
-                "origin": "Rev's Lab Development",
-                "rarity": "F2 Auto Regular",
-                "details": "F2 generation offers increased genetic diversity while maintaining the auto-flowering foundation. Expect varied phenotypic expressions, flowering times, and potential for discovering exceptional breeding stock or finished cultivars. Males present valuable pollen for breeding programs.",
-                "notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding line. Regular seeds provide full genetic toolkit for breeders while offering growers the chance to discover unique auto phenotypes.",
+                "description": "This is a premium collectible with exceptional qualities.",
+                "variety": "FEM PHOTO",
+                "rating": "4.5/5",
+                "origin": "Imported",
+                "details": "Detailed information about this premium collectible.",
+                "notes": "Special notes about this premium collectible.",
                 "packOptions": [
                     {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 42,
-                        "salePrice": 36
+                        "size": "3 Pack",
+                        "regularPrice": 35,
+                        "salePrice": 30
                     },
                     {
-                        "size": "12 Pack Breeder Special",
-                        "regularPrice": 75,
-                        "salePrice": 65
+                        "size": "5 Pack",
+                        "regularPrice": 50,
+                        "salePrice": 45
+                    },
+                    {
+                        "size": "10 Pack",
+                        "regularPrice": 100,
+                        "salePrice": 90
                     }
-                ],
-                "displayOrder": 1
+                ]
             },
-            "pink-pickles": {
-                "id": "pink-pickles",
-                "name": "Pink Pickles",
-                "type": "F1 Hunters",
-                "status": "available",
-                "delivery": "physical",
-                "image": "pink-pickles.jpg",
-                "additionalImages": [
-                    "pink-pickles-detail1.jpg",
-                    "pink-pickles-colors.jpg"
-                ],
-                "description": "Auto regular from the ᵗʰᵉ Rev™ collection featuring unique pink-hued genetics. This line offers hunters the opportunity to discover colorful auto-flowering phenotypes with exceptional bag appeal and breeding potential.",
-                "variety": "AUTO REG",
-                "rating": "ᵗʰᵉ Rev™ Line",
-                "origin": "Rev's Lab Exclusive",
-                "rarity": "Auto Regular",
-                "details": "Known for producing stunning pink and purple expressions in auto-flowering format. Excellent for hunters seeking colorful genetics or breeders looking to introduce color traits into their programs. Male plants valuable for color breeding.",
-                "notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding collection. Regular seeds provide breeding opportunities while offering potential for spectacular colored auto phenotypes.",
+            "product-1744435310737": {
+                "id": "product-1744435310737",
+                "name": "jACK'S MAGIC",
+                "type": "Signature Series",
+                "status": "coming-soon",
+                "image": "product2.jpg",
+                "additionalImages": [],
+                "description": "Jack's Magic is stunning and will elevate your mood to the clouds!",
+                "variety": "REG PHOTO",
+                "rating": "4.6/5",
+                "origin": "Inhouse",
+                "details": "Easy to collect and enjoyable to own.",
+                "notes": "FEMINIZED",
                 "packOptions": [
                     {
-                        "size": "6 Pack Regular",
+                        "size": "3",
                         "regularPrice": 45,
-                        "salePrice": 39
-                    },
-                    {
-                        "size": "12 Pack Color Hunter",
-                        "regularPrice": 80,
-                        "salePrice": 70
+                        "salePrice": 30
                     }
-                ],
-                "displayOrder": 2
+                ]
             },
-            "eternal-forge-embers": {
-                "id": "eternal-forge-embers",
-                "name": "Eternal Forge Embers",
-                "type": "F1 Hunters",
-                "status": "available",
-                "delivery": "physical",
-                "image": "eternal-forge-embers.jpg",
-                "additionalImages": [
-                    "eternal-forge-detail1.jpg",
-                    "eternal-forge-fire.jpg"
-                ],
-                "description": "Auto regular from the ᵗʰᵉ Rev™ line with fiery genetics and robust auto-flowering characteristics. These genetics offer hunters the chance to discover powerful auto phenotypes with exceptional vigor and unique expressions.",
-                "variety": "AUTO REG",
-                "rating": "ᵗʰᵉ Rev™ Line",
-                "origin": "Rev's Lab Development",
-                "rarity": "Auto Regular",
-                "details": "Known for producing vigorous auto-flowering plants with exceptional resin production and diverse phenotypic expressions. Males provide valuable genetic material for breeding programs seeking robust auto traits.",
-                "notes": "Exclusive ᵗʰᵉ Rev™ genetics offering both finished cultivar potential and breeding stock opportunities. Regular format provides complete genetic toolkit.",
+            "product-1744439696089": {
+                "id": "product-1744439696089",
+                "name": "HIGH OCTANE",
+                "type": "Hybrid Collection",
+                "status": "sold-out",
+                "image": "product3.jpg",
+                "additionalImages": [],
+                "description": "Fuel up and take off! You don't need gas when you have HIGH OCTANE!",
+                "variety": "REG AUTO",
+                "rating": "4.9/5",
+                "origin": "Inhouse",
+                "details": "Hydroponic Indoor Heritage Strain",
+                "notes": "REGULAR",
                 "packOptions": [
                     {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 42,
-                        "salePrice": 36
-                    },
-                    {
-                        "size": "12 Pack Breeder Special",
-                        "regularPrice": 75,
-                        "salePrice": 65
-                    }
-                ],
-                "displayOrder": 3
-            },
-            "allfather-glow": {
-                "id": "allfather-glow",
-                "name": "Allffather's Glow",
-                "type": "F1 Hunters",
-                "status": "available",
-                "delivery": "physical",
-                "image": "allfather-glows.jpg",
-                "additionalImages": [
-                    "allfather-detail1.jpg",
-                    "allfather-glow-phenos.jpg"
-                ],
-                "description": "Auto regular from the prestigious ᵗʰᵉ Rev™ collection featuring genetics that produce exceptional resin coverage and unique auto-flowering characteristics. Perfect for hunters seeking luminous, high-quality auto phenotypes.",
-                "variety": "AUTO REG",
-                "rating": "ᵗʰᵉ Rev™ Line",
-                "origin": "Rev's Lab Exclusive",
-                "rarity": "Auto Regular",
-                "details": "Notable for producing heavily frosted auto-flowering phenotypes with exceptional trichome production. Diverse expressions provide opportunities for discovering exceptional cultivars or valuable breeding stock.",
-                "notes": "Premium ᵗʰᵉ Rev™ genetics offering hunters access to unique auto-flowering expressions with exceptional resin production potential.",
-                "packOptions": [
-                    {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 48,
-                        "salePrice": 42
-                    },
-                    {
-                        "size": "12 Pack Frost Hunter",
-                        "regularPrice": 85,
-                        "salePrice": 75
-                    }
-                ],
-                "displayOrder": 4
-            },
-            "pink-cloudberry": {
-                "id": "pink-cloudberry",
-                "name": "Pink Cloudberry",
-                "type": "F1 Hunters",
-                "status": "available",
-                "delivery": "physical",
-                "image": "pink-cloudberry.jpg",
-                "additionalImages": [
-                    "pink-cloudberry-detail1.jpg",
-                    "pink-cloudberry-colors.jpg"
-                ],
-                "description": "Auto regular from the ᵗʰᵉ Rev™ line featuring the genetics behind many of our breeding programs. This foundational line offers hunters access to the genetic building blocks used in advanced crosses.",
-                "variety": "AUTO REG",
-                "rating": "ᵗʰᵉ Rev™ Line",
-                "origin": "Rev's Lab Foundation",
-                "rarity": "Foundation Auto",
-                "details": "This is the foundational Pink Cloudberry line that has contributed genetics to multiple advanced crosses in our breeding program. Excellent genetic diversity and breeding value.",
-                "notes": "Essential ᵗʰᵉ Rev™ foundation genetics. Regular format provides breeding opportunities while offering access to the genetic foundation of advanced crosses.",
-                "packOptions": [
-                    {
-                        "size": "6 Pack Regular",
+                        "size": "3",
                         "regularPrice": 45,
-                        "salePrice": 39
+                        "salePrice": 30
+                    }
+                ]
+            },
+            "product-1744471903073": {
+                "id": "product-1744471903073",
+                "name": "HERMIE",
+                "type": "Signature Series",
+                "status": "coming-soon",
+                "image": "product4.jpg",
+                "additionalImages": [],
+                "description": "Confused? SO is this plant!",
+                "variety": "FEM PHOTO",
+                "rating": "4.2/5",
+                "origin": "Imported",
+                "details": "It does not know if it is a flower or a bud and it doesn't care!",
+                "notes": "Fun to grow!",
+                "packOptions": [
+                    {
+                        "size": "5",
+                        "regularPrice": 75,
+                        "salePrice": 50
+                    }
+                ]
+            },
+            "product-1744472357729": {
+                "id": "product-1744472357729",
+                "name": "WATERMELON BLISS",
+                "type": "Hybrid Collection",
+                "status": "sold-out",
+                "image": "product5.jpg",
+                "additionalImages": [],
+                "description": "Summertime fun is here with the flavor of Watermelon! ",
+                "variety": "FEM AUTO",
+                "rating": "4.8/5",
+                "origin": "Inhouse",
+                "details": "Crazy insane flavor notes! ",
+                "notes": "One to remember!",
+                "packOptions": [
+                    {
+                        "size": "10",
+                        "regularPrice": 150,
+                        "salePrice": 90
+                    }
+                ]
+            },
+            "product-1744472767126": {
+                "id": "product-1744472767126",
+                "name": "CB CBD",
+                "type": "Premium Collection",
+                "status": "coming-soon",
+                "image": "product6.jpg",
+                "additionalImages": [],
+                "description": "Breaker, Breaker! CB CBD is calling you!",
+                "variety": "REG  PHOTO",
+                "rating": "4.6/5",
+                "origin": "Imported",
+                "details": "Watch out for Smokey!",
+                "notes": "Up one channel and keep on all night.",
+                "packOptions": [
+                    {
+                        "size": "3",
+                        "regularPrice": 45,
+                        "salePrice": 30
                     },
                     {
-                        "size": "12 Pack Foundation",
-                        "regularPrice": 80,
-                        "salePrice": 70
+                        "size": "5",
+                        "regularPrice": 75,
+                        "salePrice": 50
                     }
-                ],
-                "displayOrder": 5
+                ]
             },
-			"berry-outlaw": {
-				"id": "berry-outlaw",
-				"name": "Berry Outlaw",
-				"type": "F1 Hunters",
-				"status": "available",
-				"delivery": "physical",
-				"image": "berry-outlaw.jpg",
-				"additionalImages": [
-					"berry-outlaw-detail1.jpg",
-					"berry-outlaw-colors.jpg"
-				],
-				"description": "Auto regular from the ᵗʰᵉ Rev™ collection featuring outlaw genetics with exceptional berry expressions. This line offers hunters the opportunity to discover renegade auto-flowering phenotypes with unique flavor profiles and breeding potential.",
-				"variety": "AUTO REG",
-				"rating": "ᵗʰᵉ Rev™ Line",
-				"origin": "Rev's Lab Exclusive",
-				"rarity": "Auto Regular",
-				"details": "Known for producing distinctive berry-forward auto-flowering phenotypes with robust growth characteristics. Males provide valuable genetic material for berry-focused breeding programs.",
-				"notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding collection. Regular format provides complete genetic toolkit for berry-focused breeding or phenotype hunting.",
-				"packOptions": [
-					{
-						"size": "6 Pack Regular",
-						"regularPrice": 45,
-						"salePrice": 39
-					},
-					{
-						"size": "12 Pack Berry Hunter",
-						"regularPrice": 80,
-						"salePrice": 70
-					}
-				],
-				"displayOrder": 7
-			},
-			"pickle-bandit": {
-				"id": "pickle-bandit",
-				"name": "Pickle Bandit",
-				"type": "F1 Hunters", 
-				"status": "available",
-				"delivery": "physical",
-				"image": "pickle-bandit.jpg",
-				"additionalImages": [
-					"pickle-bandit-detail1.jpg",
-					"pickle-bandit-expressions.jpg"
-				],
-				"description": "Auto regular from the ᵗʰᵉ Rev™ line with bandit genetics and distinctive pickle-influenced characteristics. These genetics offer hunters access to unique auto-flowering expressions with exceptional breeding value.",
-				"variety": "AUTO REG",
-				"rating": "ᵗʰᵉ Rev™ Line",
-				"origin": "Rev's Lab Development",
-				"rarity": "Auto Regular",
-				"details": "Features unique genetic expressions combining bandit characteristics with pickle influences. Excellent for hunters seeking distinctive auto traits or breeders looking for unusual genetic foundations.",
-				"notes": "Exclusive ᵗʰᵉ Rev™ genetics offering both finished cultivar potential and breeding stock opportunities. Regular format provides complete genetic toolkit.",
-				"packOptions": [
-					{
-						"size": "6 Pack Regular",
-						"regularPrice": 42,
-						"salePrice": 36
-					},
-					{
-						"size": "12 Pack Bandit Special",
-						"regularPrice": 75,
-						"salePrice": 65
-					}
-				],
-				"displayOrder": 8
-			},						
-            "bifrost-brine-pickles": {
-                "id": "bifrost-brine-pickles",
-                "name": "Bifrost Brine Pickles",
-                "type": "F1 Hunters",
+            "product-1744473923930": {
+                "id": "product-1744473923930",
+                "name": "SMOKELESS KUSH",
+                "type": "Signature Series",
                 "status": "available",
                 "delivery": "physical",
-                "image": "bifrost-brine-pickles.jpg",
-                "additionalImages": [
-                    "bifrost-detail1.jpg",
-                    "bifrost-rainbow.jpg"
-                ],
-                "description": "Auto regular from the ᵗʰᵉ Rev™ collection featuring unique genetics with mythical breeding characteristics. These genetics offer hunters the opportunity to discover extraordinary auto-flowering phenotypes.",
-                "variety": "AUTO REG",
-                "rating": "ᵗʰᵉ Rev™ Line",
-                "origin": "Rev's Lab Exclusive",
-                "rarity": "Limited Auto Regular",
-                "details": "Limited quantities available of this unique auto-flowering line. Known for producing diverse phenotypic expressions with exceptional breeding value and finished cultivar potential.",
-                "notes": "Limited availability ᵗʰᵉ Rev™ genetics. Regular format provides complete genetic toolkit for breeding programs or phenotype hunting.",
+                "digitalContent": "https://www.strainnavigator.com/index.html",
+                "image": "product7.jpg",
+                "additionalImages": [],
+                "description": "Smokeless is the new thing! Did you inhale?",
+                "variety": "REG AUTO",
+                "rating": "4.7/5",
+                "origin": "Inhouse",
+                "details": "Easy to grow, only needs food, water and light!",
+                "notes": "Crazy world!",
                 "packOptions": [
                     {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 54,
-                        "salePrice": 48
+                        "size": "3",
+                        "regularPrice": 45,
+                        "salePrice": 30
                     }
-                ],
-                "displayOrder": 6
+                ]
             },
-            "pink-cloudberry-bx1": {
-                "id": "pink-cloudberry-bx1",
-                "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
-                "type": "Early Generation",
+            "product-1744523693093": {
+                "id": "product-1744523693093",
+                "name": "STRAINNAVIGATOR.COM",
+                "type": "Premium Collection",
                 "status": "available",
-                "delivery": "physical",
-                "image": "pink-cloudberry-bx1.jpg",
-                "additionalImages": [
-                    "pink-cloudberry-bx1-detail1.jpg",
-                    "pink-zydonia-phenos.jpg"
-                ],
-                "description": "Auto regular backcross featuring Pink Cloudberry genetics crossed back to Pink Zydonia F1. This advanced generation offers hunters increased stability while maintaining genetic diversity and auto-flowering characteristics.",
-                "variety": "AUTO REG Bx1",
-                "rating": "Advanced Generation",
-                "origin": "Rev's Lab Development",
-                "rarity": "Backcross Auto",
-                "details": "Backcross generation provides increased genetic focus while maintaining diversity. Expect more consistent Pink Cloudberry expressions with enhanced traits from the Pink Zydonia influence.",
-                "notes": "Advanced generation genetics offering improved consistency while preserving the hunting experience. Regular format provides breeding value and finished cultivar potential.",
-                "packOptions": [
-                    {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 48,
-                        "salePrice": 42
-                    },
-                    {
-                        "size": "12 Pack Advanced Hunter",
-                        "regularPrice": 85,
-                        "salePrice": 75
-                    }
-                ],
-                "displayOrder": 7
-            },
-            "remo-chemo-mango-bubba-f2": {
-                "id": "remo-chemo-mango-bubba-f2",
-                "name": "Remo Chemo x Mango Bubba F2",
-                "type": "Early Generation",
-                "status": "available",
-                "delivery": "physical",
-                "image": "remo-chemo-mango-bubba-f2.jpg",
-                "additionalImages": [
-                    "rcmb-f2-detail1.jpg",
-                    "rcmb-f2-diversity.jpg"
-                ],
-                "description": "Photo regular F2 generation from the powerful Remo Chemo x Mango Bubba cross. This F2 offers hunters exceptional genetic diversity and breeding potential in photoperiod format with proven parental genetics.",
-                "variety": "PHOTO REG F2",
-                "rating": "Foundation F2",
-                "origin": "Rev's Lab Development",
-                "rarity": "F2 Photo Regular",
-                "details": "F2 generation maximizes genetic diversity from this proven cross. Expect wide phenotypic variation, exceptional breeding value, and potential for discovering extraordinary photoperiod cultivars. Males valuable for breeding programs.",
-                "notes": "Foundation genetics used in multiple advanced crosses. F2 generation provides maximum genetic exploration opportunities while maintaining proven parental lineage.",
-                "packOptions": [
-                    {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 54,
-                        "salePrice": 48
-                    },
-                    {
-                        "size": "12 Pack Breeder Foundation",
-                        "regularPrice": 95,
-                        "salePrice": 85
-                    }
-                ],
-                "displayOrder": 8
-            },
-            "mybrains": {
-                "id": "mybrains",
-                "name": "MYBRAINS",
-                "type": "Early Generation",
-                "status": "available",
-                "delivery": "physical",
-                "image": "mybrains.jpg",
-                "additionalImages": [
-                    "mybrains-detail1.jpg",
-                    "mybrains-structure.jpg"
-                ],
-                "description": "Photo genetics featuring Remo Chemo x Mango Bubba F1 parentage. This line offers hunters access to advanced photoperiod genetics with exceptional breeding potential and unique phenotypic expressions.",
-                "variety": "PHOTO REG/FEM",
-                "rating": "Advanced Line",
-                "origin": "Rev's Lab Development",
-                "rarity": "Limited Photo",
-                "details": "Limited quantities available featuring advanced photoperiod genetics with Remo Chemo x Mango Bubba F1 influence. Excellent for breeding programs or hunters seeking unique photoperiod expressions.",
-                "notes": "Limited availability genetics with proven foundation parentage. Available in both regular and feminized formats for different breeding and growing applications.",
-                "packOptions": [
-                    {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 60,
-                        "salePrice": 54
-                    },
-                    {
-                        "size": "5 Pack Feminized",
-                        "regularPrice": 55,
-                        "salePrice": 49
-                    }
-                ],
-                "displayOrder": 9
-            },
-            "bizarro-brains": {
-                "id": "bizarro-brains",
-                "name": "BIZARRO BRAINS",
-                "type": "Early Generation",
-                "status": "available",
-                "delivery": "physical",
-                "image": "bizarro-brains.jpg",
-                "additionalImages": [
-                    "bizarro-detail1.jpg",
-                    "bizarro-expressions.jpg"
-                ],
-                "description": "Photo regular with unique genetic expressions and rare phenotypic characteristics. This line offers hunters the opportunity to discover truly unusual photoperiod genetics with exceptional breeding value.",
-                "variety": "PHOTO REG",
-                "rating": "Rare Expression",
-                "origin": "Rev's Lab Exclusive",
-                "rarity": "Rare Photo Regular",
-                "details": "Rare genetics producing unique and unusual phenotypic expressions in photoperiod format. Excellent breeding value for programs seeking distinctive genetic characteristics.",
-                "notes": "Rare genetics with unusual expressions and exceptional breeding potential. Regular format provides complete genetic toolkit for advanced breeding programs.",
-                "packOptions": [
-                    {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 66,
-                        "salePrice": 60
-                    }
-                ],
-                "displayOrder": 10
-            },
-            "pink-apex": {
-                "id": "pink-apex",
-                "name": "PINK APEX",
-                "type": "Early Generation",
-                "status": "available",
-                "delivery": "physical",
-                "image": "pink-apex.jpg",
-                "additionalImages": [
-                    "pink-apex-detail1.jpg",
-                    "pink-apex-colors.jpg"
-                ],
-                "description": "Photo regular featuring exceptional pink and purple expressions with Remo Chemo x Mango Bubba F1 genetics. This line offers hunters access to colorful photoperiod genetics with proven breeding value.",
-                "variety": "PHOTO REG",
-                "rating": "Moderate Rarity",
-                "origin": "Rev's Lab Development",
-                "rarity": "Color Photo Regular",
-                "details": "Moderate quantities available of this colorful photoperiod line. Known for producing stunning pink and purple expressions with excellent breeding potential and finished cultivar value.",
-                "notes": "Colorful photoperiod genetics with proven foundation parentage. Regular format provides breeding opportunities for color-focused breeding programs.",
-                "packOptions": [
-                    {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 60,
-                        "salePrice": 54
-                    },
-                    {
-                        "size": "12 Pack Color Breeder",
-                        "regularPrice": 105,
-                        "salePrice": 95
-                    }
-                ],
-                "displayOrder": 11
+                "delivery": "digital",
+                "digitalContent": "https://www.strainnavigator.com/index.html",
+                "image": "digital1.jpg",
+                "additionalImages": [],
+                "description": "FREE Web Tools to assist  Growers and Breeders",
+                "variety": "DIGITAL",
+                "rating": "5/5",
+                "origin": "ONLINE",
+                "details": "",
+                "notes": "",
+                "packOptions": []
             }
         }
     },
     "navigation": [
         {
-            "name": "Genetics Hunt",
+            "name": "Our Beans",
             "url": "#products"
         },
         {
-            "name": "Breeding Lineage",
-            "url": "#strain-tree-section"
-        },
-        {
-            "name": "Lab Story",
+            "name": "About",
             "url": "#about"
         },
         {
-            "name": "Contact Lab",
+            "name": "Contact",
             "url": "#contact"
         }
     ],
     "friendLinks": [
         {
             "name": "StrainNavigator",
-            "url": "https://www.strainnavigator.com/",
-            "image": "img/friends/Strain_Navigator_Logo.jpg",
-            "description": "Your ultimate cannabis growing assistant"
+            "url": "https://www.strainnavigator.com/"
         }
     ],
-    "friendLinksShowcase": {
-        "enabled": true,
-        "style": "cards",
-        "title": "Breeding Network Partners"
-    },
-    "showFooterFriendLinks": true,
     "advanced": {
-        "enableShop": true,
         "enableLocalStorage": true,
         "checkoutMethod": "email",
         "externalCheckoutUrl": "",
-        "analyticsId": "",
-        "orderEmail": "hunts@revsgeneticslab.com",
-        "enableAgeCheck": true,
-        "ageCheckMinimum": 21,
-        "ageRedirectUrl": "https://www.google.com"
+        "analyticsId": ""
     }
 };

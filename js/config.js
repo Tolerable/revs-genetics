@@ -595,6 +595,18 @@
             "url": "https://www.strainnavigator.com/",
             "image": "img/friends/Strain_Navigator_Logo.jpg",
             "description": "Your ultimate cannabis growing assistant"
+        },
+        {
+            "name": "Site Packages",
+            "url": "https://www.sitepackages.net/",
+            "image": "Site_Packages_Logo.jpg",
+            "description": "Site Configuration Tool"
+        },
+        {
+            "name": "AI-Ministries",
+            "url": "https://www.ai-ministries.com/",
+            "image": "AI_Ministries_Logo.jpg",
+            "description": "Exploring AI, Writing and Creativity"
         }
     ],
     "friendLinksShowcase": {

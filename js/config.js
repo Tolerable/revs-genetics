@@ -473,7 +473,7 @@ window.siteConfig = {
                     "mybrains-structure.jpg"
                 ],
                 "description": "Photo genetics featuring Remo Chemo x Mango Bubba F1 parentage. This line offers hunters access to advanced photoperiod genetics with exceptional breeding potential and unique phenotypic expressions.",
-                "variety": "PHOTO REG/FEM",
+                "variety": "PHOTO FEM",
                 "rating": "Advanced Line",
                 "origin": "Rev's Lab Development",
                 "rarity": "Limited Photo",

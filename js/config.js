@@ -10,20 +10,7 @@
         "socialPreview": "social-preview.jpg",
         "showHeroText": true,
         "email": "genetics@revsgeneticslab.com",
-        "socialLinks": [
-            {
-                "name": "Discord",
-                "url": "https://discord.gg/revsgeneticslab"
-            },
-            {
-                "name": "Instagram",
-                "url": "https://instagram.com/revsgeneticslab"
-            },
-            {
-                "name": "YouTube",
-                "url": "https://youtube.com/@revsgeneticslab"
-            }
-        ],
+        "socialLinks": [],
         "copyright": "© 2025 Rev's Genetics by ᵗʰᵉ Rev™. All rights reserved."
     },
     "colors": {
@@ -621,7 +608,7 @@
         "checkoutMethod": "email",
         "externalCheckoutUrl": "",
         "analyticsId": "",
-        "orderEmail": "orders@example.com",
+        "orderEmail": "orders@revsgeneticslab.com",
         "enableAgeCheck": true,
         "ageCheckMinimum": 21,
         "ageRedirectUrl": "https://www.google.com"

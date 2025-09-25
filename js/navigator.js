@@ -82,25 +82,32 @@ class GeneticsTreeVisualizer {
 	}
 
 	filterTreeForAvailableStrains(node, availableStrains) {
-		if (!node.children || node.children.length === 0) {
-			// Leaf node - check if it's in available list
-			return availableStrains.includes(node.name) ? node : null;
-		}
-		
-		// Parent node - filter children
-		const filteredChildren = node.children
-			.map(child => this.filterTreeForAvailableStrains(child, availableStrains))
-			.filter(child => child !== null);
-		
-		// Only keep parent nodes that have children after filtering
-		if (filteredChildren.length > 0) {
+		// Always keep the root node
+		if (node.name === "Rev's Genetics Lab") {
 			return {
 				...node,
-				children: filteredChildren
+				children: node.children.map(child => this.filterTreeForAvailableStrains(child, availableStrains)).filter(child => child !== null)
 			};
 		}
 		
-		return null;
+		// Keep category nodes (parent nodes) always
+		if (node.name === "áµ—Ê°áµ‰ Revâ„¢ Auto Line" || node.name === "Foundation Photo Lines") {
+			const filteredChildren = node.children
+				.map(child => this.filterTreeForAvailableStrains(child, availableStrains))
+				.filter(child => child !== null);
+			
+			return filteredChildren.length > 0 ? {
+				...node,
+				children: filteredChildren
+			} : null;
+		}
+		
+		// For leaf nodes (actual strains), check if they're available
+		if (!node.children || node.children.length === 0) {
+			return availableStrains.includes(node.name) ? node : null;
+		}
+		
+		return node;
 	}
     
     initializeVisualization() {

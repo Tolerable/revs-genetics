@@ -248,10 +248,10 @@ window.siteConfig = {
                 "type": "F1 Hunters",
                 "status": "available",
                 "delivery": "physical",
-                "image": "allfathers-glow.jpg",
+                "image": "allfather-glows.jpg",
                 "additionalImages": [
-                    "allfathers-detail1.jpg",
-                    "allfathers-glow-phenos.jpg"
+                    "allfather-detail1.jpg",
+                    "allfather-glow-phenos.jpg"
                 ],
                 "description": "Auto regular from the prestigious ᵗʰᵉ Rev™ collection featuring genetics that produce exceptional resin coverage and unique auto-flowering characteristics. Perfect for hunters seeking luminous, high-quality auto phenotypes.",
                 "variety": "AUTO REG",
@@ -306,6 +306,70 @@ window.siteConfig = {
                 ],
                 "displayOrder": 5
             },
+			"berry-outlaw": {
+				"id": "berry-outlaw",
+				"name": "Berry Outlaw",
+				"type": "F1 Hunters",
+				"status": "available",
+				"delivery": "physical",
+				"image": "berry-outlaw.jpg",
+				"additionalImages": [
+					"berry-outlaw-detail1.jpg",
+					"berry-outlaw-colors.jpg"
+				],
+				"description": "Auto regular from the ᵗʰᵉ Rev™ collection featuring outlaw genetics with exceptional berry expressions. This line offers hunters the opportunity to discover renegade auto-flowering phenotypes with unique flavor profiles and breeding potential.",
+				"variety": "AUTO REG",
+				"rating": "ᵗʰᵉ Rev™ Line",
+				"origin": "Rev's Lab Exclusive",
+				"rarity": "Auto Regular",
+				"details": "Known for producing distinctive berry-forward auto-flowering phenotypes with robust growth characteristics. Males provide valuable genetic material for berry-focused breeding programs.",
+				"notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding collection. Regular format provides complete genetic toolkit for berry-focused breeding or phenotype hunting.",
+				"packOptions": [
+					{
+						"size": "6 Pack Regular",
+						"regularPrice": 45,
+						"salePrice": 39
+					},
+					{
+						"size": "12 Pack Berry Hunter",
+						"regularPrice": 80,
+						"salePrice": 70
+					}
+				],
+				"displayOrder": 7
+			},
+			"pickle-bandit": {
+				"id": "pickle-bandit",
+				"name": "Pickle Bandit",
+				"type": "F1 Hunters", 
+				"status": "available",
+				"delivery": "physical",
+				"image": "pickle-bandit.jpg",
+				"additionalImages": [
+					"pickle-bandit-detail1.jpg",
+					"pickle-bandit-expressions.jpg"
+				],
+				"description": "Auto regular from the ᵗʰᵉ Rev™ line with bandit genetics and distinctive pickle-influenced characteristics. These genetics offer hunters access to unique auto-flowering expressions with exceptional breeding value.",
+				"variety": "AUTO REG",
+				"rating": "ᵗʰᵉ Rev™ Line",
+				"origin": "Rev's Lab Development",
+				"rarity": "Auto Regular",
+				"details": "Features unique genetic expressions combining bandit characteristics with pickle influences. Excellent for hunters seeking distinctive auto traits or breeders looking for unusual genetic foundations.",
+				"notes": "Exclusive ᵗʰᵉ Rev™ genetics offering both finished cultivar potential and breeding stock opportunities. Regular format provides complete genetic toolkit.",
+				"packOptions": [
+					{
+						"size": "6 Pack Regular",
+						"regularPrice": 42,
+						"salePrice": 36
+					},
+					{
+						"size": "12 Pack Bandit Special",
+						"regularPrice": 75,
+						"salePrice": 65
+					}
+				],
+				"displayOrder": 8
+			},						
             "bifrost-brine-pickles": {
                 "id": "bifrost-brine-pickles",
                 "name": "Bifrost Brine Pickles",

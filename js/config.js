@@ -248,10 +248,10 @@ window.siteConfig = {
                 "type": "F1 Hunters",
                 "status": "available",
                 "delivery": "physical",
-                "image": "allfather-glow.jpg",
+                "image": "allfathers-glow.jpg",
                 "additionalImages": [
-                    "allfather-detail1.jpg",
-                    "allfather-glow-phenos.jpg"
+                    "allfathers-detail1.jpg",
+                    "allfathers-glow-phenos.jpg"
                 ],
                 "description": "Auto regular from the prestigious ᵗʰᵉ Rev™ collection featuring genetics that produce exceptional resin coverage and unique auto-flowering characteristics. Perfect for hunters seeking luminous, high-quality auto phenotypes.",
                 "variety": "AUTO REG",

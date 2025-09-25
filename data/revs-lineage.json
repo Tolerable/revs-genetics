@@ -3,6 +3,7 @@
     {
       "id": "forged-pickles-f2",
       "name": "Forged Pickles F2 (Gardulla Phenomme)",
+	  "availabilityStatus": "hidden"
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "f2",
@@ -25,6 +26,7 @@
     {
       "id": "pink-pickles",
       "name": "Pink Pickles",
+	  "availabilityStatus": "in-stock"
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "auto",
@@ -47,6 +49,7 @@
     {
       "id": "eternal-forge-embers",
       "name": "Eternal Forge Embers",
+	  "availabilityStatus": "hidden"
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "auto",
@@ -69,6 +72,7 @@
     {
       "id": "allfather-glow",
       "name": "Allffather's Glow",
+	  "availabilityStatus": "hidden"
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "auto",
@@ -88,9 +92,54 @@
       "height": "Auto",
       "availabilityStatus": "in-stock"
     },
+	{
+	  "id": "berry-outlaw",
+	  "name": "Berry Outlaw",
+	  "availabilityStatus": "in-stock",
+	  "collection": "rev-auto-line",
+	  "type": "autoflower",
+	  "dominance": "auto",
+	  "feminized": false,
+	  "description": "Auto regular from the áµ—Ê°áµ‰ Revâ„¢ collection featuring outlaw genetics with exceptional berry expressions. This line offers hunters the opportunity to discover renegade auto-flowering phenotypes with unique flavor profiles and breeding potential.",
+	  "parentage": {
+		"female": {"name": "GSC x Highwayman"},
+		"male": {"name": "Cloudberry"}
+	  },
+	  "flowerTime": "Auto Cycle",
+	  "stretch": "Medium",
+	  "seedCount": "Available",
+	  "effects": ["Berry Expression", "Auto-Flowering", "Breeding Value"],
+	  "flavors": ["Berry Forward"],
+	  "difficulty": "Hunter Level",
+	  "yield": "Variable",
+	  "height": "Auto"
+	},
+	{
+	  "id": "pickle-bandit",
+	  "name": "Pickle Bandit",
+	  "availabilityStatus": "in-stock",
+	  "collection": "rev-auto-line",
+	  "type": "autoflower",
+	  "dominance": "auto",
+	  "feminized": false,
+	  "description": "Auto regular from the áµ—Ê°áµ‰ Revâ„¢ line with bandit genetics and distinctive pickle-influenced characteristics. These genetics offer hunters access to unique auto-flowering expressions with exceptional breeding value.",
+	  "parentage": {
+		"female": {"name": "GSC x Highwayman"},
+		"male": {"name": "Forged Pickles"}
+	  },
+	  "flowerTime": "Auto Cycle",
+	  "stretch": "Variable",
+	  "seedCount": "Available",
+	  "effects": ["Unique Expression", "Auto-Flowering", "Breeding Value"],
+	  "flavors": ["Distinctive Profile"],
+	  "difficulty": "Hunter Level",
+	  "yield": "Variable",
+	  "height": "Auto"
+	},	
     {
       "id": "pink-cloudberry",
       "name": "Pink Cloudberry",
+	  "availabilityStatus": "hidden"
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "foundation",
@@ -113,6 +162,7 @@
     {
       "id": "bifrost-brine-pickles",
       "name": "Bifrost Brine Pickles",
+	  "availabilityStatus": "hidden"
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "limited",
@@ -135,6 +185,7 @@
     {
       "id": "pink-cloudberry-bx1",
       "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
+	  "availabilityStatus": "in-stock"
       "collection": "advanced-crosses",
       "type": "autoflower",
       "dominance": "backcross",
@@ -157,6 +208,7 @@
     {
       "id": "remo-chemo-mango-bubba-f2",
       "name": "Remo Chemo x Mango Bubba F2",
+	  "availabilityStatus": "in-stock"
       "collection": "advanced-crosses",
       "type": "photoperiod",
       "dominance": "f2",
@@ -179,6 +231,7 @@
     {
       "id": "mybrains",
       "name": "MYBRAINS",
+	  "availabilityStatus": "hidden"
       "collection": "specialized-lines",
       "type": "photoperiod",
       "dominance": "advanced",
@@ -201,6 +254,7 @@
     {
       "id": "bizarro-brains",
       "name": "BIZARRO BRAINS",
+	  "availabilityStatus": "hidden"
       "collection": "specialized-lines",
       "type": "photoperiod",
       "dominance": "rare",
@@ -223,6 +277,7 @@
     {
       "id": "pink-apex",
       "name": "PINK APEX",
+	  "availabilityStatus": "in-stock"
       "collection": "specialized-lines",
       "type": "photoperiod",
       "dominance": "color",

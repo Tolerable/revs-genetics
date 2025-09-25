@@ -287,70 +287,44 @@
       "height": "Photo Variable"
     }
   ],
-  "strainTree": {
-    "name": "Rev's Genetics Lab",
-    "children": [
-      {
-        "name": "ᵗʰᵉ Rev™ Auto Line",
-        "children": [
-          {
-            "name": "Forged Pickles F2 (Gardulla Phenomme)",
-            "children": []
-          },
-          {
-            "name": "Pink Pickles",
-            "children": []
-          },
-          {
-            "name": "Eternal Forge Embers",
-            "children": []
-          },
-          {
-            "name": "Allffather's Glow",
-            "children": []
-          },
-          {
-            "name": "Pink Cloudberry",
-            "children": [
-              {
-                "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
-                "children": []
-              }
-            ]
-          },
-          {
-            "name": "Bifrost Brine Pickles",
-            "children": []
-          }
-        ]
-      },
-      {
-        "name": "Foundation Photo Lines",
-        "children": [
-          {
-            "name": "Remo Chemo x Mango Bubba F2",
-            "children": [
-              {
-                "name": "MYBRAINS",
-                "children": []
-              },
-              {
-                "name": "PINK APEX",
-                "children": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Specialized Expressions",
-        "children": [
-          {
-            "name": "BIZARRO BRAINS",
-            "children": []
-          }
-        ]
-      }
-    ]
-  }
+	"strainTree": {
+	  "name": "Rev's Genetics Lab",
+	  "children": [
+		{
+		  "name": "ᵗʰᵉ Rev™ Auto Line",
+		  "children": [
+			{
+			  "name": "Pink Pickles",
+			  "children": []
+			},
+			{
+			  "name": "Berry Outlaw",
+			  "children": []
+			},
+			{
+			  "name": "Pickle Bandit",
+			  "children": []
+			},
+			{
+			  "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
+			  "children": []
+			}
+		  ]
+		},
+		{
+		  "name": "Foundation Photo Lines",
+		  "children": [
+			{
+			  "name": "Remo Chemo x Mango Bubba F2",
+			  "children": [
+				{
+				  "name": "PINK APEX",
+				  "children": []
+				}
+			  ]
+			}
+		  ]
+		}
+	  ]
+	}
 }

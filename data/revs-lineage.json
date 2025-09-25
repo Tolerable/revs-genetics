@@ -20,13 +20,12 @@
       "flavors": ["Diverse F2 Profile"],
       "difficulty": "Hunter Level",
       "yield": "Variable",
-      "height": "Auto",
-      "availabilityStatus": "in-stock"
+      "height": "Auto"
     },
     {
       "id": "pink-pickles",
       "name": "Pink Pickles",
-	  "availabilityStatus": "in-stock"
+	  "availabilityStatus": "in-stock",
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "auto",
@@ -43,13 +42,12 @@
       "flavors": ["Unique Profile"],
       "difficulty": "Hunter Level",
       "yield": "Variable",
-      "height": "Auto",
-      "availabilityStatus": "in-stock"
+      "height": "Auto"
     },
     {
       "id": "eternal-forge-embers",
       "name": "Eternal Forge Embers",
-	  "availabilityStatus": "hidden"
+	  "availabilityStatus": "hidden",
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "auto",
@@ -66,13 +64,12 @@
       "flavors": ["Complex Profile"],
       "difficulty": "Hunter Level",
       "yield": "Variable",
-      "height": "Auto",
-      "availabilityStatus": "in-stock"
+      "height": "Auto"
     },
     {
       "id": "allfather-glow",
       "name": "Allffather's Glow",
-	  "availabilityStatus": "hidden"
+	  "availabilityStatus": "hidden",
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "auto",
@@ -89,8 +86,7 @@
       "flavors": ["Distinctive Profile"],
       "difficulty": "Hunter Level",
       "yield": "Variable",
-      "height": "Auto",
-      "availabilityStatus": "in-stock"
+      "height": "Auto"
     },
 	{
 	  "id": "berry-outlaw",
@@ -139,7 +135,7 @@
     {
       "id": "pink-cloudberry",
       "name": "Pink Cloudberry",
-	  "availabilityStatus": "hidden"
+	  "availabilityStatus": "hidden",
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "foundation",
@@ -156,13 +152,12 @@
       "flavors": ["Complex Berry"],
       "difficulty": "Hunter Level",
       "yield": "Variable",
-      "height": "Auto",
-      "availabilityStatus": "in-stock"
+      "height": "Auto"
     },
     {
       "id": "bifrost-brine-pickles",
       "name": "Bifrost Brine Pickles",
-	  "availabilityStatus": "hidden"
+	  "availabilityStatus": "hidden",
       "collection": "rev-auto-line",
       "type": "autoflower",
       "dominance": "limited",
@@ -179,13 +174,12 @@
       "flavors": ["Distinctive Profile"],
       "difficulty": "Hunter Level",
       "yield": "Variable",
-      "height": "Auto",
-      "availabilityStatus": "limited"
+      "height": "Auto"
     },
     {
       "id": "pink-cloudberry-bx1",
       "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
-	  "availabilityStatus": "in-stock"
+	  "availabilityStatus": "in-stock",
       "collection": "advanced-crosses",
       "type": "autoflower",
       "dominance": "backcross",
@@ -202,13 +196,12 @@
       "flavors": ["Refined Profile"],
       "difficulty": "Advanced Hunter",
       "yield": "Consistent",
-      "height": "Auto",
-      "availabilityStatus": "in-stock"
+      "height": "Auto"
     },
     {
       "id": "remo-chemo-mango-bubba-f2",
       "name": "Remo Chemo x Mango Bubba F2",
-	  "availabilityStatus": "in-stock"
+	  "availabilityStatus": "in-stock",
       "collection": "advanced-crosses",
       "type": "photoperiod",
       "dominance": "f2",
@@ -225,13 +218,12 @@
       "flavors": ["Complex F2 Range"],
       "difficulty": "Advanced Hunter",
       "yield": "Variable High",
-      "height": "Photo Variable",
-      "availabilityStatus": "in-stock"
+      "height": "Photo Variable"
     },
     {
       "id": "mybrains",
       "name": "MYBRAINS",
-	  "availabilityStatus": "hidden"
+	  "availabilityStatus": "hidden",
       "collection": "specialized-lines",
       "type": "photoperiod",
       "dominance": "advanced",
@@ -248,13 +240,12 @@
       "flavors": ["Complex Profile"],
       "difficulty": "Expert Hunter",
       "yield": "Variable",
-      "height": "Photo Variable",
-      "availabilityStatus": "limited"
+      "height": "Photo Variable"
     },
     {
       "id": "bizarro-brains",
       "name": "BIZARRO BRAINS",
-	  "availabilityStatus": "hidden"
+	  "availabilityStatus": "hidden",
       "collection": "specialized-lines",
       "type": "photoperiod",
       "dominance": "rare",
@@ -271,13 +262,12 @@
       "flavors": ["Unusual Profile"],
       "difficulty": "Expert Hunter",
       "yield": "Variable",
-      "height": "Photo Variable",
-      "availabilityStatus": "limited"
+      "height": "Photo Variable"
     },
     {
       "id": "pink-apex",
       "name": "PINK APEX",
-	  "availabilityStatus": "in-stock"
+	  "availabilityStatus": "in-stock",
       "collection": "specialized-lines",
       "type": "photoperiod",
       "dominance": "color",
@@ -294,8 +284,7 @@
       "flavors": ["Colorful Profile"],
       "difficulty": "Advanced Hunter",
       "yield": "Variable",
-      "height": "Photo Variable",
-      "availabilityStatus": "in-stock"
+      "height": "Photo Variable"
     }
   ],
   "strainTree": {

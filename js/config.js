@@ -248,7 +248,7 @@ window.siteConfig = {
                 "type": "F1 Hunters",
                 "status": "available",
                 "delivery": "physical",
-                "image": "allfather-glows.jpg",
+                "image": "allfathers-glow.jpg",
                 "additionalImages": [
                     "allfather-detail1.jpg",
                     "allfather-glow-phenos.jpg"

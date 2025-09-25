@@ -129,7 +129,7 @@ window.siteConfig = {
             }
         ]
     },
-    "products": {
+"products": {
         "defaultStatus": "available",
         "enableRatings": true,
         "showPackOptions": true,
@@ -162,8 +162,8 @@ window.siteConfig = {
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Development",
                 "rarity": "F2 Auto Regular",
-                "details": "F2 generation offers increased genetic diversity while maintaining the auto-flowering foundation. Expect varied phenotypic expressions, flowering times, and potential for discovering exceptional breeding stock or finished cultivars. Males present valuable pollen for breeding programs.",
-                "notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding line. Regular seeds provide full genetic toolkit for breeders while offering growers the chance to discover unique auto phenotypes.",
+                "details": "Parentage: Forged Pickles F1 x Forged Pickles F1. F2 generation offers increased genetic diversity while maintaining the auto-flowering foundation. Expect varied phenotypic expressions, flowering times, and potential for discovering exceptional breeding stock or finished cultivars.",
+                "notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding line. Regular seeds provide full genetic toolkit for breeders while offering growers the chance to discover unique auto phenotypes. Males present valuable pollen for breeding programs.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
@@ -194,8 +194,8 @@ window.siteConfig = {
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Exclusive",
                 "rarity": "Auto Regular",
-                "details": "Known for producing stunning pink and purple expressions in auto-flowering format. Excellent for hunters seeking colorful genetics or breeders looking to introduce color traits into their programs. Male plants valuable for color breeding.",
-                "notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding collection. Regular seeds provide breeding opportunities while offering potential for spectacular colored auto phenotypes.",
+                "details": "Parentage: Pink Zydonia F1 x Auto selection. Known for producing stunning pink and purple expressions in auto-flowering format. Excellent for hunters seeking colorful genetics or breeders looking to introduce color traits into their programs.",
+                "notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding collection. Regular seeds provide breeding opportunities while offering potential for spectacular colored auto phenotypes. Male plants valuable for color breeding projects.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
@@ -226,8 +226,8 @@ window.siteConfig = {
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Development",
                 "rarity": "Auto Regular",
-                "details": "Known for producing vigorous auto-flowering plants with exceptional resin production and diverse phenotypic expressions. Males provide valuable genetic material for breeding programs seeking robust auto traits.",
-                "notes": "Exclusive ᵗʰᵉ Rev™ genetics offering both finished cultivar potential and breeding stock opportunities. Regular format provides complete genetic toolkit.",
+                "details": "Parentage: Big City Lights x Forged Pickles. Known for producing vigorous auto-flowering plants with exceptional resin production and diverse phenotypic expressions. Males provide valuable genetic material for breeding programs seeking robust auto traits.",
+                "notes": "Exclusive ᵗʰᵉ Rev™ genetics offering both finished cultivar potential and breeding stock opportunities. Regular format provides complete genetic toolkit for advanced breeding programs.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
@@ -248,7 +248,7 @@ window.siteConfig = {
                 "type": "F1 Hunters",
                 "status": "available",
                 "delivery": "physical",
-                "image": "allfathers-glow.jpg",
+                "image": "allfather-glow.jpg",
                 "additionalImages": [
                     "allfather-detail1.jpg",
                     "allfather-glow-phenos.jpg"
@@ -258,8 +258,8 @@ window.siteConfig = {
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Exclusive",
                 "rarity": "Auto Regular",
-                "details": "Notable for producing heavily frosted auto-flowering phenotypes with exceptional trichome production. Diverse expressions provide opportunities for discovering exceptional cultivars or valuable breeding stock.",
-                "notes": "Premium ᵗʰᵉ Rev™ genetics offering hunters access to unique auto-flowering expressions with exceptional resin production potential.",
+                "details": "Parentage: Big City Lights x Cloudberry. Notable for producing heavily frosted auto-flowering phenotypes with exceptional trichome production. Diverse expressions provide opportunities for discovering exceptional cultivars or valuable breeding stock.",
+                "notes": "Premium ᵗʰᵉ Rev™ genetics offering hunters access to unique auto-flowering expressions with exceptional resin production potential. Regular format provides breeding value for frost-focused programs.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
@@ -290,8 +290,8 @@ window.siteConfig = {
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Foundation",
                 "rarity": "Foundation Auto",
-                "details": "This is the foundational Pink Cloudberry line that has contributed genetics to multiple advanced crosses in our breeding program. Excellent genetic diversity and breeding value.",
-                "notes": "Essential ᵗʰᵉ Rev™ foundation genetics. Regular format provides breeding opportunities while offering access to the genetic foundation of advanced crosses.",
+                "details": "Parentage: Pink Zydonia F1 x Cloudberry. This is the foundational Pink Cloudberry line that has contributed genetics to multiple advanced crosses in our breeding program. Excellent genetic diversity and breeding value.",
+                "notes": "Essential ᵗʰᵉ Rev™ foundation genetics. Regular format provides breeding opportunities while offering access to the genetic foundation of advanced crosses throughout our program.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
@@ -306,70 +306,6 @@ window.siteConfig = {
                 ],
                 "displayOrder": 5
             },
-			"berry-outlaw": {
-				"id": "berry-outlaw",
-				"name": "Berry Outlaw",
-				"type": "F1 Hunters",
-				"status": "available",
-				"delivery": "physical",
-				"image": "berry-outlaw.jpg",
-				"additionalImages": [
-					"berry-outlaw-detail1.jpg",
-					"berry-outlaw-colors.jpg"
-				],
-				"description": "Auto regular from the ᵗʰᵉ Rev™ collection featuring outlaw genetics with exceptional berry expressions. This line offers hunters the opportunity to discover renegade auto-flowering phenotypes with unique flavor profiles and breeding potential.",
-				"variety": "AUTO REG",
-				"rating": "ᵗʰᵉ Rev™ Line",
-				"origin": "Rev's Lab Exclusive",
-				"rarity": "Auto Regular",
-				"details": "Known for producing distinctive berry-forward auto-flowering phenotypes with robust growth characteristics. Males provide valuable genetic material for berry-focused breeding programs.",
-				"notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding collection. Regular format provides complete genetic toolkit for berry-focused breeding or phenotype hunting.",
-				"packOptions": [
-					{
-						"size": "6 Pack Regular",
-						"regularPrice": 45,
-						"salePrice": 39
-					},
-					{
-						"size": "12 Pack Berry Hunter",
-						"regularPrice": 80,
-						"salePrice": 70
-					}
-				],
-				"displayOrder": 6
-			},
-			"pickle-bandit": {
-				"id": "pickle-bandit",
-				"name": "Pickle Bandit",
-				"type": "F1 Hunters", 
-				"status": "available",
-				"delivery": "physical",
-				"image": "pickle-bandit.jpg",
-				"additionalImages": [
-					"pickle-bandit-detail1.jpg",
-					"pickle-bandit-expressions.jpg"
-				],
-				"description": "Auto regular from the ᵗʰᵉ Rev™ line with bandit genetics and distinctive pickle-influenced characteristics. These genetics offer hunters access to unique auto-flowering expressions with exceptional breeding value.",
-				"variety": "AUTO REG",
-				"rating": "ᵗʰᵉ Rev™ Line",
-				"origin": "Rev's Lab Development",
-				"rarity": "Auto Regular",
-				"details": "Features unique genetic expressions combining bandit characteristics with pickle influences. Excellent for hunters seeking distinctive auto traits or breeders looking for unusual genetic foundations.",
-				"notes": "Exclusive ᵗʰᵉ Rev™ genetics offering both finished cultivar potential and breeding stock opportunities. Regular format provides complete genetic toolkit.",
-				"packOptions": [
-					{
-						"size": "6 Pack Regular",
-						"regularPrice": 42,
-						"salePrice": 36
-					},
-					{
-						"size": "12 Pack Bandit Special",
-						"regularPrice": 75,
-						"salePrice": 65
-					}
-				],
-				"displayOrder": 7
-			},						
             "bifrost-brine-pickles": {
                 "id": "bifrost-brine-pickles",
                 "name": "Bifrost Brine Pickles",
@@ -386,13 +322,77 @@ window.siteConfig = {
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Exclusive",
                 "rarity": "Limited Auto Regular",
-                "details": "Limited quantities available of this unique auto-flowering line. Known for producing diverse phenotypic expressions with exceptional breeding value and finished cultivar potential.",
-                "notes": "Limited availability ᵗʰᵉ Rev™ genetics. Regular format provides complete genetic toolkit for breeding programs or phenotype hunting.",
+                "details": "Parentage: Forged Pickles x Cloudberry. Limited quantities available of this unique auto-flowering line. Known for producing diverse phenotypic expressions with exceptional breeding value and finished cultivar potential.",
+                "notes": "Limited availability ᵗʰᵉ Rev™ genetics. Regular format provides complete genetic toolkit for breeding programs or phenotype hunting. Males valuable for introducing unique traits.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
                         "regularPrice": 54,
                         "salePrice": 48
+                    }
+                ],
+                "displayOrder": 6
+            },
+            "berry-outlaw": {
+                "id": "berry-outlaw",
+                "name": "Berry Outlaw",
+                "type": "F1 Hunters",
+                "status": "available",
+                "delivery": "physical",
+                "image": "berry-outlaw.jpg",
+                "additionalImages": [
+                    "berry-outlaw-detail1.jpg",
+                    "berry-outlaw-colors.jpg"
+                ],
+                "description": "Auto regular from the ᵗʰᵉ Rev™ collection featuring outlaw genetics with exceptional berry expressions. This line offers hunters the opportunity to discover renegade auto-flowering phenotypes with unique flavor profiles and breeding potential.",
+                "variety": "AUTO REG",
+                "rating": "ᵗʰᵉ Rev™ Line",
+                "origin": "Rev's Lab Exclusive",
+                "rarity": "Auto Regular",
+                "details": "Parentage: GSC x Highwayman. Known for producing distinctive berry-forward auto-flowering phenotypes with robust growth characteristics. Males provide valuable genetic material for berry-focused breeding programs.",
+                "notes": "Part of the exclusive ᵗʰᵉ Rev™ breeding collection. Regular format provides complete genetic toolkit for berry-focused breeding or phenotype hunting with outlaw characteristics.",
+                "packOptions": [
+                    {
+                        "size": "6 Pack Regular",
+                        "regularPrice": 45,
+                        "salePrice": 39
+                    },
+                    {
+                        "size": "12 Pack Berry Hunter",
+                        "regularPrice": 80,
+                        "salePrice": 70
+                    }
+                ],
+                "displayOrder": 7
+            },
+            "pickle-bandit": {
+                "id": "pickle-bandit",
+                "name": "Pickle Bandit",
+                "type": "F1 Hunters", 
+                "status": "available",
+                "delivery": "physical",
+                "image": "pickle-bandit.jpg",
+                "additionalImages": [
+                    "pickle-bandit-detail1.jpg",
+                    "pickle-bandit-expressions.jpg"
+                ],
+                "description": "Auto regular from the ᵗʰᵉ Rev™ line with bandit genetics and distinctive pickle-influenced characteristics. These genetics offer hunters access to unique auto-flowering expressions with exceptional breeding value.",
+                "variety": "AUTO REG",
+                "rating": "ᵗʰᵉ Rev™ Line",
+                "origin": "Rev's Lab Development",
+                "rarity": "Auto Regular",
+                "details": "Parentage: GSC x Highwayman. Features unique genetic expressions combining bandit characteristics with pickle influences. Excellent for hunters seeking distinctive auto traits or breeders looking for unusual genetic foundations.",
+                "notes": "Exclusive ᵗʰᵉ Rev™ genetics offering both finished cultivar potential and breeding stock opportunities. Regular format provides complete genetic toolkit for unique breeding projects.",
+                "packOptions": [
+                    {
+                        "size": "6 Pack Regular",
+                        "regularPrice": 42,
+                        "salePrice": 36
+                    },
+                    {
+                        "size": "12 Pack Bandit Special",
+                        "regularPrice": 75,
+                        "salePrice": 65
                     }
                 ],
                 "displayOrder": 8
@@ -413,8 +413,8 @@ window.siteConfig = {
                 "rating": "Advanced Generation",
                 "origin": "Rev's Lab Development",
                 "rarity": "Backcross Auto",
-                "details": "Backcross generation provides increased genetic focus while maintaining diversity. Expect more consistent Pink Cloudberry expressions with enhanced traits from the Pink Zydonia influence.",
-                "notes": "Advanced generation genetics offering improved consistency while preserving the hunting experience. Regular format provides breeding value and finished cultivar potential.",
+                "details": "Parentage: Pink Cloudberry x Pink Zydonia F1. Backcross generation provides increased genetic focus while maintaining diversity. Expect more consistent Pink Cloudberry expressions with enhanced traits from the Pink Zydonia influence.",
+                "notes": "Advanced generation genetics offering improved consistency while preserving the hunting experience. Regular format provides breeding value and finished cultivar potential with enhanced stability.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
@@ -445,8 +445,8 @@ window.siteConfig = {
                 "rating": "Foundation F2",
                 "origin": "Rev's Lab Development",
                 "rarity": "F2 Photo Regular",
-                "details": "F2 generation maximizes genetic diversity from this proven cross. Expect wide phenotypic variation, exceptional breeding value, and potential for discovering extraordinary photoperiod cultivars. Males valuable for breeding programs.",
-                "notes": "Foundation genetics used in multiple advanced crosses. F2 generation provides maximum genetic exploration opportunities while maintaining proven parental lineage.",
+                "details": "Parentage: Remo Chemo x Mango Bubba F1 x Remo Chemo x Mango Bubba F1. F2 generation maximizes genetic diversity from this proven cross. Expect wide phenotypic variation, exceptional breeding value, and potential for discovering extraordinary photoperiod cultivars.",
+                "notes": "Foundation genetics used in multiple advanced crosses. F2 generation provides maximum genetic exploration opportunities while maintaining proven parental lineage from the original F1 cross.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
@@ -472,23 +472,23 @@ window.siteConfig = {
                     "mybrains-detail1.jpg",
                     "mybrains-structure.jpg"
                 ],
-                "description": "Photo genetics featuring Remo Chemo x Mango Bubba F1 parentage. This line offers hunters access to advanced photoperiod genetics with exceptional breeding potential and unique phenotypic expressions.",
+                "description": "Photo feminized genetics featuring Remo Chemo x Mango Bubba F1 parentage. This line offers hunters access to advanced photoperiod genetics with exceptional breeding potential and unique phenotypic expressions.",
                 "variety": "PHOTO FEM",
                 "rating": "Advanced Line",
                 "origin": "Rev's Lab Development",
                 "rarity": "Limited Photo",
-                "details": "Limited quantities available featuring advanced photoperiod genetics with Remo Chemo x Mango Bubba F1 influence. Excellent for breeding programs or hunters seeking unique photoperiod expressions.",
-                "notes": "Limited availability genetics with proven foundation parentage. Available in both regular and feminized formats for different breeding and growing applications.",
+                "details": "Parentage: Remo Chemo x Mango Bubba F1 x Selected female. Limited quantities available featuring advanced photoperiod genetics with proven F1 foundation. Excellent for breeding programs seeking feminized options or hunters seeking unique photoperiod expressions.",
+                "notes": "Limited availability genetics with proven foundation parentage. Feminized format eliminates males while preserving exceptional genetic potential for breeding and finished cultivation.",
                 "packOptions": [
-                    {
-                        "size": "6 Pack Regular",
-                        "regularPrice": 60,
-                        "salePrice": 54
-                    },
                     {
                         "size": "5 Pack Feminized",
                         "regularPrice": 55,
                         "salePrice": 49
+                    },
+                    {
+                        "size": "10 Pack Fem Breeder",
+                        "regularPrice": 100,
+                        "salePrice": 90
                     }
                 ],
                 "displayOrder": 11
@@ -509,8 +509,8 @@ window.siteConfig = {
                 "rating": "Rare Expression",
                 "origin": "Rev's Lab Exclusive",
                 "rarity": "Rare Photo Regular",
-                "details": "Rare genetics producing unique and unusual phenotypic expressions in photoperiod format. Excellent breeding value for programs seeking distinctive genetic characteristics.",
-                "notes": "Rare genetics with unusual expressions and exceptional breeding potential. Regular format provides complete genetic toolkit for advanced breeding programs.",
+                "details": "Parentage: GSC x Highwayman. Rare genetics producing unique and unusual phenotypic expressions in photoperiod format. Excellent breeding value for programs seeking distinctive genetic characteristics and unusual traits.",
+                "notes": "Rare genetics with unusual expressions and exceptional breeding potential. Regular format provides complete genetic toolkit for advanced breeding programs seeking truly unique characteristics.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
@@ -536,8 +536,8 @@ window.siteConfig = {
                 "rating": "Moderate Rarity",
                 "origin": "Rev's Lab Development",
                 "rarity": "Color Photo Regular",
-                "details": "Moderate quantities available of this colorful photoperiod line. Known for producing stunning pink and purple expressions with excellent breeding potential and finished cultivar value.",
-                "notes": "Colorful photoperiod genetics with proven foundation parentage. Regular format provides breeding opportunities for color-focused breeding programs.",
+                "details": "Parentage: Pink Zydonia F1 x Remo Chemo x Mango Bubba F1. Moderate quantities available of this colorful photoperiod line. Known for producing stunning pink and purple expressions with excellent breeding potential and finished cultivar value.",
+                "notes": "Colorful photoperiod genetics combining Pink Zydonia traits with proven RCxMB F1 foundation. Regular format provides breeding opportunities for color-focused breeding programs.",
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",

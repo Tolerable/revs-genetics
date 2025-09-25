@@ -180,7 +180,8 @@
                         "salePrice": 65
                     }
                 ],
-                "displayOrder": 1
+                "displayOrder": 1,
+                "hidden": true
             },
             "pink-pickles": {
                 "id": "pink-pickles",
@@ -212,7 +213,8 @@
                         "salePrice": 70
                     }
                 ],
-                "displayOrder": 2
+                "displayOrder": 2,
+                "hidden": false
             },
             "eternal-forge-embers": {
                 "id": "eternal-forge-embers",
@@ -244,7 +246,8 @@
                         "salePrice": 65
                     }
                 ],
-                "displayOrder": 3
+                "displayOrder": 3,
+                "hidden": true
             },
             "allfather-glow": {
                 "id": "allfather-glow",
@@ -276,7 +279,8 @@
                         "salePrice": 75
                     }
                 ],
-                "displayOrder": 4
+                "displayOrder": 4,
+                "hidden": true
             },
             "pink-cloudberry": {
                 "id": "pink-cloudberry",
@@ -336,7 +340,8 @@
                         "salePrice": 48
                     }
                 ],
-                "displayOrder": 6
+                "displayOrder": 6,
+                "hidden": true
             },
             "berry-outlaw": {
                 "id": "berry-outlaw",
@@ -369,7 +374,7 @@
                     }
                 ],
                 "displayOrder": 7,
-                "hidden": true
+                "hidden": false
             },
             "pickle-bandit": {
                 "id": "pickle-bandit",
@@ -402,7 +407,7 @@
                     }
                 ],
                 "displayOrder": 8,
-                "hidden": true
+                "hidden": false
             },
             "pink-cloudberry-bx1": {
                 "id": "pink-cloudberry-bx1",
@@ -434,7 +439,8 @@
                         "salePrice": 75
                     }
                 ],
-                "displayOrder": 9
+                "displayOrder": 9,
+                "hidden": false
             },
             "remo-chemo-mango-bubba-f2": {
                 "id": "remo-chemo-mango-bubba-f2",
@@ -466,7 +472,8 @@
                         "salePrice": 85
                     }
                 ],
-                "displayOrder": 10
+                "displayOrder": 10,
+                "hidden": false
             },
             "mybrains": {
                 "id": "mybrains",
@@ -498,7 +505,8 @@
                         "salePrice": 90
                     }
                 ],
-                "displayOrder": 11
+                "displayOrder": 11,
+                "hidden": true
             },
             "bizarro-brains": {
                 "id": "bizarro-brains",
@@ -525,7 +533,8 @@
                         "salePrice": 60
                     }
                 ],
-                "displayOrder": 12
+                "displayOrder": 12,
+                "hidden": true
             },
             "pink-apex": {
                 "id": "pink-apex",
@@ -557,7 +566,8 @@
                         "salePrice": 95
                     }
                 ],
-                "displayOrder": 13
+                "displayOrder": 13,
+                "hidden": false
             }
         }
     },

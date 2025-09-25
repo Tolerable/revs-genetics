@@ -76,7 +76,7 @@
         "enabled": true,
         "title": "Strain Genetics Explorer",
         "description": "Explore the genetic relationships between our strains.",
-        "dataPath": "data/straindata.json"
+        "dataPath": "data/revs-lineage.json"
     },
     "legal": {
         "enableDisclaimer": true,

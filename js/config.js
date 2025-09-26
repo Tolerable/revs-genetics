@@ -356,6 +356,7 @@
                 "type": "F1 Hunters",
                 "status": "available",
                 "delivery": "physical",
+                "digitalContent": "",
                 "image": "berry-outlaw.jpg",
                 "additionalImages": [
                     "berry-outlaw-detail1.jpg",
@@ -380,8 +381,17 @@
                         "salePrice": 70
                     }
                 ],
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
                 "displayOrder": 7,
-                "hidden": false
+                "promotional": {
+                    "type": "limited",
+                    "value": "",
+                    "discountPercent": "",
+                    "bogoType": "same",
+                    "enabled": true
+                }
             },
             "pickle-bandit": {
                 "id": "pickle-bandit",
@@ -419,7 +429,7 @@
                 "hidden": false,
                 "displayOrder": 8,
                 "promotional": {
-                    "type": "percentage",
+                    "type": "limited",
                     "value": "10",
                     "discountPercent": "10",
                     "bogoType": "same",
@@ -462,11 +472,11 @@
                 "hidden": false,
                 "displayOrder": 9,
                 "promotional": {
-                    "type": "none",
-                    "value": "",
-                    "discountPercent": "",
+                    "type": "percentage",
+                    "value": "10",
+                    "discountPercent": "10",
                     "bogoType": "same",
-                    "enabled": false
+                    "enabled": true
                 }
             },
             "remo-chemo-mango-bubba-f2": {
@@ -634,11 +644,11 @@
                 "hidden": false,
                 "displayOrder": 13,
                 "promotional": {
-                    "type": "none",
-                    "value": "",
-                    "discountPercent": "",
+                    "type": "percentage",
+                    "value": "10",
+                    "discountPercent": "10",
                     "bogoType": "same",
-                    "enabled": false
+                    "enabled": true
                 }
             }
         }

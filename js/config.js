@@ -635,7 +635,7 @@
     "advanced": {
         "enableShop": true,
         "enableLocalStorage": true,
-        "enableShipping": true,
+        "enableShipping": false,
         "shippingPrice": 10,
         "showFreeShipping": true,
         "checkoutMethod": "email",

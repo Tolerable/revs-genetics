@@ -1182,6 +1182,29 @@ document.createElement = function(tagName) {
                         <option value="false">No</option>
                     </select>
                 </div>
+
+				<div class="form-group">
+					<label for="enable-shipping">Enable Shipping Charges</label>
+					<select id="enable-shipping">
+						<option value="false" selected>Free Shipping (No charges)</option>
+						<option value="true">Charge Shipping</option>
+					</select>
+				</div>
+
+				<div class="form-group" id="shipping-settings" style="display: none;">
+					<label for="shipping-price">Shipping Price</label>
+					<input type="number" id="shipping-price" step="0.01" value="5.99" placeholder="5.99">
+					<p class="help-text">Flat rate shipping charge for all orders</p>
+				</div>
+
+				<div class="form-group">
+					<label for="show-free-shipping">Show "FREE SHIPPING" Label</label>
+					<select id="show-free-shipping">
+						<option value="true" selected>Yes - Show crossed out shipping price</option>
+						<option value="false">No - Don't mention shipping</option>
+					</select>
+					<p class="help-text">When shipping is free, show crossed-out price for perceived value</p>
+				</div>
                 
                 <div class="form-group">
                     <label for="checkout-method">Checkout Method</label>
@@ -3433,6 +3456,16 @@ document.createElement = function(tagName) {
                         externalCheckoutGroup.style.display = 'none';
                     }
                 });
+
+				// Show/hide shipping settings based on enable shipping
+				document.getElementById('enable-shipping').addEventListener('change', function() {
+					const shippingSettings = document.getElementById('shipping-settings');
+					if (this.value === 'true') {
+						shippingSettings.style.display = 'block';
+					} else {
+						shippingSettings.style.display = 'none';
+					}
+				});
                 
                 // Show/hide Floating Object Image URL based on special feature type
                 document.getElementById('special-feature-type').addEventListener('change', function() {

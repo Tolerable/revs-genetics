@@ -176,7 +176,7 @@ class GeneticsTreeVisualizer {
             
             // Normalize for fixed-depth
             nodes.forEach(d => {
-                d.y = d.depth * 180;
+                d.y = d.depth * 200;
             });
             
             // ****************** Nodes section ***************************

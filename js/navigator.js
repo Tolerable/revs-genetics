@@ -141,7 +141,9 @@ class GeneticsTreeVisualizer {
             .attr('transform', `translate(${margin.left},${margin.top})`);
         
         // Create tree layout
-        this.treemap = d3.tree().size([height - margin.top - margin.bottom, width - margin.left - margin.right]);
+        this.treemap = d3.tree()
+			.size([height - margin.top - margin.bottom, width - margin.left - margin.right])
+			.separation((a, b) => (a.parent == b.parent ? 1.5 : 2));
         
         // Prepare data
         this.root = d3.hierarchy(this.strainTree);

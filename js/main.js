@@ -2085,36 +2085,32 @@ function addPackToCart(packId, product) {
         return;
     }
     
-    // Get correct image path
     let imagePath = product.image;
     if (!imagePath && product.additionalImages && product.additionalImages.length > 0) {
         imagePath = product.additionalImages[0];
     }
     
-    // Remove img/ prefix if it exists
     if (imagePath && imagePath.startsWith('img/')) {
         imagePath = imagePath.substring(4);
     }
     
-    // FIXED: Use sale price as the actual price - this is what customer pays
-    const actualPrice = packOption.salePrice; // This is the real price
+    const actualPrice = packOption.salePrice;
     
-    // Create the main product item at the actual price
     const cartItem = {
         id: packId,
         productId: product.id,
         name: `${product.name} - ${packOption.size}`,
         image: imagePath,
-        price: actualPrice, // Use the sale price as the actual price
+        price: actualPrice,
         type: product.type,
         quantity: 1,
-        isDiscount: false
+        isDiscount: false,
+        hasPromotion: product.promotional && product.promotional.enabled && product.promotional.discountPercent > 0,
+        promotionPercent: product.promotional && product.promotional.enabled ? parseFloat(product.promotional.discountPercent) : 0
     };
     
-    // Get cart from window
     const cart = window.siteCart || [];
     
-    // Add the main item
     const existingItemIndex = cart.findIndex(item => item.id === packId);
     if (existingItemIndex !== -1) {
         cart[existingItemIndex].quantity += 1;
@@ -2122,31 +2118,6 @@ function addPackToCart(packId, product) {
         cart.push(cartItem);
     }
     
-    // FIXED: If there's a promotional discount, add a separate discount line item
-    if (product.promotional && product.promotional.enabled && product.promotional.discountPercent > 0) {
-        const discountPercent = parseFloat(product.promotional.discountPercent);
-        const discountAmount = (actualPrice * discountPercent) / 100;
-        
-        const discountItem = {
-            id: `${packId}-discount`,
-            productId: product.id,
-            name: `${discountPercent}% OFF Discount`,
-            image: '',
-            price: -discountAmount, // Negative price for discount
-            type: 'discount',
-            quantity: 1,
-            isDiscount: true // Flag to identify discount items
-        };
-        
-        const existingDiscountIndex = cart.findIndex(item => item.id === `${packId}-discount`);
-        if (existingDiscountIndex !== -1) {
-            cart[existingDiscountIndex].quantity += 1;
-        } else {
-            cart.push(discountItem);
-        }
-    }
-    
-    // Save cart and update display
     window.siteCart = cart;
     
     if (siteConfig.advanced && siteConfig.advanced.enableLocalStorage) {
@@ -2158,16 +2129,13 @@ function addPackToCart(packId, product) {
     openCartModal();
 }
 
-// FIXED: openCartModal function with proper pricing display
 function openCartModal() {
     const siteConfig = window.siteConfig;
     const cart = window.siteCart || [];
     
-    // Clear cart items
     const cartItemsEl = document.getElementById('cartItems');
     cartItemsEl.innerHTML = '';
     
-    // Show/hide empty cart message
     const cartEmptyEl = document.getElementById('cartEmpty');
     const cartTotalEl = document.getElementById('cartTotal');
     const checkoutBtn = document.getElementById('checkoutBtn');
@@ -2183,57 +2151,58 @@ function openCartModal() {
         checkoutBtn.disabled = false;
         checkoutBtn.style.opacity = '1';
         
-        // Add cart items
-        let total = 0;
+        let subtotal = 0;
+        let totalDiscount = 0;
+        
+        cart.forEach(item => {
+            const itemSubtotal = item.quantity * item.price;
+            subtotal += itemSubtotal;
+            
+            if (item.hasPromotion && item.promotionPercent > 0) {
+                const itemDiscount = (itemSubtotal * item.promotionPercent) / 100;
+                totalDiscount += itemDiscount;
+            }
+        });
         
         cart.forEach((item, index) => {
-            const itemTotal = item.quantity * item.price;
-            total += itemTotal;
-            
-            // Fix image path handling
             let imagePath = item.image;
             if (imagePath && !imagePath.startsWith('img/') && !imagePath.startsWith('/') && !imagePath.startsWith('http')) {
                 imagePath = 'img/' + imagePath;
             }
             
+            const itemSubtotal = item.quantity * item.price;
+            let itemDiscount = 0;
+            
+            if (item.hasPromotion && item.promotionPercent > 0) {
+                itemDiscount = (itemSubtotal * item.promotionPercent) / 100;
+            }
+            
             const cartItemEl = document.createElement('div');
             cartItemEl.className = 'cart-item';
-            
-            // FIXED: Different display for discount items
-            if (item.isDiscount) {
-                cartItemEl.innerHTML = `
-                    <div class="discount-item" style="background-color: rgba(244, 67, 54, 0.1); border-left: 3px solid var(--alert-color); padding: 10px; margin: 5px 0;">
-                        <div class="cart-item-info" style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4 style="color: var(--alert-color); margin: 0;">${item.name}</h4>
-                            <div class="cart-item-price" style="color: var(--alert-color); font-weight: bold;">
-                                $${itemTotal.toFixed(2)}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            } else {
-                cartItemEl.innerHTML = `
-                    <img src="${imagePath}" alt="${item.name}" class="cart-item-img">
-                    <div class="cart-item-info">
-                        <h4>${item.name}</h4>
-                        <div class="cart-item-type">${item.type || ''}</div>
-                    </div>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn decrease" data-index="${index}">-</button>
-                        <span class="quantity-value">${item.quantity}</span>
-                        <button class="quantity-btn increase" data-index="${index}">+</button>
-                    </div>
-                    <div class="cart-item-price">
-                        $${itemTotal.toFixed(2)}
-                    </div>
-                    <button class="cart-item-remove" data-index="${index}">&times;</button>
-                `;
-            }
+            cartItemEl.innerHTML = `
+                <img src="${imagePath}" alt="${item.name}" class="cart-item-img">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <div class="cart-item-type">${item.type || ''}</div>
+                    ${item.hasPromotion ? `<div class="promo-info" style="color: var(--alert-color); font-size: 0.9em;">${item.promotionPercent}% OFF Applied</div>` : ''}
+                </div>
+                <div class="quantity-selector">
+                    <button class="quantity-btn decrease" data-index="${index}">-</button>
+                    <span class="quantity-value">${item.quantity}</span>
+                    <button class="quantity-btn increase" data-index="${index}">+</button>
+                </div>
+                <div class="cart-item-price">
+                    <div>$${itemSubtotal.toFixed(2)}</div>
+                    ${itemDiscount > 0 ? `<div style="color: var(--alert-color); font-size: 0.9em;">-$${itemDiscount.toFixed(2)}</div>` : ''}
+                </div>
+                <button class="cart-item-remove" data-index="${index}">&times;</button>
+            `;
             
             cartItemsEl.appendChild(cartItemEl);
         });
         
-        // Add shipping calculation
+        const afterDiscountTotal = subtotal - totalDiscount;
+        
         let shippingCost = 0;
         let showFreeShipping = false;
 
@@ -2244,17 +2213,16 @@ function openCartModal() {
             shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 0;
         }
 
-        const finalTotal = total + (siteConfig.advanced && siteConfig.advanced.enableShipping ? shippingCost : 0);
+        const finalTotal = afterDiscountTotal + (siteConfig.advanced && siteConfig.advanced.enableShipping ? shippingCost : 0);
 
-        // Update total display
-        let totalDisplay = `
-            <div>Subtotal: $${total.toFixed(2)}</div>
-        `;
+        let totalDisplay = `<div>Subtotal: $${subtotal.toFixed(2)}</div>`;
+        
+        if (totalDiscount > 0) {
+            totalDisplay += `<div style="color: var(--alert-color);">Discounts: -$${totalDiscount.toFixed(2)}</div>`;
+        }
 
         if (showFreeShipping) {
-            totalDisplay += `
-                <div>Shipping: <span style="text-decoration: line-through; color: #888;">$${shippingCost.toFixed(2)}</span> <span style="color: var(--secondary-color); font-weight: bold;">FREE</span></div>
-            `;
+            totalDisplay += `<div>Shipping: <span style="text-decoration: line-through; color: #888;">$${shippingCost.toFixed(2)}</span> <span style="color: var(--secondary-color); font-weight: bold;">FREE</span></div>`;
         } else if (siteConfig.advanced && siteConfig.advanced.enableShipping) {
             totalDisplay += `<div>Shipping: $${shippingCost.toFixed(2)}</div>`;
         }
@@ -2264,12 +2232,9 @@ function openCartModal() {
         document.getElementById('totalAmount').innerHTML = totalDisplay;
     }
     
-    // Show cart modal
     document.getElementById('cartModal').style.display = 'block';
 }
 
-// Filter buttons
-// Filter buttons
 function setupFilterButtons() {
     document.querySelectorAll('.filter-button').forEach(button => {
         button.addEventListener('click', function() {
@@ -2441,36 +2406,11 @@ function setupEventListeners() {
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
             
-            // Prepare order details
-            let orderDetails = `Order Items:\n\n`;
-            let total = 0;
-            
-            const cart = window.siteCart || [];
-			cart.forEach(item => {
-				const itemTotal = item.quantity * item.price;
-				total += itemTotal;
-				
-				// Show promotional discount in email if applicable
-				if (item.hasPromoDiscount && item.originalPrice) {
-					const originalItemTotal = item.quantity * item.originalPrice;
-					const savings = originalItemTotal - itemTotal;
-					
-					orderDetails += `- ${item.quantity}x ${item.name}\n`;
-					orderDetails += `  Original: $${item.originalPrice.toFixed(2)} each\n`;
-					orderDetails += `  ${item.promoInfo.value}% OFF Discount: -$${savings.toFixed(2)}\n`;
-					orderDetails += `  Final Price: $${itemTotal.toFixed(2)}\n\n`;
-				} else {
-					orderDetails += `- ${item.quantity}x ${item.name} ($${item.price.toFixed(2)} each): $${itemTotal.toFixed(2)}\n`;
-				}
-			});
-            
-            orderDetails += `\nTotal: $${total.toFixed(2)}`;
-            
             // Handle checkout based on config
             const siteConfig = window.siteConfig;
             if (siteConfig.advanced.checkoutMethod === 'email') {
                 // Email checkout
-                handleEmailCheckout(name, email, phone, message, orderDetails);
+                handleEmailCheckout(name, email, phone, message);
             } else if (siteConfig.advanced.checkoutMethod === 'form') {
                 // Form submission
                 alert('Form checkout not implemented yet');
@@ -2497,7 +2437,7 @@ function setupEventListeners() {
                 if (cart[index].quantity > 1) {
                     cart[index].quantity -= 1;
                     saveAndUpdateCart(cart);
-                    openCartModal(); // Refresh cart modal
+                    openCartModal();
                 }
             }
             
@@ -2506,7 +2446,7 @@ function setupEventListeners() {
                 const index = parseInt(e.target.getAttribute('data-index'));
                 cart[index].quantity += 1;
                 saveAndUpdateCart(cart);
-                openCartModal(); // Refresh cart modal
+                openCartModal();
             }
             
             // Remove item
@@ -2514,20 +2454,17 @@ function setupEventListeners() {
                 const index = parseInt(e.target.getAttribute('data-index'));
                 cart.splice(index, 1);
                 saveAndUpdateCart(cart);
-                openCartModal(); // Refresh cart modal
+                openCartModal();
             }
         });
     }
 }
 
-// Handle email checkout
 function handleEmailCheckout(name, email, phone, message, orderDetails) {
     const siteConfig = window.siteConfig;
     
-    // Use order email if available, otherwise fall back to contact email
     const orderEmail = siteConfig.advanced.orderEmail || siteConfig.site.email;
     
-    // FIXED: Prepare email body with correct pricing breakdown
     let emailBody = `
 Name: ${name}
 Email: ${email}
@@ -2536,46 +2473,46 @@ Phone: ${phone}
 ORDER DETAILS:
 `;
     
-    // Get cart items
     const cart = window.siteCart || [];
-    let total = 0;
+    let subtotal = 0;
+    let totalDiscount = 0;
     
-    // FIXED: Process cart items with proper pricing display
     cart.forEach(item => {
-        const itemTotal = item.quantity * item.price;
-        total += itemTotal;
+        const itemSubtotal = item.quantity * item.price;
+        subtotal += itemSubtotal;
         
-        if (item.isDiscount) {
-            // Show discount as a separate line
-            emailBody += `  ${item.name}: $${itemTotal.toFixed(2)}\n`;
-        } else {
-            // Show regular items
-            emailBody += `  ${item.quantity}x ${item.name} @ $${item.price.toFixed(2)} each: $${itemTotal.toFixed(2)}\n`;
+        emailBody += `${item.quantity}x ${item.name} @ $${item.price.toFixed(2)} each: $${itemSubtotal.toFixed(2)}\n`;
+        
+        if (item.hasPromotion && item.promotionPercent > 0) {
+            const itemDiscount = (itemSubtotal * item.promotionPercent) / 100;
+            totalDiscount += itemDiscount;
+            emailBody += `  ${item.promotionPercent}% OFF Discount: -$${itemDiscount.toFixed(2)}\n`;
         }
     });
     
-    emailBody += `\nSubtotal: $${total.toFixed(2)}`;
+    emailBody += `\nSubtotal: $${subtotal.toFixed(2)}`;
     
-    // Add shipping if applicable
-    if (siteConfig.advanced && siteConfig.advanced.enableShipping && !siteConfig.advanced.showFreeShipping) {
-        const shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 0;
-        total += shippingCost;
-        emailBody += `\nShipping: $${shippingCost.toFixed(2)}`;
-    } else if (siteConfig.advanced && siteConfig.advanced.showFreeShipping) {
-        emailBody += `\nShipping: FREE`;
+    if (totalDiscount > 0) {
+        emailBody += `\nTotal Discounts: -$${totalDiscount.toFixed(2)}`;
     }
     
-    emailBody += `\nTOTAL: $${total.toFixed(2)}`;
+    const afterDiscountTotal = subtotal - totalDiscount;
     
-    // Prepare digital product info
+    if (siteConfig.advanced && siteConfig.advanced.enableShipping && !siteConfig.advanced.showFreeShipping) {
+        const shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 0;
+        emailBody += `\nShipping: $${shippingCost.toFixed(2)}`;
+        emailBody += `\nTOTAL: $${(afterDiscountTotal + shippingCost).toFixed(2)}`;
+    } else if (siteConfig.advanced && siteConfig.advanced.showFreeShipping) {
+        emailBody += `\nShipping: FREE`;
+        emailBody += `\nTOTAL: $${afterDiscountTotal.toFixed(2)}`;
+    } else {
+        emailBody += `\nTOTAL: $${afterDiscountTotal.toFixed(2)}`;
+    }
+    
     let hasDigitalProducts = false;
     let digitalProductLinks = '';
     
     cart.forEach(item => {
-        // Skip discount items for digital content check
-        if (item.isDiscount) return;
-        
-        // Check if this is a digital product
         const product = window.products ? window.products[item.productId] : null;
         if (product && product.delivery === 'digital' && product.digitalContent) {
             hasDigitalProducts = true;
@@ -2583,38 +2520,74 @@ ORDER DETAILS:
         }
     });
     
-    // Add digital product links if any
     if (hasDigitalProducts) {
         emailBody += `\n\n--- DIGITAL PRODUCT LINKS ---\n${digitalProductLinks}\n`;
     }
     
-    // Add additional notes
     emailBody += `\nAdditional Notes:\n${message}`;
     
-    // Create mailto link
     const mailtoLink = `mailto:${orderEmail}?subject=New Order from ${name}&body=${encodeURIComponent(emailBody)}`;
     
-    // Rest of the function remains the same...
-    // (Digital product display logic, etc.)
-    
-    // Clear cart and continue with checkout process
-    window.location.href = mailtoLink;
-    
-    // Clear cart
-    window.siteCart = [];
-    if (siteConfig.advanced && siteConfig.advanced.enableLocalStorage) {
-        localStorage.setItem('siteCart', JSON.stringify([]));
+    if (hasDigitalProducts) {
+        const digitalLinkDisplay = document.createElement('div');
+        digitalLinkDisplay.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--background-color); border: 2px solid var(--secondary-color); border-radius: 10px; padding: 20px; max-width: 600px; width: 90%; z-index: 1100; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);';
+        
+        const linksList = digitalProductLinks.split('\n')
+            .filter(link => link.trim())
+            .map(link => {
+                const parts = link.split(': ');
+                if (parts.length < 2) return '';
+                
+                return `<li style="margin-bottom: 15px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px;">
+                    <strong style="display: block; margin-bottom: 5px; color: var(--secondary-color);">${parts[0]}</strong>
+                    <a href="${parts[1]}" target="_blank" style="color: var(--highlight-color); word-break: break-all; display: inline-block;">${parts[1]}</a>
+                </li>`;
+            }).join('');
+        
+        digitalLinkDisplay.innerHTML = `
+            <h3 style="font-family: var(--font-heading); color: var(--secondary-color); margin-bottom: 15px; text-align: center;">Your Digital Products</h3>
+            <p style="margin-bottom: 15px;">Here are your digital products. You can access them immediately:</p>
+            <ul style="margin: 15px 0 25px 0; list-style-type: none; padding: 0;">
+                ${linksList}
+            </ul>
+            <p style="margin-bottom: 20px; font-size: 0.9em; color: var(--text-color); opacity: 0.8;">These links have also been included in your order email.</p>
+            <div style="display: flex; justify-content: center;">
+                <button id="digital-links-close" style="background: var(--primary-color); color: var(--text-color); border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer; transition: all 0.3s; font-family: var(--font-heading);">Continue</button>
+            </div>
+        `;
+        
+        document.body.appendChild(digitalLinkDisplay);
+        
+        document.getElementById('digital-links-close').addEventListener('click', function() {
+            document.body.removeChild(digitalLinkDisplay);
+            
+            window.location.href = mailtoLink;
+            
+            window.siteCart = [];
+            if (siteConfig.advanced && siteConfig.advanced.enableLocalStorage) {
+                localStorage.setItem('siteCart', JSON.stringify([]));
+            }
+            updateCartCount([]);
+            
+            document.getElementById('checkoutModal').style.display = 'none';
+            
+            alert('Thank you for your order! Your email client has been opened with your order details. Please send the email to complete your order.');
+        });
+    } else {
+        window.location.href = mailtoLink;
+        
+        window.siteCart = [];
+        if (siteConfig.advanced && siteConfig.advanced.enableLocalStorage) {
+            localStorage.setItem('siteCart', JSON.stringify([]));
+        }
+        updateCartCount([]);
+        
+        document.getElementById('checkoutModal').style.display = 'none';
+        
+        alert('Thank you for your order! Your email client has been opened with your order details. Please send the email to complete your order.');
     }
-    updateCartCount([]);
-    
-    // Close checkout modal
-    document.getElementById('checkoutModal').style.display = 'none';
-    
-    // Show thank you message
-    alert('Thank you for your order! Your email client has been opened with your order details. Please send the email to complete your order.');
 }
 
-// Helper function to save cart and update count
 function saveAndUpdateCart(cart) {
     const siteConfig = window.siteConfig;
     window.siteCart = cart;

@@ -283,13 +283,13 @@ class GeneticsTreeVisualizer {
             });
             
             // Show strain description when clicking on a node
-            if (source && source.data && source.data.name) {
-                const description = this.strainDescriptions[source.data.name] || "No information available for this strain.";
-                const strainDescriptionEl = document.getElementById(this.config.strainDescriptionId);
-                if (strainDescriptionEl) {
-                    strainDescriptionEl.innerText = description;
-                }
-            }
+			const strainDescriptionEl = document.getElementById(this.config.strainDescriptionId);
+			if (strainDescriptionEl && source === this.root) {
+				const config = window.siteConfig;
+				const collectionDescriptions = config?.strainTree?.collectionDescriptions || {};
+				const defaultDescription = collectionDescriptions["Rev's Genetics Lab"] || "Welcome to Rev's Genetics breeding program. Click on collections to explore.";
+				strainDescriptionEl.innerHTML = `<strong>Rev's Genetics Lab</strong><br><br>${defaultDescription}`;
+			}
         } catch (error) {
             console.error("Error in update function:", error);
         }
@@ -322,20 +322,13 @@ class GeneticsTreeVisualizer {
             if (!strainDescriptionEl) return;
             
 			// Don't try to find parent categories as strains
-			if (strainName === "Rev's Genetics Lab" || 
-				strainName === "F1 Hunters" || 
-				strainName === "Early Generation" || 
-				strainName === "Signature Lines") {
+			if (d.children || d._children) {
+				// This is a collection node
+				const config = window.siteConfig;
+				const collectionDescriptions = config?.strainTree?.collectionDescriptions || {};
+				const description = collectionDescriptions[strainName] || `${strainName} is a collection of genetics. Expand to view individual strains.`;
 				
-				// Create collection descriptions
-				const collectionDescriptions = {
-					"Rev's Genetics Lab": "Welcome to Rev's Genetics breeding program. Expand the collections below to explore our exclusive F1 crosses and early generation lines.",
-					"F1 Hunters": "Early generation crosses offering maximum genetic diversity for phenotype hunting and breeding programs. These genetics provide hunters with the opportunity to discover rare phenotypes and exceptional breeding stock.",
-					"Early Generation": "Advanced generation genetics with increased stability while maintaining breeding potential. These lines offer more predictable outcomes while preserving genetic diversity.",
-					"Signature Lines": "Premium selections representing the finest expressions from our breeding program. These are our most refined and sought-after genetic lines."
-				};
-				
-				strainDescriptionEl.innerHTML = `<strong>${strainName}</strong><br><br>${collectionDescriptions[strainName] || 'This is a collection of genetics. Expand to view individual strains.'}`;
+				strainDescriptionEl.innerHTML = `<strong>${strainName}</strong><br><br>${description}`;
 				return;
 			}
             

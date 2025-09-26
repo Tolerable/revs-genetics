@@ -123,7 +123,7 @@ class GeneticsTreeVisualizer {
         
         // D3.js Tree Visualization
         const width = treeElement.clientWidth;
-        const height = 350;
+        const height = 400;
         const isMobile = window.innerWidth <= 768;
         const margin = isMobile 
             ? {top: 20, right: 20, bottom: 20, left: 20} 

@@ -216,7 +216,7 @@
                 "hidden": false,
                 "displayOrder": 2,
                 "promotional": {
-                    "type": "percentage",
+                    "type": "new",
                     "value": "10",
                     "discountPercent": "10",
                     "bogoType": "same",

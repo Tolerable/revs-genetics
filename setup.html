@@ -2566,11 +2566,9 @@ document.createElement = function(tagName) {
 				const valueGroup = document.getElementById('promo-value-group');
 				const discountGroup = document.getElementById('discount-group');
 				const bogoGroup = document.getElementById('bogo-type-group');
-
 				if (valueGroup) valueGroup.style.display = 'none';
 				if (discountGroup) discountGroup.style.display = 'none';
 				if (bogoGroup) bogoGroup.style.display = 'none';
-
 				// Then trigger promotional type change to show/hide fields
 				const promoTypeSelect = document.getElementById('product-promo-type');
 				if (promoTypeSelect) {
@@ -2580,7 +2578,6 @@ document.createElement = function(tagName) {
 				
 				// Set up event handlers for buttons
 				setupProductEditorEventHandlers();
-
 				// Show modal
 				modal.style.display = 'block';
 				
@@ -2591,13 +2588,6 @@ document.createElement = function(tagName) {
 					"packOptionsSectionExists": !!packOptionsSection,
 					"packOptionsSectionDisplay": packOptionsSection ? packOptionsSection.style.display : 'N/A'
 				});
-				
-				// Trigger promotional type change to show/hide fields AFTER loading values
-				const promoTypeSelect = document.getElementById('product-promo-type');
-				if (promoTypeSelect) {
-					const changeEvent = new Event('change');
-					promoTypeSelect.dispatchEvent(changeEvent);
-				}								
 			}
 
 			function setupHoverImageHandlers() {

@@ -205,7 +205,7 @@ class GeneticsTreeVisualizer {
                 .attr('class', 'node-bubble')
                 .attr('rx', 12) // Rounded corners
                 .attr('ry', 12)
-                .attr('x', d => -Math.max(d.data.name.length * 8, 40) / 2)
+                .attr('x', -10)
                 .attr('y', -15)
                 .attr('width', d => Math.max(d.data.name.length * 8, 40)) // Width based on text length
                 .attr('height', 30)
@@ -217,7 +217,7 @@ class GeneticsTreeVisualizer {
             // Add labels for the nodes
             nodeEnter.append('text')
                 .attr('dy', '.35em')
-                .attr('x', 0)
+                .attr('x', d => Math.max(d.data.name.length * 8, 40) / 2 - 10)
                 .attr('text-anchor', 'middle')
                 .text(d => d.data.name)
                 .style('font-size', '12px')

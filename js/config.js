@@ -139,10 +139,11 @@
         "items": {
             "forged-pickles-f2": {
                 "id": "forged-pickles-f2",
-                "name": "Forged Pickles F2 (Gardulla Phenomme)",
+                "name": "Forged Pickles F2 (Gardulla Phenotype)",
                 "type": "F1 Hunters",
                 "status": "available",
                 "delivery": "physical",
+                "digitalContent": "",
                 "image": "forged-pickles-f2.jpg",
                 "additionalImages": [
                     "forged-pickles-detail1.jpg",
@@ -167,8 +168,10 @@
                         "salePrice": 65
                     }
                 ],
-                "displayOrder": 1,
-                "hidden": false
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
+                "displayOrder": 1
             },
             "pink-pickles": {
                 "id": "pink-pickles",

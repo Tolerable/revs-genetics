@@ -140,7 +140,7 @@
             "forged-pickles-f2": {
                 "id": "forged-pickles-f2",
                 "name": "Forged Pickles F2 (Gardulla Phenotype)",
-                "type": "F1 Hunters",
+                "type": "Signature Lines",
                 "status": "available",
                 "delivery": "physical",
                 "digitalContent": "",

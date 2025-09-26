@@ -2098,16 +2098,22 @@ function addPackToCart(packId, product) {
     }
     
     // Define the item to add to cart
-    const cartItem = {
-        id: packId,
-        productId: product.id,
-        name: `${product.name} - ${packOption.size}`,
-        image: imagePath,
-        price: packOption.salePrice,
-        regularPrice: packOption.regularPrice,
-        type: product.type,
-        quantity: 1
-    };
+	// Apply promotional discount to get final price
+	const processedPack = processPackPrice(packOption, product.promotional);
+
+	const cartItem = {
+		id: packId,
+		productId: product.id,
+		name: `${product.name} - ${packOption.size}`,
+		image: imagePath,
+		price: processedPack.salePrice, // Final discounted price
+		originalPrice: packOption.salePrice, // Price before promo discount
+		regularPrice: packOption.regularPrice,
+		type: product.type,
+		quantity: 1,
+		hasPromoDiscount: processedPack.isDiscounted,
+		promoInfo: product.promotional
+	};
     
     // Get cart from window
     const cart = window.siteCart || [];
@@ -2179,22 +2185,33 @@ function openCartModal() {
                 imagePath = 'img/' + imagePath;
             }
             
-            const cartItemEl = document.createElement('div');
-            cartItemEl.className = 'cart-item';
-            cartItemEl.innerHTML = `
-                <img src="${imagePath}" alt="${item.name}" class="cart-item-img">
-                <div class="cart-item-info">
-                    <h4>${item.name}</h4>
-                    <div class="cart-item-type">${item.type || ''}</div>
-                </div>
-                <div class="quantity-selector">
-                    <button class="quantity-btn decrease" data-index="${index}">-</button>
-                    <span class="quantity-value">${item.quantity}</span>
-                    <button class="quantity-btn increase" data-index="${index}">+</button>
-                </div>
-                <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
-                <button class="cart-item-remove" data-index="${index}">&times;</button>
-            `;
+			// Show promo discount if applicable
+			let priceDisplay = `$${itemTotal.toFixed(2)}`;
+			if (item.hasPromoDiscount && item.originalPrice) {
+				const originalTotal = item.quantity * item.originalPrice;
+				priceDisplay = `
+					<div class="original-price" style="text-decoration: line-through; color: #888; font-size: 0.8em;">$${originalTotal.toFixed(2)}</div>
+					<div class="discounted-price" style="color: var(--secondary-color); font-weight: bold;">$${itemTotal.toFixed(2)}</div>
+					<div class="discount-label" style="color: var(--alert-color); font-size: 0.7em;">${item.promoInfo.value}% OFF</div>
+				`;
+			}
+
+			const cartItemEl = document.createElement('div');
+			cartItemEl.className = 'cart-item';
+			cartItemEl.innerHTML = `
+				<img src="${imagePath}" alt="${item.name}" class="cart-item-img">
+				<div class="cart-item-info">
+					<h4>${item.name}</h4>
+					<div class="cart-item-type">${item.type || ''}</div>
+				</div>
+				<div class="quantity-selector">
+					<button class="quantity-btn decrease" data-index="${index}">-</button>
+					<span class="quantity-value">${item.quantity}</span>
+					<button class="quantity-btn increase" data-index="${index}">+</button>
+				</div>
+				<div class="cart-item-price">${priceDisplay}</div>
+				<button class="cart-item-remove" data-index="${index}">&times;</button>
+			`;
             
             cartItemsEl.appendChild(cartItemEl);
         });
@@ -2385,12 +2402,23 @@ function setupEventListeners() {
             let total = 0;
             
             const cart = window.siteCart || [];
-            cart.forEach(item => {
-                const itemTotal = item.quantity * item.price;
-                total += itemTotal;
-                
-                orderDetails += `- ${item.quantity}x ${item.name} ($${item.price.toFixed(2)} each): $${itemTotal.toFixed(2)}\n`;
-            });
+			cart.forEach(item => {
+				const itemTotal = item.quantity * item.price;
+				total += itemTotal;
+				
+				// Show promotional discount in email if applicable
+				if (item.hasPromoDiscount && item.originalPrice) {
+					const originalItemTotal = item.quantity * item.originalPrice;
+					const savings = originalItemTotal - itemTotal;
+					
+					orderDetails += `- ${item.quantity}x ${item.name}\n`;
+					orderDetails += `  Original: $${item.originalPrice.toFixed(2)} each\n`;
+					orderDetails += `  ${item.promoInfo.value}% OFF Discount: -$${savings.toFixed(2)}\n`;
+					orderDetails += `  Final Price: $${itemTotal.toFixed(2)}\n\n`;
+				} else {
+					orderDetails += `- ${item.quantity}x ${item.name} ($${item.price.toFixed(2)} each): $${itemTotal.toFixed(2)}\n`;
+				}
+			});
             
             orderDetails += `\nTotal: $${total.toFixed(2)}`;
             

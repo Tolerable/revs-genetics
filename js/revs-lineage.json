@@ -1,0 +1,356 @@
+{
+  "strains": [
+    {
+      "id": "forged-pickles-f2",
+      "name": "Forged Pickles F2 (Gardulla Phenotype)",
+	  "availabilityStatus": "hidden",
+      "collection": "Signature Lines",
+      "type": "autoflower",
+      "dominance": "f2",
+      "feminized": false,
+      "description": "Auto regular F2 generation from the legendary Forged Pickles line. The Gardulla Phenotype represents exceptional auto-flowering genetics with diverse expressions waiting to be discovered by dedicated hunters. F2 generation offers increased genetic diversity while maintaining the auto-flowering foundation.",
+      "parentage": {
+        "female": {"name": "Forged Pickles F1"},
+        "male": {"name": "Forged Pickles F1"}
+      },
+      "flowerTime": "Variable F2 Expression",
+      "stretch": "Variable",
+      "seedCount": "Available",
+      "effects": ["Variable F2 Expressions", "Auto-Flowering", "Breeding Potential"],
+      "flavors": ["Diverse F2 Profile"],
+      "difficulty": "Hunter Level",
+      "yield": "Variable",
+      "height": "Auto"
+    },
+    {
+      "id": "pink-pickles",
+      "name": "Pink Pickles",
+	  "availabilityStatus": "in-stock",
+      "collection": "f1-hunters",
+      "type": "autoflower",
+      "dominance": "auto",
+      "feminized": false,
+      "description": "Auto regular from the ᵗʰᵉ Rev™ collection featuring unique pink-hued genetics. This line offers hunters the opportunity to discover colorful auto-flowering phenotypes with exceptional bag appeal and breeding potential.",
+      "parentage": {
+        "female": {"name": "Pink Genetics"},
+        "male": {"name": "Auto Line"}
+      },
+      "flowerTime": "Auto Cycle",
+      "stretch": "Medium",
+      "seedCount": "Available",
+      "effects": ["Colorful Expression", "Auto-Flowering", "Breeding Value"],
+      "flavors": ["Unique Profile"],
+      "difficulty": "Hunter Level",
+      "yield": "Variable",
+      "height": "Auto"
+    },
+    {
+      "id": "eternal-forge-embers",
+      "name": "Eternal Forge Embers",
+	  "availabilityStatus": "hidden",
+      "collection": "rev-auto-line",
+      "type": "autoflower",
+      "dominance": "auto",
+      "feminized": false,
+      "description": "Auto regular from the ᵗʰᵉ Rev™ line with fiery genetics and robust auto-flowering characteristics. These genetics offer hunters the chance to discover powerful auto phenotypes with exceptional vigor and unique expressions.",
+      "parentage": {
+        "female": {"name": "Forge Line"},
+        "male": {"name": "Ember Genetics"}
+      },
+      "flowerTime": "Auto Cycle",
+      "stretch": "Variable",
+      "seedCount": "Available",
+      "effects": ["Vigorous Growth", "Auto-Flowering", "Resin Production"],
+      "flavors": ["Complex Profile"],
+      "difficulty": "Hunter Level",
+      "yield": "Variable",
+      "height": "Auto"
+    },
+    {
+      "id": "allfather-glow",
+      "name": "Allffather's Glow",
+	  "availabilityStatus": "hidden",
+      "collection": "rev-auto-line",
+      "type": "autoflower",
+      "dominance": "auto",
+      "feminized": false,
+      "description": "Auto regular from the prestigious ᵗʰᵉ Rev™ collection featuring genetics that produce exceptional resin coverage and unique auto-flowering characteristics. Perfect for hunters seeking luminous, high-quality auto phenotypes.",
+      "parentage": {
+        "female": {"name": "Allfather Line"},
+        "male": {"name": "Glow Genetics"}
+      },
+      "flowerTime": "Auto Cycle",
+      "stretch": "Variable",
+      "seedCount": "Available",
+      "effects": ["Exceptional Frost", "Auto-Flowering", "Premium Quality"],
+      "flavors": ["Distinctive Profile"],
+      "difficulty": "Hunter Level",
+      "yield": "Variable",
+      "height": "Auto"
+    },
+	{
+	  "id": "berry-outlaw",
+	  "name": "Berry Outlaw",
+	  "availabilityStatus": "in-stock",
+	  "collection": "f1-hunters",
+	  "type": "autoflower",
+	  "dominance": "auto",
+	  "feminized": false,
+	  "description": "Auto regular from the áµ—Ê°áµ‰ Revâ„¢ collection featuring outlaw genetics with exceptional berry expressions. This line offers hunters the opportunity to discover renegade auto-flowering phenotypes with unique flavor profiles and breeding potential.",
+	  "parentage": {
+		"female": {"name": "GSC x Highwayman"},
+		"male": {"name": "Cloudberry"}
+	  },
+	  "flowerTime": "Auto Cycle",
+	  "stretch": "Medium",
+	  "seedCount": "Available",
+	  "effects": ["Berry Expression", "Auto-Flowering", "Breeding Value"],
+	  "flavors": ["Berry Forward"],
+	  "difficulty": "Hunter Level",
+	  "yield": "Variable",
+	  "height": "Auto"
+	},
+	{
+	  "id": "pickle-bandit",
+	  "name": "Pickle Bandit",
+	  "availabilityStatus": "in-stock",
+	  "collection": "f1-hunters",
+	  "type": "autoflower",
+	  "dominance": "auto",
+	  "feminized": false,
+	  "description": "Auto regular from the áµ—Ê°áµ‰ Revâ„¢ line with bandit genetics and distinctive pickle-influenced characteristics. These genetics offer hunters access to unique auto-flowering expressions with exceptional breeding value.",
+	  "parentage": {
+		"female": {"name": "GSC x Highwayman"},
+		"male": {"name": "Forged Pickles"}
+	  },
+	  "flowerTime": "Auto Cycle",
+	  "stretch": "Variable",
+	  "seedCount": "Available",
+	  "effects": ["Unique Expression", "Auto-Flowering", "Breeding Value"],
+	  "flavors": ["Distinctive Profile"],
+	  "difficulty": "Hunter Level",
+	  "yield": "Variable",
+	  "height": "Auto"
+	},	
+    {
+      "id": "pink-cloudberry",
+      "name": "Pink Cloudberry",
+	  "availabilityStatus": "hidden",
+      "collection": "rev-auto-line",
+      "type": "autoflower",
+      "dominance": "foundation",
+      "feminized": false,
+      "description": "Auto regular from the ᵗʰᵉ Rev™ line featuring the genetics behind many of our breeding programs. This foundational line offers hunters access to the genetic building blocks used in advanced crosses.",
+      "parentage": {
+        "female": {"name": "Pink Line"},
+        "male": {"name": "Cloudberry Genetics"}
+      },
+      "flowerTime": "Auto Cycle",
+      "stretch": "Variable",
+      "seedCount": "Available",
+      "effects": ["Foundation Genetics", "Auto-Flowering", "Breeding Value"],
+      "flavors": ["Complex Berry"],
+      "difficulty": "Hunter Level",
+      "yield": "Variable",
+      "height": "Auto"
+    },
+    {
+      "id": "bifrost-brine-pickles",
+      "name": "Bifrost Brine Pickles",
+	  "availabilityStatus": "hidden",
+      "collection": "rev-auto-line",
+      "type": "autoflower",
+      "dominance": "limited",
+      "feminized": false,
+      "description": "Auto regular from the ᵗʰᵉ Rev™ collection featuring unique genetics with mythical breeding characteristics. These genetics offer hunters the opportunity to discover extraordinary auto-flowering phenotypes.",
+      "parentage": {
+        "female": {"name": "Bifrost Line"},
+        "male": {"name": "Brine Pickle Genetics"}
+      },
+      "flowerTime": "Auto Cycle",
+      "stretch": "Variable",
+      "seedCount": "Limited",
+      "effects": ["Unique Expression", "Auto-Flowering", "Rare Genetics"],
+      "flavors": ["Distinctive Profile"],
+      "difficulty": "Hunter Level",
+      "yield": "Variable",
+      "height": "Auto"
+    },
+    {
+      "id": "pink-cloudberry-bx1",
+      "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
+	  "availabilityStatus": "in-stock",
+      "collection": "signature-lines",
+      "type": "autoflower",
+      "dominance": "backcross",
+      "feminized": false,
+      "description": "Auto regular backcross featuring Pink Cloudberry genetics crossed back to Pink Zydonia F1. This advanced generation offers hunters increased stability while maintaining genetic diversity and auto-flowering characteristics.",
+      "parentage": {
+        "female": {"name": "Pink Cloudberry"},
+        "male": {"name": "Pink Zydonia F1"}
+      },
+      "flowerTime": "Auto Cycle Enhanced",
+      "stretch": "Improved Consistency",
+      "seedCount": "Available",
+      "effects": ["Enhanced Stability", "Auto-Flowering", "Backcross Vigor"],
+      "flavors": ["Refined Profile"],
+      "difficulty": "Advanced Hunter",
+      "yield": "Consistent",
+      "height": "Auto"
+    },
+    {
+      "id": "remo-chemo-mango-bubba-f2",
+      "name": "Remo Chemo x Mango Bubba F2",
+	  "availabilityStatus": "in-stock",
+      "collection": "early-generation",
+      "type": "photoperiod",
+      "dominance": "f2",
+      "feminized": false,
+      "description": "Photo regular F2 generation from the powerful Remo Chemo x Mango Bubba cross. This F2 offers hunters exceptional genetic diversity and breeding potential in photoperiod format with proven parental genetics.",
+      "parentage": {
+        "female": {"name": "Remo Chemo x Mango Bubba F1"},
+        "male": {"name": "Remo Chemo x Mango Bubba F1"}
+      },
+      "flowerTime": "Variable F2 Photo",
+      "stretch": "Variable Expression",
+      "seedCount": "Available",
+      "effects": ["Maximum Diversity", "Photo Period", "Foundation Genetics"],
+      "flavors": ["Complex F2 Range"],
+      "difficulty": "Advanced Hunter",
+      "yield": "Variable High",
+      "height": "Photo Variable"
+    },
+    {
+      "id": "mybrains",
+      "name": "Mybrains",
+	  "availabilityStatus": "hidden",
+      "collection": "early-generation",
+      "type": "photoperiod",
+      "dominance": "advanced",
+      "feminized": "both",
+      "description": "Photo genetics featuring Remo Chemo x Mango Bubba F1 parentage. This line offers hunters access to advanced photoperiod genetics with exceptional breeding potential and unique phenotypic expressions.",
+      "parentage": {
+        "female": {"name": "Advanced Selection"},
+        "male": {"name": "Remo Chemo x Mango Bubba F1"}
+      },
+      "flowerTime": "Photo Cycle",
+      "stretch": "Variable",
+      "seedCount": "Limited",
+      "effects": ["Advanced Genetics", "Photo Period", "Breeding Value"],
+      "flavors": ["Complex Profile"],
+      "difficulty": "Expert Hunter",
+      "yield": "Variable",
+      "height": "Photo Variable"
+    },
+    {
+      "id": "bizarro-brains",
+      "name": "Bizarro Brains",
+	  "availabilityStatus": "hidden",
+      "collection": "early-generation",
+      "type": "photoperiod",
+      "dominance": "rare",
+      "feminized": false,
+      "description": "Photo regular with unique genetic expressions and rare phenotypic characteristics. This line offers hunters the opportunity to discover truly unusual photoperiod genetics with exceptional breeding value.",
+      "parentage": {
+        "female": {"name": "Rare Selection"},
+        "male": {"name": "Unique Genetics"}
+      },
+      "flowerTime": "Photo Cycle Variable",
+      "stretch": "Unusual Expression",
+      "seedCount": "Very Limited",
+      "effects": ["Rare Expression", "Photo Period", "Unique Traits"],
+      "flavors": ["Unusual Profile"],
+      "difficulty": "Expert Hunter",
+      "yield": "Variable",
+      "height": "Photo Variable"
+    },
+    {
+      "id": "pink-apex",
+      "name": "Pink Apex",
+	  "availabilityStatus": "in-stock",
+      "collection": "signature-lines",
+      "type": "photoperiod",
+      "dominance": "color",
+      "feminized": false,
+      "description": "Photo regular featuring exceptional pink and purple expressions with Remo Chemo x Mango Bubba F1 genetics. This line offers hunters access to colorful photoperiod genetics with proven breeding value.",
+      "parentage": {
+        "female": {"name": "Pink Selection"},
+        "male": {"name": "Remo Chemo x Mango Bubba F1"}
+      },
+      "flowerTime": "Photo Cycle",
+      "stretch": "Colorful Expression",
+      "seedCount": "Moderate",
+      "effects": ["Color Expression", "Photo Period", "Breeding Potential"],
+      "flavors": ["Colorful Profile"],
+      "difficulty": "Advanced Hunter",
+      "yield": "Variable",
+      "height": "Photo Variable"
+    }
+  ],
+	"strainTree": {
+		"enabled": true,
+		"title": "Strain Genetics Explorer",
+		"description": "Explore the genetic relationships between our strains.",
+		"dataPath": "data/revs-lineage.json",
+		"collectionDescriptions": {
+			"Rev's Genetics Lab": "Welcome to Rev's Genetics breeding program overview. Expand to explore our collections.",
+			"F1 Hunters": "Early generation crosses offering maximum genetic diversity for phenotype hunting and breeding programs.",
+			"Early Generation": "Advanced generation genetics with increased stability while maintaining breeding potential.",
+			"Signature Lines": "Premium selections representing the finest expressions from our breeding program."
+		},
+		"name": "Rev's Genetics Lab",
+		"children": [
+			{
+				"name": "F1 Hunters",
+				"children": [
+					{
+						"name": "Pink Pickles",
+						"children": []
+					},
+					{
+						"name": "Berry Outlaw",
+						"children": []
+					},
+					{
+						"name": "Pickle Bandit",
+						"children": []
+					}
+				]
+			},
+			{
+				"name": "Early Generation",
+				"children": [
+					{
+						"name": "Remo Chemo x Mango Bubba F2",
+						"children": []
+					},
+					{
+						"name": "Mybrains",
+						"children": []
+					},
+					{
+						"name": "Bizarro Brains",
+						"children": []
+					}
+				]
+			},
+			{
+				"name": "Signature Lines",
+				"children": [
+					{
+						"name": "Forged Pickles F2 (Gardulla Phenotype)",
+						"children": []
+					},
+					{
+						"name": "Pink Apex",
+						"children": []
+					},
+					{
+						"name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
+						"children": []
+					}
+				]
+			}
+		]
+	}
+}

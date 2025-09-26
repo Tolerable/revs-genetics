@@ -1095,6 +1095,41 @@ document.createElement = function(tagName) {
 									
 									<button type="button" id="add-pack-btn" style="background: var(--primary-color); color: var(--text-color); border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Add Pack Option</button>
 								</div>
+								
+								<!-- Promotional Settings Section -->
+								<div class="form-group">
+									<label for="product-promo-type" style="color: var(--secondary-color);">Promotional Badge</label>
+									<select id="product-promo-type">
+										<option value="none">No Promotion</option>
+										<option value="percentage">% OFF</option>
+										<option value="sale">SALE</option>
+										<option value="bogo">Buy One Get One</option>
+										<option value="new">NEW</option>
+										<option value="limited">LIMITED TIME</option>
+										<option value="custom">Custom Badge</option>
+									</select>
+								</div>
+
+								<div class="form-group" id="promo-value-group" style="display: none;">
+									<label for="product-promo-value" style="color: var(--secondary-color);">Badge Text/Percentage</label>
+									<input type="text" id="product-promo-value" placeholder="e.g., 25 or FLASH SALE">
+									<p style="font-size: 0.8rem; color: #aaa; margin-top: 3px;">For % OFF: enter number only. For custom: enter display text</p>
+								</div>
+
+								<div class="form-group" id="discount-group" style="display: none;">
+									<label for="product-discount-percent" style="color: var(--secondary-color);">Actual Discount %</label>
+									<input type="number" id="product-discount-percent" min="0" max="100" placeholder="25">
+									<p style="font-size: 0.8rem; color: #aaa; margin-top: 3px;">Percentage to reduce prices by</p>
+								</div>
+
+								<div class="form-group" id="bogo-type-group" style="display: none;">
+									<label for="product-bogo-type" style="color: var(--secondary-color);">BOGO Type</label>
+									<select id="product-bogo-type">
+										<option value="same">Buy This, Get Same Item Free</option>
+										<option value="any">Buy This, Get Any BOGO Item Free</option>
+									</select>
+								</div>								
+								
 							</div>
 						</div>
 						
@@ -1578,6 +1613,32 @@ document.createElement = function(tagName) {
 					styleGroup.style.display = 'block';
 				} else {
 					styleGroup.style.display = 'none';
+				}
+			});
+
+			// Promotional type change handler
+			document.getElementById('product-promo-type').addEventListener('change', function() {
+				const promoType = this.value;
+				const valueGroup = document.getElementById('promo-value-group');
+				const discountGroup = document.getElementById('discount-group');
+				const bogoGroup = document.getElementById('bogo-type-group');
+				
+				valueGroup.style.display = 'none';
+				discountGroup.style.display = 'none';
+				bogoGroup.style.display = 'none';
+				
+				if (promoType !== 'none') {
+					if (promoType === 'percentage' || promoType === 'custom') {
+						valueGroup.style.display = 'block';
+					}
+					
+					if (promoType === 'percentage' || promoType === 'sale') {
+						discountGroup.style.display = 'block';
+					}
+					
+					if (promoType === 'bogo') {
+						bogoGroup.style.display = 'block';
+					}
 				}
 			});
 
@@ -2364,6 +2425,41 @@ document.createElement = function(tagName) {
 							<h4 style="margin: 15px 0 5px 0; font-size: 1rem; color: var(--secondary-color); font-family: var(--font-heading);">Pack Options</h4>
 							<div id="pack-options" style="max-height: 180px; overflow-y: auto; border: 1px solid var(--primary-color); border-radius: 5px; padding: 5px; background: rgba(0, 0, 0, 0.2);"></div>
 							<button type="button" id="add-pack-btn" style="background: var(--primary-color); color: var(--text-color); border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Add Pack Option</button>
+							
+							<h4 style="margin: 15px 0 5px 0; font-size: 1rem; color: var(--secondary-color); font-family: var(--font-heading);">Promotional Settings</h4>
+							
+							<div class="form-group">
+								<label for="product-promo-type" style="color: var(--secondary-color);">Promotional Badge</label>
+								<select id="product-promo-type">
+									<option value="none">No Promotion</option>
+									<option value="percentage">% OFF</option>
+									<option value="sale">SALE</option>
+									<option value="bogo">Buy One Get One</option>
+									<option value="new">NEW</option>
+									<option value="limited">LIMITED TIME</option>
+									<option value="custom">Custom Badge</option>
+								</select>
+							</div>
+
+							<div class="form-group" id="promo-value-group" style="display: none;">
+								<label for="product-promo-value" style="color: var(--secondary-color);">Badge Text/Percentage</label>
+								<input type="text" id="product-promo-value" placeholder="e.g., 25 or FLASH SALE">
+								<p style="font-size: 0.8rem; color: #aaa; margin-top: 3px;">For % OFF: enter number only. For custom: enter display text</p>
+							</div>
+
+							<div class="form-group" id="discount-group" style="display: none;">
+								<label for="product-discount-percent" style="color: var(--secondary-color);">Actual Discount %</label>
+								<input type="number" id="product-discount-percent" min="0" max="100" placeholder="25">
+								<p style="font-size: 0.8rem; color: #aaa; margin-top: 3px;">Percentage to reduce prices by</p>
+							</div>
+
+							<div class="form-group" id="bogo-type-group" style="display: none;">
+								<label for="product-bogo-type" style="color: var(--secondary-color);">BOGO Type</label>
+								<select id="product-bogo-type">
+									<option value="same">Buy This, Get Same Item Free</option>
+									<option value="any">Buy This, Get Any BOGO Item Free</option>
+								</select>
+							</div>
 						`;
 						
 						// Add the pack options section to the right column

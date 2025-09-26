@@ -30,18 +30,3 @@ function generatePromoBadge(promotional) {
     return `<div class="promo-badge ${badgeClass}">${badgeText}</div>`;
 }
 
-function processPackPrice(pack, promotional) {
-    if (!promotional || !promotional.enabled || !promotional.discountPercent) {
-        return { ...pack, isDiscounted: false };
-    }
-    
-    const discountMultiplier = (100 - promotional.discountPercent) / 100;
-    
-    return {
-        ...pack,
-        originalSalePrice: pack.salePrice,
-        regularPrice: pack.regularPrice, // Keep fake retail price unchanged
-        salePrice: Math.round(pack.salePrice * discountMultiplier * 100) / 100,
-        isDiscounted: true
-    };
-}

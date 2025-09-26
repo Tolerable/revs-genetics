@@ -2189,83 +2189,67 @@ function openCartModal() {
             const itemTotal = item.quantity * item.price;
             total += itemTotal;
             
+            // Skip rendering discount items separately
+            if (item.isDiscount) {
+                return;
+            }
+            
             // Fix image path handling
             let imagePath = item.image;
             if (imagePath && !imagePath.startsWith('img/') && !imagePath.startsWith('/') && !imagePath.startsWith('http')) {
                 imagePath = 'img/' + imagePath;
             }
             
-			// Show promo discount if applicable
-			let priceDisplay = `$${itemTotal.toFixed(2)}`;
-			let totalPromoSavings = 0;
-			if (item.hasPromoDiscount && item.originalPrice) {
-				const originalTotal = item.quantity * item.originalPrice;
-				const savings = originalTotal - itemTotal;
-				totalPromoSavings += savings;
-				priceDisplay = `
-					<div class="original-price" style="text-decoration: line-through; color: #888; font-size: 0.8em;">$${originalTotal.toFixed(2)}</div>
-					<div class="discounted-price" style="color: var(--secondary-color); font-weight: bold;">$${itemTotal.toFixed(2)}</div>
-					<div class="discount-label" style="color: var(--alert-color); font-size: 0.7em;">SAVED $${savings.toFixed(2)}</div>
-				`;
-			}
-
-			const cartItemEl = document.createElement('div');
-			cartItemEl.className = 'cart-item';
-			cartItemEl.innerHTML = `
-				<img src="${imagePath}" alt="${item.name}" class="cart-item-img">
-				<div class="cart-item-info">
-					<h4>${item.name}</h4>
-					<div class="cart-item-type">${item.type || ''}</div>
-				</div>
-				<div class="quantity-selector">
-					<button class="quantity-btn decrease" data-index="${index}">-</button>
-					<span class="quantity-value">${item.quantity}</span>
-					<button class="quantity-btn increase" data-index="${index}">+</button>
-				</div>
-				<div class="cart-item-price">${priceDisplay}</div>
-				<button class="cart-item-remove" data-index="${index}">&times;</button>
-			`;
+            // Check if there's a corresponding discount item
+            const discountItem = cart.find(discountItem => discountItem.id === `${item.id}-discount`);
+            let discountDisplay = '';
+            
+            if (discountItem) {
+                const discountTotal = discountItem.quantity * discountItem.price;
+                discountDisplay = `<div class="discount-line" style="color: var(--alert-color); font-size: 0.9em;">${discountItem.name}: $${discountTotal.toFixed(2)}</div>`;
+            }
+            
+            const cartItemEl = document.createElement('div');
+            cartItemEl.className = 'cart-item';
+            cartItemEl.innerHTML = `
+                <img src="${imagePath}" alt="${item.name}" class="cart-item-img">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <div class="cart-item-type">${item.type || ''}</div>
+                </div>
+                <div class="quantity-selector">
+                    <button class="quantity-btn decrease" data-index="${index}">-</button>
+                    <span class="quantity-value">${item.quantity}</span>
+                    <button class="quantity-btn increase" data-index="${index}">+</button>
+                </div>
+                <div class="cart-item-price">
+                    $${itemTotal.toFixed(2)}
+                    ${discountDisplay}
+                </div>
+                <button class="cart-item-remove" data-index="${index}">&times;</button>
+            `;
             
             cartItemsEl.appendChild(cartItemEl);
         });
         
-		// Add shipping calculation
+        // Add shipping calculation
         const siteConfig = window.siteConfig;
-		console.log('Shipping debug:', {
-			enableShipping: siteConfig.advanced?.enableShipping,
-			showFreeShipping: siteConfig.advanced?.showFreeShipping,
-			shippingPrice: siteConfig.advanced?.shippingPrice
-		});		
         let shippingCost = 0;
         let showFreeShipping = false;
 
-        if (siteConfig.advanced && siteConfig.advanced.enableShipping) {
-            shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 0;
-        } else if (siteConfig.advanced && siteConfig.advanced.showFreeShipping) {
+        if (siteConfig.advanced && siteConfig.advanced.showFreeShipping) {
             showFreeShipping = true;
-            shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 5.99; // For display only
+            shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 5.99;
+        } else if (siteConfig.advanced && siteConfig.advanced.enableShipping) {
+            shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 0;
         }
 
         const finalTotal = total + (siteConfig.advanced && siteConfig.advanced.enableShipping ? shippingCost : 0);
 
-		// Calculate total promo savings across all items
-		let totalPromoSavings = 0;
-		cart.forEach(item => {
-			if (item.hasPromoDiscount && item.originalPrice) {
-				const originalTotal = item.quantity * item.originalPrice;
-				const currentTotal = item.quantity * item.price;
-				totalPromoSavings += (originalTotal - currentTotal);
-			}
-		});
-
-		// Update total display
-		let totalDisplay = `
-			<div>Subtotal: $${total.toFixed(2)}</div>
-		`;
-
-		if (totalPromoSavings > 0) {
-			totalDisplay += `<div style="color: var(--alert-color);">Discount: -$${totalPromoSavings.toFixed(2)}</div>`;
-		}
+        // Update total display
+        let totalDisplay = `
+            <div>Subtotal: $${total.toFixed(2)}</div>
+        `;
 
         if (showFreeShipping) {
             totalDisplay += `

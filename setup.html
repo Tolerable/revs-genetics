@@ -4760,6 +4760,14 @@ document.createElement = function(tagName) {
 						}
 					}
 					
+					// Strain Tree settings - ADD THIS SECTION
+					if (config.strainTree) {
+						safeSetValue('enable-strain-tree', config.strainTree.enabled ? 'true' : 'false');
+						safeSetValue('strain-tree-title', config.strainTree.title);
+						safeSetValue('strain-tree-description', config.strainTree.description);
+						safeSetValue('strain-data-path', config.strainTree.dataPath);
+					}
+					
 					// Advanced Settings
 					if (config.advanced) {
 						safeSetValue('enable-local-storage', config.advanced.enableLocalStorage ? 'true' : 'false');

@@ -4,7 +4,7 @@
       "id": "forged-pickles-f2",
       "name": "Forged Pickles F2 (Gardulla Phenomme)",
 	  "availabilityStatus": "hidden",
-      "collection": "rev-auto-line",
+      "collection": "f1-hunters",
       "type": "autoflower",
       "dominance": "f2",
       "feminized": false,
@@ -26,7 +26,7 @@
       "id": "pink-pickles",
       "name": "Pink Pickles",
 	  "availabilityStatus": "in-stock",
-      "collection": "rev-auto-line",
+      "collection": "f1-hunters",
       "type": "autoflower",
       "dominance": "auto",
       "feminized": false,
@@ -92,7 +92,7 @@
 	  "id": "berry-outlaw",
 	  "name": "Berry Outlaw",
 	  "availabilityStatus": "in-stock",
-	  "collection": "rev-auto-line",
+	  "collection": "f1-hunters",
 	  "type": "autoflower",
 	  "dominance": "auto",
 	  "feminized": false,
@@ -114,7 +114,7 @@
 	  "id": "pickle-bandit",
 	  "name": "Pickle Bandit",
 	  "availabilityStatus": "in-stock",
-	  "collection": "rev-auto-line",
+	  "collection": "f1-hunters",
 	  "type": "autoflower",
 	  "dominance": "auto",
 	  "feminized": false,
@@ -180,7 +180,7 @@
       "id": "pink-cloudberry-bx1",
       "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
 	  "availabilityStatus": "in-stock",
-      "collection": "advanced-crosses",
+      "collection": "signature-lines",
       "type": "autoflower",
       "dominance": "backcross",
       "feminized": false,
@@ -202,7 +202,7 @@
       "id": "remo-chemo-mango-bubba-f2",
       "name": "Remo Chemo x Mango Bubba F2",
 	  "availabilityStatus": "in-stock",
-      "collection": "advanced-crosses",
+      "collection": "early-generation",
       "type": "photoperiod",
       "dominance": "f2",
       "feminized": false,
@@ -224,7 +224,7 @@
       "id": "mybrains",
       "name": "MYBRAINS",
 	  "availabilityStatus": "hidden",
-      "collection": "specialized-lines",
+      "collection": "early-generation",
       "type": "photoperiod",
       "dominance": "advanced",
       "feminized": "both",
@@ -246,7 +246,7 @@
       "id": "bizarro-brains",
       "name": "BIZARRO BRAINS",
 	  "availabilityStatus": "hidden",
-      "collection": "specialized-lines",
+      "collection": "early-generation",
       "type": "photoperiod",
       "dominance": "rare",
       "feminized": false,
@@ -268,7 +268,7 @@
       "id": "pink-apex",
       "name": "PINK APEX",
 	  "availabilityStatus": "in-stock",
-      "collection": "specialized-lines",
+      "collection": "signature-lines",
       "type": "photoperiod",
       "dominance": "color",
       "feminized": false,
@@ -291,7 +291,7 @@
 	  "name": "Rev's Genetics Lab",
 	  "children": [
 		{
-		  "name": "ᵗʰᵉ Rev™ Auto Line",
+		  "name": "F1 Hunters",
 		  "children": [
 			{
 			  "name": "Pink Pickles",
@@ -306,20 +306,37 @@
 			  "children": []
 			},
 			{
-			  "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
+			  "name": "Forged Pickles F2 (Gardulla Phenomme)",
 			  "children": []
 			}
 		  ]
 		},
 		{
-		  "name": "Foundation Photo Lines",
+		  "name": "Early Generation",
 		  "children": [
 			{
 			  "name": "Remo Chemo x Mango Bubba F2",
 			  "children": []
 			},
 			{
+			  "name": "MYBRAINS",
+			  "children": []
+			},
+			{
+			  "name": "BIZARRO BRAINS",
+			  "children": []
+			}
+		  ]
+		},
+		{
+		  "name": "Signature Lines",
+		  "children": [
+			{
 			  "name": "PINK APEX",
+			  "children": []
+			},
+			{
+			  "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
 			  "children": []
 			}
 		  ]

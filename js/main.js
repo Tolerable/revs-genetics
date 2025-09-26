@@ -2216,8 +2216,36 @@ function openCartModal() {
             cartItemsEl.appendChild(cartItemEl);
         });
         
-        // Update total
-        document.getElementById('totalAmount').textContent = `$${total.toFixed(2)}`;
+		// Add shipping calculation
+        const siteConfig = window.siteConfig;
+        let shippingCost = 0;
+        let showFreeShipping = false;
+
+        if (siteConfig.advanced && siteConfig.advanced.enableShipping) {
+            shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 0;
+        } else if (siteConfig.advanced && siteConfig.advanced.showFreeShipping) {
+            showFreeShipping = true;
+            shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 5.99; // For display only
+        }
+
+        const finalTotal = total + (siteConfig.advanced && siteConfig.advanced.enableShipping ? shippingCost : 0);
+
+        // Update total display
+        let totalDisplay = `
+            <div>Subtotal: $${total.toFixed(2)}</div>
+        `;
+
+        if (showFreeShipping) {
+            totalDisplay += `
+                <div>Shipping: <span style="text-decoration: line-through; color: #888;">$${shippingCost.toFixed(2)}</span> <span style="color: var(--secondary-color); font-weight: bold;">FREE</span></div>
+            `;
+        } else if (siteConfig.advanced && siteConfig.advanced.enableShipping) {
+            totalDisplay += `<div>Shipping: $${shippingCost.toFixed(2)}</div>`;
+        }
+
+        totalDisplay += `<div style="font-weight: bold; font-size: 1.1em; border-top: 1px solid #ccc; padding-top: 5px; margin-top: 5px;">Total: $${finalTotal.toFixed(2)}</div>`;
+
+        document.getElementById('totalAmount').innerHTML = totalDisplay;
     }
     
     // Show cart modal

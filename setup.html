@@ -2316,6 +2316,19 @@ document.createElement = function(tagName) {
 				safeSetValue('product-notes', isNewProduct ? '' : product.notes);
 				safeSetValue('product-enable-hover', isNewProduct ? 'false' : (product.enableHoverImage ? 'true' : 'false'));
 
+				// Set promotional settings - ALWAYS reset first, then set values
+				safeSetValue('product-promo-type', 'none');
+				safeSetValue('product-promo-value', '');
+				safeSetValue('product-discount-percent', '');
+				safeSetValue('product-bogo-type', 'same');
+
+				if (!isNewProduct && product.promotional) {
+					safeSetValue('product-promo-type', product.promotional.type || 'none');
+					safeSetValue('product-promo-value', product.promotional.value || '');
+					safeSetValue('product-discount-percent', product.promotional.discountPercent || '');
+					safeSetValue('product-bogo-type', product.promotional.bogoType || 'same');
+				}
+
 				// Set hidden flag - determine if product should be hidden
 				const isHidden = isNewProduct ? false : !!product.hidden;
 				
@@ -2547,6 +2560,22 @@ document.createElement = function(tagName) {
 							}
 						}
 					});
+				}
+
+				// Force reset of promotional field visibility first
+				const valueGroup = document.getElementById('promo-value-group');
+				const discountGroup = document.getElementById('discount-group');
+				const bogoGroup = document.getElementById('bogo-type-group');
+
+				if (valueGroup) valueGroup.style.display = 'none';
+				if (discountGroup) discountGroup.style.display = 'none';
+				if (bogoGroup) bogoGroup.style.display = 'none';
+
+				// Then trigger promotional type change to show/hide fields
+				const promoTypeSelect = document.getElementById('product-promo-type');
+				if (promoTypeSelect) {
+					const changeEvent = new Event('change');
+					promoTypeSelect.dispatchEvent(changeEvent);
 				}
 				
 				// Set up event handlers for buttons

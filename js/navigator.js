@@ -110,59 +110,61 @@ class GeneticsTreeVisualizer {
 		return node;
 	}
     
-    initializeVisualization() {
-        const treeElement = document.getElementById(this.config.treeElementId);
-        
-        // If no tree element or strainTree data is available
-        if (!treeElement || !this.strainTree || !this.strainTree.name) {
-            if (treeElement) {
-                treeElement.innerHTML = '<p class="error-message">Error loading genetics tree data</p>';
-            }
-            return;
-        }
-        
-        // D3.js Tree Visualization
-        const width = treeElement.clientWidth;
-        const height = 400;
-        const isMobile = window.innerWidth <= 768;
-        const margin = isMobile 
-            ? {top: 20, right: 20, bottom: 20, left: 20} 
-            : {top: 20, right: 90, bottom: 20, left: 90};
-        
-        // Clear any existing SVG
-        d3.select(`#${this.config.treeElementId}`).select('svg').remove();
-        
-        // Create SVG
-        this.svg = d3.select(`#${this.config.treeElementId}`)
-            .append('svg')
-            .attr('width', width)
-            .attr('height', height)
-            .append('g')
-            .attr('transform', `translate(${margin.left},${margin.top})`);
-        
-        // Create tree layout
+	initializeVisualization() {
+		const treeElement = document.getElementById(this.config.treeElementId);
+		
+		// If no tree element or strainTree data is available
+		if (!treeElement || !this.strainTree || !this.strainTree.name) {
+			if (treeElement) {
+				treeElement.innerHTML = '<p class="error-message">Error loading genetics tree data</p>';
+			}
+			return;
+		}
+		
+		// D3.js Tree Visualization
+		const width = treeElement.clientWidth;
+		const height = 400;
+		const isMobile = window.innerWidth <= 768;
+		const margin = isMobile 
+			? {top: 20, right: 20, bottom: 20, left: 20} 
+			: {top: 20, right: 90, bottom: 20, left: 90};
+		
+		// Clear any existing SVG
+		d3.select(`#${this.config.treeElementId}`).select('svg').remove();
+		
+		// Create SVG
+		this.svg = d3.select(`#${this.config.treeElementId}`)
+			.append('svg')
+			.attr('width', width)
+			.attr('height', height)
+			.append('g')
+			.attr('transform', `translate(${margin.left},${margin.top})`);
+		
+		// Create tree layout
 		this.treemap = d3.tree()
 			.size([height - margin.top - margin.bottom, width - margin.left - margin.right])
 			.separation((a, b) => {
-				// Count total visible nodes to adjust spacing dynamically
-				const visibleNodes = this.root.descendants().filter(d => !d._children).length;
+				const visibleNodes = this.root ? this.root.descendants().filter(d => !d._children).length : 0;
 				const baseSpacing = visibleNodes > 8 ? 1.8 : 1.2;
 				return a.parent == b.parent ? baseSpacing : baseSpacing + 0.3;
 			});
-        
-        // Prepare data
-        this.root = d3.hierarchy(this.strainTree);
-        this.root.x0 = height / 2;
-        this.root.y0 = isMobile ? -100 : 0; // Shift the starting point on mobile
-        
-        // Collapse all nodes initially except the first level
-        if (this.root.children) {
-            this.root.children.forEach(d => this.collapse(d));
-        }
-        
-        // Start the visualization
-        this.update(this.root);
-    }
+		
+		// Prepare data
+		this.root = d3.hierarchy(this.strainTree);
+		this.root.x0 = height / 2;
+		this.root.y0 = isMobile ? -100 : 0;
+		
+		// Load saved state or default to expanded
+		const savedState = localStorage.getItem('genetics-tree-state');
+		if (savedState) {
+			this.applySavedState(JSON.parse(savedState));
+		} else {
+			// Start fully expanded - no collapse needed
+		}
+		
+		// Start the visualization
+		this.update(this.root);
+	}
     
     collapse(d) {
         if (d.children) {
@@ -309,25 +311,28 @@ class GeneticsTreeVisualizer {
                   ${d.y} ${d.x}`;
     }
     
-    click(event, d) {
-        try {
-            if (d.children) {
-                d._children = d.children;
-                d.children = null;
-            } else {
-                d.children = d._children;
-                d._children = null;
-            }
-            
-            // Update the tree
-            this.update(d);
-            
-            // Find the strain data to display more information
-            const strainName = d.data.name;
-            const strainDescriptionEl = document.getElementById(this.config.strainDescriptionId);
-            
-            if (!strainDescriptionEl) return;
-            
+	click(event, d) {
+		try {
+			if (d.children) {
+				d._children = d.children;
+				d.children = null;
+			} else {
+				d.children = d._children;
+				d._children = null;
+			}
+			
+			// Update the tree
+			this.update(d);
+			
+			// Save the tree state
+			this.saveTreeState();
+			
+			// Find the strain data to display more information
+			const strainName = d.data.name;
+			const strainDescriptionEl = document.getElementById(this.config.strainDescriptionId);
+			
+			if (!strainDescriptionEl) return;
+			
 			// Don't try to find parent categories as strains
 			if (d.children || d._children) {
 				// This is a collection node
@@ -338,21 +343,21 @@ class GeneticsTreeVisualizer {
 				strainDescriptionEl.innerHTML = `<strong>${strainName}</strong><br><br>${description}`;
 				return;
 			}
-            
-            // Use the description from our strainDescriptions object
-            const description = this.strainDescriptions[strainName];
-            
-            if (description) {
-                // Show comprehensive strain info
-                strainDescriptionEl.innerHTML = `<strong>${strainName}</strong>: ${description}`;
-            } else {
-                // Fallback
-                strainDescriptionEl.innerText = "No information available for this strain.";
-            }
-        } catch (error) {
-            console.error("Error in click handler:", error);
-        }
-    }
+			
+			// Use the description from our strainDescriptions object
+			const description = this.strainDescriptions[strainName];
+			
+			if (description) {
+				// Show comprehensive strain info
+				strainDescriptionEl.innerHTML = `<strong>${strainName}</strong>: ${description}`;
+			} else {
+				// Fallback
+				strainDescriptionEl.innerText = "No information available for this strain.";
+			}
+		} catch (error) {
+			console.error("Error in click handler:", error);
+		}
+	}
     
     expandAll() {
         if (this.root) {
@@ -406,7 +411,40 @@ class GeneticsTreeVisualizer {
             }, 250);
         });
     }
+	
+	saveTreeState() {
+			const state = this.getNodeState(this.root);
+			localStorage.setItem('genetics-tree-state', JSON.stringify(state));
+		}
+
+		getNodeState(node) {
+			return {
+				name: node.data.name,
+				collapsed: !!node._children,
+				children: node.children ? node.children.map(child => this.getNodeState(child)) : []
+			};
+		}
+
+		applySavedState(state) {
+			this.applyStateToNode(this.root, state);
+		}
+
+		applyStateToNode(node, state) {
+			if (state.collapsed && node.children) {
+				node._children = node.children;
+				node.children = null;
+			}
+			// Apply to children if they exist
+			if (node.children && state.children) {
+				node.children.forEach((child, i) => {
+					if (state.children[i]) {
+						this.applyStateToNode(child, state.children[i]);
+					}
+				});
+			}
+		}
 }
+
 
 // Export the GeneticsTreeVisualizer class
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {

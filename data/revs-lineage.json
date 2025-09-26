@@ -4,7 +4,7 @@
       "id": "forged-pickles-f2",
       "name": "Forged Pickles F2 (Gardulla Phenotype)",
 	  "availabilityStatus": "hidden",
-      "collection": "f1-hunters",
+      "collection": "Signature Lines",
       "type": "autoflower",
       "dominance": "f2",
       "feminized": false,
@@ -304,10 +304,6 @@
 			{
 			  "name": "Pickle Bandit",
 			  "children": []
-			},
-			{
-			  "name": "Forged Pickles F2 (Gardulla Phenotype)",
-			  "children": []
 			}
 		  ]
 		},
@@ -331,6 +327,10 @@
 		{
 		  "name": "Signature Lines",
 		  "children": [
+			{
+			  "name": "Forged Pickles F2 (Gardulla Phenotype)",
+			  "children": []
+			},		  
 			{
 			  "name": "PINK APEX",
 			  "children": []

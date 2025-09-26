@@ -2218,6 +2218,11 @@ function openCartModal() {
         
 		// Add shipping calculation
         const siteConfig = window.siteConfig;
+		console.log('Shipping debug:', {
+			enableShipping: siteConfig.advanced?.enableShipping,
+			showFreeShipping: siteConfig.advanced?.showFreeShipping,
+			shippingPrice: siteConfig.advanced?.shippingPrice
+		});		
         let shippingCost = 0;
         let showFreeShipping = false;
 

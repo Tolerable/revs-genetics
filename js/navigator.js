@@ -217,7 +217,7 @@ class GeneticsTreeVisualizer {
             // Add labels for the nodes
             nodeEnter.append('text')
                 .attr('dy', '.35em')
-                .attr('x', d => Math.max(d.data.name.length * 8, 40) / 2 - 10)
+                .attr('x', 0)
                 .attr('text-anchor', 'middle')
                 .text(d => d.data.name)
                 .style('font-size', '12px')

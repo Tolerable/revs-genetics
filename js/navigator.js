@@ -141,9 +141,14 @@ class GeneticsTreeVisualizer {
             .attr('transform', `translate(${margin.left},${margin.top})`);
         
         // Create tree layout
-        this.treemap = d3.tree()
+		this.treemap = d3.tree()
 			.size([height - margin.top - margin.bottom, width - margin.left - margin.right])
-			.separation((a, b) => (a.parent == b.parent ? 1.5 : 2));
+			.separation((a, b) => {
+				// Count total visible nodes to adjust spacing dynamically
+				const visibleNodes = this.root.descendants().filter(d => !d._children).length;
+				const baseSpacing = visibleNodes > 8 ? 1.8 : 1.2;
+				return a.parent == b.parent ? baseSpacing : baseSpacing + 0.3;
+			});
         
         // Prepare data
         this.root = d3.hierarchy(this.strainTree);

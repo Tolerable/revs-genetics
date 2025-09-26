@@ -176,7 +176,8 @@
                     "type": "percentage",
                     "value": "10",
                     "discountPercent": "10",
-                    "bogoType": "same"
+                    "bogoType": "same",
+                    "enabled": true
                 }
             },
             "pink-pickles": {
@@ -213,7 +214,14 @@
                 "enableHoverImage": false,
                 "hoverImage": "",
                 "hidden": false,
-                "displayOrder": 2
+                "displayOrder": 2,
+                "promotional": {
+                    "type": "percentage",
+                    "value": "10",
+                    "discountPercent": "10",
+                    "bogoType": "same",
+                    "enabled": true
+                }
             },
             "eternal-forge-embers": {
                 "id": "eternal-forge-embers",
@@ -409,7 +417,14 @@
                 "enableHoverImage": false,
                 "hoverImage": "",
                 "hidden": false,
-                "displayOrder": 8
+                "displayOrder": 8,
+                "promotional": {
+                    "type": "percentage",
+                    "value": "10",
+                    "discountPercent": "10",
+                    "bogoType": "same",
+                    "enabled": true
+                }
             },
             "pink-cloudberry-bx1": {
                 "id": "pink-cloudberry-bx1",

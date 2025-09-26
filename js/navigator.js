@@ -207,7 +207,7 @@ class GeneticsTreeVisualizer {
                 .attr('ry', 12)
                 .attr('x', -10)
                 .attr('y', -15)
-                .attr('width', d => Math.max(d.data.name.length * 8, 40)) // Width based on text length
+                .attr('width', d => d.data.name.length * 8 + 20) // Width based on text length
                 .attr('height', 30)
                 .style('fill', d => d._children ? '#c69c6d' : '#b87333')
                 .style('stroke', '#b87333')
@@ -217,7 +217,7 @@ class GeneticsTreeVisualizer {
             // Add labels for the nodes
             nodeEnter.append('text')
                 .attr('dy', '.35em')
-                .attr('x', d => Math.max(d.data.name.length * 8, 40) / 2 - 10)
+                .attr('x', d => d.data.name.length * 4)
                 .attr('text-anchor', 'middle')
                 .text(d => d.data.name)
                 .style('font-size', '12px')

@@ -3765,6 +3765,9 @@ document.createElement = function(tagName) {
 						advanced: {
 							enableShop: document.getElementById('enable-shop').value === 'true',
 							enableLocalStorage: document.getElementById('enable-local-storage').value === 'true',
+							enableShipping: document.getElementById('enable-shipping').value === 'true',
+							shippingPrice: parseFloat(document.getElementById('shipping-price').value) || 0,
+							showFreeShipping: document.getElementById('show-free-shipping').value === 'true',
 							checkoutMethod: document.getElementById('checkout-method').value,
 							externalCheckoutUrl: document.getElementById('external-checkout-url').value,
 							analyticsId: document.getElementById('analytics-id').value,

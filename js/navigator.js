@@ -321,15 +321,23 @@ class GeneticsTreeVisualizer {
             
             if (!strainDescriptionEl) return;
             
-            // Don't try to find parent categories as strains
-            if (strainName === "Brokkr Genetics" || 
-                strainName === "Anvil Series" || 
-                strainName === "Forge Collection" || 
-                strainName === "Heirloom Treasures") {
-                strainDescriptionEl.innerText = 
-                    `${strainName} is a collection of strains. Click on individual strain names to see detailed information.`;
-                return;
-            }
+			// Don't try to find parent categories as strains
+			if (strainName === "Rev's Genetics Lab" || 
+				strainName === "F1 Hunters" || 
+				strainName === "Early Generation" || 
+				strainName === "Signature Lines") {
+				
+				// Create collection descriptions
+				const collectionDescriptions = {
+					"Rev's Genetics Lab": "Welcome to Rev's Genetics breeding program. Expand the collections below to explore our exclusive F1 crosses and early generation lines.",
+					"F1 Hunters": "Early generation crosses offering maximum genetic diversity for phenotype hunting and breeding programs. These genetics provide hunters with the opportunity to discover rare phenotypes and exceptional breeding stock.",
+					"Early Generation": "Advanced generation genetics with increased stability while maintaining breeding potential. These lines offer more predictable outcomes while preserving genetic diversity.",
+					"Signature Lines": "Premium selections representing the finest expressions from our breeding program. These are our most refined and sought-after genetic lines."
+				};
+				
+				strainDescriptionEl.innerHTML = `<strong>${strainName}</strong><br><br>${collectionDescriptions[strainName] || 'This is a collection of genetics. Expand to view individual strains.'}`;
+				return;
+			}
             
             // Use the description from our strainDescriptions object
             const description = this.strainDescriptions[strainName];

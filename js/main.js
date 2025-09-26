@@ -2097,7 +2097,6 @@ function addPackToCart(packId, product) {
         imagePath = imagePath.substring(4);
     }
     
-    // Define the item to add to cart
 	// Apply promotional discount to get final price
 	const processedPack = processPackPrice(packOption, product.promotional);
 
@@ -2107,7 +2106,7 @@ function addPackToCart(packId, product) {
 		name: `${product.name} - ${packOption.size}`,
 		image: imagePath,
 		price: processedPack.salePrice, // Final discounted price
-		originalPrice: packOption.salePrice, // Price before promo discount
+		originalPrice: processedPack.originalSalePrice || packOption.salePrice, // Price before promo discount
 		regularPrice: packOption.regularPrice,
 		type: product.type,
 		quantity: 1,

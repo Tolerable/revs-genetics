@@ -2187,12 +2187,15 @@ function openCartModal() {
             
 			// Show promo discount if applicable
 			let priceDisplay = `$${itemTotal.toFixed(2)}`;
+			let totalPromoSavings = 0;
 			if (item.hasPromoDiscount && item.originalPrice) {
 				const originalTotal = item.quantity * item.originalPrice;
+				const savings = originalTotal - itemTotal;
+				totalPromoSavings += savings;
 				priceDisplay = `
 					<div class="original-price" style="text-decoration: line-through; color: #888; font-size: 0.8em;">$${originalTotal.toFixed(2)}</div>
 					<div class="discounted-price" style="color: var(--secondary-color); font-weight: bold;">$${itemTotal.toFixed(2)}</div>
-					<div class="discount-label" style="color: var(--alert-color); font-size: 0.7em;">${item.promoInfo.value}% OFF</div>
+					<div class="discount-label" style="color: var(--alert-color); font-size: 0.7em;">SAVED $${savings.toFixed(2)}</div>
 				`;
 			}
 
@@ -2235,10 +2238,24 @@ function openCartModal() {
 
         const finalTotal = total + (siteConfig.advanced && siteConfig.advanced.enableShipping ? shippingCost : 0);
 
-        // Update total display
-        let totalDisplay = `
-            <div>Subtotal: $${total.toFixed(2)}</div>
-        `;
+		// Calculate total promo savings across all items
+		let totalPromoSavings = 0;
+		cart.forEach(item => {
+			if (item.hasPromoDiscount && item.originalPrice) {
+				const originalTotal = item.quantity * item.originalPrice;
+				const currentTotal = item.quantity * item.price;
+				totalPromoSavings += (originalTotal - currentTotal);
+			}
+		});
+
+		// Update total display
+		let totalDisplay = `
+			<div>Subtotal: $${total.toFixed(2)}</div>
+		`;
+
+		if (totalPromoSavings > 0) {
+			totalDisplay += `<div style="color: var(--alert-color);">Discount: -$${totalPromoSavings.toFixed(2)}</div>`;
+		}
 
         if (showFreeShipping) {
             totalDisplay += `

@@ -149,7 +149,7 @@
                     "forged-pickles-detail1.jpg",
                     "forged-pickles-phenos.jpg"
                 ],
-                "description": "Auto regular F2 generation from the legendary Forged Pickles line. The Gardulla Phenomme represents exceptional auto-flowering genetics with diverse expressions waiting to be discovered by dedicated hunters.",
+                "description": "Auto regular F2 generation from Brokkr's Dwarven Forge legendary Forged Pickles line. The Gardulla Phenotype represents exceptional auto-flowering genetics with diverse expressions waiting to be discovered by dedicated hunters.",
                 "variety": "AUTO REG F2",
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "Rev's Lab Development",

@@ -217,7 +217,7 @@ class GeneticsTreeVisualizer {
             // Add labels for the nodes
             nodeEnter.append('text')
                 .attr('dy', '.35em')
-                .attr('x', d => d.data.name.length * 8 / 2 - 10) // Center text in bubble
+                .attr('x', 0) // Center the text at x=0
                 .attr('text-anchor', 'middle')
                 .text(d => d.data.name)
                 .style('font-size', '12px')

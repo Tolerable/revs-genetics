@@ -177,37 +177,37 @@ class GeneticsTreeVisualizer {
         }
     }
     
-    update(source) {
-        try {
-            // Assigns the x and y position for the nodes
-            const treeData = this.treemap(this.root);
-            
-            // Get the nodes and links from the hierarchy
-            const nodes = treeData.descendants();
-            const links = treeData.descendants().slice(1);
-            
-            // Normalize for fixed-depth
-            nodes.forEach(d => {
-                d.y = d.depth * 230;
-            });
-            
-            // ****************** Nodes section ***************************
-            
-            // Update the nodes...
-            const node = this.svg.selectAll('g.node')
-                .data(nodes, d => d.id || (d.id = ++this.i));
-            
-            // Enter any new nodes at the parent's previous position
-            const nodeEnter = node.enter().append('g')
-                .attr('class', 'node')
-                .attr('transform', d => `translate(${source.y0},${source.x0})`)
-                .on('click', (event, d) => this.click(event, d));
-                
+	update(source) {
+		try {
+			// Assigns the x and y position for the nodes
+			const treeData = this.treemap(this.root);
+			
+			// Get the nodes and links from the hierarchy
+			const nodes = treeData.descendants();
+			const links = treeData.descendants().slice(1);
+			
+			// Normalize for fixed-depth and center the tree
+			nodes.forEach(d => {
+				d.y = d.depth * 230 + 50; // Add offset to center tree
+			});
+			
+			// ****************** Nodes section ***************************
+			
+			// Update the nodes...
+			const node = this.svg.selectAll('g.node')
+				.data(nodes, d => d.id || (d.id = ++this.i));
+			
+			// Enter any new nodes at the parent's previous position
+			const nodeEnter = node.enter().append('g')
+				.attr('class', 'node')
+				.attr('transform', d => `translate(${source.y0},${source.x0})`)
+				.on('click', (event, d) => this.click(event, d));
+				
 			// Add labels for the nodes FIRST
 			const textElements = nodeEnter.append('text')
 				.attr('dy', '.35em')
 				.attr('x', 0)
-				.attr('text-anchor', 'middle')
+				.attr('text-anchor', 'start')
 				.text(d => d.data.name)
 				.style('font-size', '12px')
 				.style('fill', '#f5f0e6')
@@ -224,89 +224,89 @@ class GeneticsTreeVisualizer {
 				.each(function(d) {
 					const textWidth = this.nextSibling.getBBox().width;
 					d3.select(this)
-						.attr('x', -(textWidth/2 + 20))
+						.attr('x', -20)
 						.attr('width', textWidth + 40);
 				})
 				.style('fill', d => d._children ? '#c69c6d' : '#b87333')
 				.style('stroke', '#b87333')
 				.style('stroke-width', 2);
-            
-            // UPDATE
-            const nodeUpdate = nodeEnter.merge(node);
-            
-            // Transition to the proper position for the node
-            nodeUpdate.transition()
-                .duration(750)
-                .attr('transform', d => `translate(${d.y},${d.x})`);
-            
-            // Update the node attributes and style
-            nodeUpdate.select('rect.node-bubble')
-                .each(function(d) {
+			
+			// UPDATE
+			const nodeUpdate = nodeEnter.merge(node);
+			
+			// Transition to the proper position for the node
+			nodeUpdate.transition()
+				.duration(750)
+				.attr('transform', d => `translate(${d.y},${d.x})`);
+			
+			// Update the node attributes and style
+			nodeUpdate.select('rect.node-bubble')
+				.each(function(d) {
 					const textEl = d3.select(this.parentNode).select('text').node();
 					if (textEl) {
 						const textWidth = textEl.getBBox().width;
 						d3.select(this)
-							.attr('x', -(textWidth/2 + 20))
+							.attr('x', -20)
 							.attr('width', textWidth + 40);
 					}
 				})
-                .style('fill', d => d._children ? '#c69c6d' : '#b87333');
-            
-            // Remove any exiting nodes
-            const nodeExit = node.exit().transition()
-                .duration(750)
-                .attr('transform', d => `translate(${source.y},${source.x})`)
-                .remove();
-            
-            // On exit reduce the bubble opacity
-            nodeExit.select('rect.node-bubble')
-                .attr('fill-opacity', 1e-6);
-            
-            // On exit reduce the opacity of text labels
-            nodeExit.select('text')
-                .style('fill-opacity', 1e-6);
-            
-            // ****************** links section ***************************
-            
-            // Update the links...
-            const link = this.svg.selectAll('path.link')
-                .data(links, d => d.id);
-            
-            // Enter any new links at the parent's previous position
-            const linkEnter = link.enter().insert('path', 'g')
-                .attr('class', 'link')
-                .attr('d', d => {
-                    const o = {x: source.x0, y: source.y0};
-                    return this.diagonal(o, o);
-                })
-                .style('fill', 'none')
-                .style('stroke', '#c69c6d')
-                .style('stroke-width', 2);
-            
-            // UPDATE
-            const linkUpdate = linkEnter.merge(link);
-            
-            // Transition back to the parent element position
-            linkUpdate.transition()
-                .duration(750)
-                .attr('d', d => this.diagonal(d, d.parent));
-            
-            // Remove any exiting links
-            link.exit().transition()
-                .duration(750)
-                .attr('d', d => {
-                    const o = {x: source.x, y: source.y};
-                    return this.diagonal(o, o);
-                })
-                .remove();
-            
-            // Store the old positions for transition
-            nodes.forEach(d => {
-                d.x0 = d.x;
-                d.y0 = d.y;
-            });
-            
-            // Show strain description when clicking on a node
+				.style('fill', d => d._children ? '#c69c6d' : '#b87333');
+			
+			// Remove any exiting nodes
+			const nodeExit = node.exit().transition()
+				.duration(750)
+				.attr('transform', d => `translate(${source.y},${source.x})`)
+				.remove();
+			
+			// On exit reduce the bubble opacity
+			nodeExit.select('rect.node-bubble')
+				.attr('fill-opacity', 1e-6);
+			
+			// On exit reduce the opacity of text labels
+			nodeExit.select('text')
+				.style('fill-opacity', 1e-6);
+			
+			// ****************** links section ***************************
+			
+			// Update the links...
+			const link = this.svg.selectAll('path.link')
+				.data(links, d => d.id);
+			
+			// Enter any new links at the parent's previous position
+			const linkEnter = link.enter().insert('path', 'g')
+				.attr('class', 'link')
+				.attr('d', d => {
+					const o = {x: source.x0, y: source.y0};
+					return this.diagonal(o, o);
+				})
+				.style('fill', 'none')
+				.style('stroke', '#c69c6d')
+				.style('stroke-width', 2);
+			
+			// UPDATE
+			const linkUpdate = linkEnter.merge(link);
+			
+			// Transition back to the parent element position
+			linkUpdate.transition()
+				.duration(750)
+				.attr('d', d => this.diagonal(d, d.parent));
+			
+			// Remove any exiting links
+			link.exit().transition()
+				.duration(750)
+				.attr('d', d => {
+					const o = {x: source.x, y: source.y};
+					return this.diagonal(o, o);
+				})
+				.remove();
+			
+			// Store the old positions for transition
+			nodes.forEach(d => {
+				d.x0 = d.x;
+				d.y0 = d.y;
+			});
+			
+			// Show strain description when clicking on a node
 			const strainDescriptionEl = document.getElementById(this.config.strainDescriptionId);
 			if (strainDescriptionEl && source === this.root) {
 				const config = window.siteConfig;
@@ -314,10 +314,10 @@ class GeneticsTreeVisualizer {
 				const defaultDescription = collectionDescriptions["Rev's Genetics Lab"] || "Welcome to Rev's Genetics breeding program. Click on collections to explore.";
 				strainDescriptionEl.innerHTML = `<strong>Rev's Genetics Lab</strong><br><br>${defaultDescription}`;
 			}
-        } catch (error) {
-            console.error("Error in update function:", error);
-        }
-    }
+		} catch (error) {
+			console.error("Error in update function:", error);
+		}
+	}
     
     diagonal(s, d) {
         return `M ${s.y} ${s.x}

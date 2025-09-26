@@ -203,29 +203,33 @@ class GeneticsTreeVisualizer {
                 .attr('transform', d => `translate(${source.y0},${source.x0})`)
                 .on('click', (event, d) => this.click(event, d));
                 
-            // Add bubble/pill background for the nodes
-            nodeEnter.append('rect')
-                .attr('class', 'node-bubble')
-                .attr('rx', 12) // Rounded corners
-                .attr('ry', 12)
-                .attr('x', -20)
-                .attr('y', -15)
-                .attr('width', d => Math.max(d.data.name.length * 8, 40)) // Width based on text length
-                .attr('height', 30)
-                .style('fill', d => d._children ? '#c69c6d' : '#b87333')
-                .style('stroke', '#b87333')
-                .style('stroke-width', 2)
-                .attr('cursor', 'pointer');
-            
-            // Add labels for the nodes
-            nodeEnter.append('text')
-                .attr('dy', '.35em')
-                .attr('x', 0)
-                .attr('text-anchor', 'middle')
-                .text(d => d.data.name)
-                .style('font-size', '12px')
-                .style('fill', '#f5f0e6')
-                .attr('cursor', 'pointer');
+			// Add labels for the nodes FIRST
+			const textElements = nodeEnter.append('text')
+				.attr('dy', '.35em')
+				.attr('x', 0)
+				.attr('text-anchor', 'middle')
+				.text(d => d.data.name)
+				.style('font-size', '12px')
+				.style('fill', '#f5f0e6')
+				.attr('cursor', 'pointer');
+
+			// Add bubble/pill background AFTER text, sized to fit
+			nodeEnter.insert('rect', 'text')
+				.attr('class', 'node-bubble')
+				.attr('rx', 12)
+				.attr('ry', 12)
+				.attr('y', -15)
+				.attr('height', 30)
+				.attr('cursor', 'pointer')
+				.each(function(d) {
+					const textWidth = this.nextSibling.getBBox().width;
+					d3.select(this)
+						.attr('x', -(textWidth/2 + 20))
+						.attr('width', textWidth + 40);
+				})
+				.style('fill', d => d._children ? '#c69c6d' : '#b87333')
+				.style('stroke', '#b87333')
+				.style('stroke-width', 2);
             
             // UPDATE
             const nodeUpdate = nodeEnter.merge(node);
@@ -237,7 +241,15 @@ class GeneticsTreeVisualizer {
             
             // Update the node attributes and style
             nodeUpdate.select('rect.node-bubble')
-                .attr('width', d => d.data.name.length * 8 + 40)
+                .each(function(d) {
+					const textEl = d3.select(this.parentNode).select('text').node();
+					if (textEl) {
+						const textWidth = textEl.getBBox().width;
+						d3.select(this)
+							.attr('x', -(textWidth/2 + 20))
+							.attr('width', textWidth + 40);
+					}
+				})
                 .style('fill', d => d._children ? '#c69c6d' : '#b87333');
             
             // Remove any exiting nodes

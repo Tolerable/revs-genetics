@@ -2105,12 +2105,12 @@ function addPackToCart(packId, product) {
 		productId: product.id,
 		name: `${product.name} - ${packOption.size}`,
 		image: imagePath,
-		price: processedPack.salePrice, // Final discounted price
-		originalPrice: processedPack.originalSalePrice || packOption.salePrice, // Price before promo discount
+		price: packOption.salePrice, // Keep original sale price for display
+		discountAmount: (packOption.salePrice * (product.promotional?.discountPercent || 0)) / 100,
 		regularPrice: packOption.regularPrice,
 		type: product.type,
 		quantity: 1,
-		hasPromoDiscount: processedPack.isDiscounted,
+		hasPromoDiscount: product.promotional?.enabled && product.promotional?.discountPercent > 0,
 		promoInfo: product.promotional
 	};
     

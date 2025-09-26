@@ -1799,19 +1799,23 @@ function createProductCard(product) {
         imagePath = 'img/' + imagePath;
     }
     
-    // Create the card content
-    card.innerHTML += `
-        <img src="${imagePath}" alt="${product.name}" class="product-img" onerror="this.style.display='none'">
-        <div class="card-content">
-            <h3 class="card-title">${product.name}</h3>
-            <span class="product-type">${product.type}</span>
-            <p class="card-description">${(product.description || '').split('\n')[0]}</p>
-            <div class="product-details">
-                <div class="detail-item">${product.delivery === 'digital' ? 'Digital' : siteConfig.terminology.productTerm}</div>
-                <div class="detail-item">${product.variety || 'Premium'}</div>
-            </div>
-        </div>
-    `;
+	// Generate promotional badge if exists
+	const promoBadge = generatePromoBadge(product.promotional);
+
+	// Create the card content
+	card.innerHTML += `
+		<img src="${imagePath}" alt="${product.name}" class="product-img" onerror="this.style.display='none'">
+		${promoBadge}
+		<div class="card-content">
+			<h3 class="card-title">${product.name}</h3>
+			<span class="product-type">${product.type}</span>
+			<p class="card-description">${(product.description || '').split('\n')[0]}</p>
+			<div class="product-details">
+				<div class="detail-item">${product.delivery === 'digital' ? 'Digital' : siteConfig.terminology.productTerm}</div>
+				<div class="detail-item">${product.variety || 'Premium'}</div>
+			</div>
+		</div>
+	`;
     
     return card;
 }

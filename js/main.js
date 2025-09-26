@@ -2105,9 +2105,9 @@ function addPackToCart(packId, product) {
 		productId: product.id,
 		name: `${product.name} - ${packOption.size}`,
 		image: imagePath,
-		price: packOption.salePrice, // Keep original sale price for display
-		discountAmount: (packOption.salePrice * (product.promotional?.discountPercent || 0)) / 100,
-		regularPrice: packOption.regularPrice,
+		price: packOption.salePrice, // The $63 sale price
+		originalPrice: packOption.salePrice, // ALSO $63, not $70
+		regularPrice: packOption.regularPrice, // Keep $70 for display only
 		type: product.type,
 		quantity: 1,
 		hasPromoDiscount: product.promotional?.enabled && product.promotional?.discountPercent > 0,

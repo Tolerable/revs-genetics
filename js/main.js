@@ -2075,7 +2075,6 @@ function setupPackOptions(product) {
     }
 }
 
-// Add pack to cart
 function addPackToCart(packId, product) {
     const siteConfig = window.siteConfig;
     const packSizeStr = packId.replace(`${product.id}-`, '');
@@ -2086,7 +2085,7 @@ function addPackToCart(packId, product) {
         return;
     }
     
-    // Get correct image path, but store it without the img/ prefix
+    // Get correct image path
     let imagePath = product.image;
     if (!imagePath && product.additionalImages && product.additionalImages.length > 0) {
         imagePath = product.additionalImages[0];
@@ -2097,52 +2096,64 @@ function addPackToCart(packId, product) {
         imagePath = imagePath.substring(4);
     }
     
-	// Apply promotional discount to get final price
-	const processedPack = processPackPrice(packOption, product.promotional);
-
-	const cartItem = {
-		id: packId,
-		productId: product.id,
-		name: `${product.name} - ${packOption.size}`,
-		image: imagePath,
-		price: processedPack.salePrice, // Use the discounted price from processPackPrice
-		originalPrice: packOption.salePrice, // Original $63 sale price before discount
-		regularPrice: packOption.regularPrice,
-		type: product.type,
-		quantity: 1,
-		hasPromoDiscount: processedPack.isDiscounted,
-		promoInfo: product.promotional
-	};
+    // Create the main product item at sale price
+    const cartItem = {
+        id: packId,
+        productId: product.id,
+        name: `${product.name} - ${packOption.size}`,
+        image: imagePath,
+        price: packOption.salePrice, // The $63 sale price
+        type: product.type,
+        quantity: 1,
+        hasPromoDiscount: false,
+        promoInfo: null
+    };
     
     // Get cart from window
     const cart = window.siteCart || [];
     
-    // Check if this exact pack is already in cart
+    // Add the main item
     const existingItemIndex = cart.findIndex(item => item.id === packId);
-    
     if (existingItemIndex !== -1) {
-        // Increment quantity
         cart[existingItemIndex].quantity += 1;
     } else {
-        // Add new item
         cart.push(cartItem);
     }
     
-    // Save cart
+    // If there's a promotional discount, add a separate discount item
+    if (product.promotional && product.promotional.enabled && product.promotional.discountPercent > 0) {
+        const discountAmount = (packOption.salePrice * product.promotional.discountPercent) / 100;
+        
+        const discountItem = {
+            id: `${packId}-discount`,
+            productId: product.id,
+            name: `${product.promotional.discountPercent}% OFF Discount`,
+            image: '',
+            price: -discountAmount, // Negative price
+            type: 'discount',
+            quantity: 1,
+            hasPromoDiscount: false,
+            promoInfo: null,
+            isDiscount: true
+        };
+        
+        const existingDiscountIndex = cart.findIndex(item => item.id === `${packId}-discount`);
+        if (existingDiscountIndex !== -1) {
+            cart[existingDiscountIndex].quantity += 1;
+        } else {
+            cart.push(discountItem);
+        }
+    }
+    
+    // Save cart and update display
     window.siteCart = cart;
     
-    // Save to localStorage if enabled
     if (siteConfig.advanced && siteConfig.advanced.enableLocalStorage) {
         localStorage.setItem('siteCart', JSON.stringify(cart));
     }
     
-    // Update cart count
     updateCartCount(cart);
-    
-    // Close modal
     document.getElementById('productModal').style.display = 'none';
-    
-    // Show cart modal
     openCartModal();
 }
 

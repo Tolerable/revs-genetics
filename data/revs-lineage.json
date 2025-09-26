@@ -222,7 +222,7 @@
     },
     {
       "id": "mybrains",
-      "name": "MYBRAINS",
+      "name": "Mybrains",
 	  "availabilityStatus": "hidden",
       "collection": "early-generation",
       "type": "photoperiod",
@@ -244,7 +244,7 @@
     },
     {
       "id": "bizarro-brains",
-      "name": "BIZARRO BRAINS",
+      "name": "Bizarro Brains",
 	  "availabilityStatus": "hidden",
       "collection": "early-generation",
       "type": "photoperiod",
@@ -266,7 +266,7 @@
     },
     {
       "id": "pink-apex",
-      "name": "PINK APEX",
+      "name": "Pink Apex",
 	  "availabilityStatus": "in-stock",
       "collection": "signature-lines",
       "type": "photoperiod",
@@ -325,11 +325,11 @@
 						"children": []
 					},
 					{
-						"name": "MYBRAINS",
+						"name": "Mybrains",
 						"children": []
 					},
 					{
-						"name": "BIZARRO BRAINS",
+						"name": "Bizarro Brains",
 						"children": []
 					}
 				]
@@ -342,7 +342,7 @@
 						"children": []
 					},
 					{
-						"name": "PINK APEX",
+						"name": "Pink Apex",
 						"children": []
 					},
 					{

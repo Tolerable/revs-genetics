@@ -60,7 +60,7 @@
         }
     },
     "strainTree": {
-        "enabled": false,
+        "enabled": true,
         "title": "Strain Genetics Explorer",
         "description": "Explore the genetic relationships between our strains.",
         "dataPath": "data/straindata.json"
@@ -171,7 +171,13 @@
                 "enableHoverImage": false,
                 "hoverImage": "",
                 "hidden": false,
-                "displayOrder": 1
+                "displayOrder": 1,
+                "promotional": {
+                    "type": "percentage",
+                    "value": "10",
+                    "discountPercent": "10",
+                    "bogoType": "same"
+                }
             },
             "pink-pickles": {
                 "id": "pink-pickles",

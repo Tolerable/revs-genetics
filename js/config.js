@@ -159,13 +159,13 @@
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
-                        "regularPrice": 42,
-                        "salePrice": 36
+                        "regularPrice": 60,
+                        "salePrice": 50
                     },
                     {
                         "size": "12 Pack Breeder Special",
-                        "regularPrice": 75,
-                        "salePrice": 65
+                        "regularPrice": 120,
+                        "salePrice": 90
                     }
                 ],
                 "enableHoverImage": false,
@@ -202,8 +202,8 @@
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
-                        "regularPrice": 45,
-                        "salePrice": 39
+                        "regularPrice": 40,
+                        "salePrice": 36
                     },
                     {
                         "size": "12 Pack Color Hunter",
@@ -405,13 +405,13 @@
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
-                        "regularPrice": 42,
+                        "regularPrice": 40,
                         "salePrice": 36
                     },
                     {
                         "size": "12 Pack Bandit Special",
-                        "regularPrice": 75,
-                        "salePrice": 65
+                        "regularPrice": 80,
+                        "salePrice": 70
                     }
                 ],
                 "enableHoverImage": false,
@@ -432,6 +432,7 @@
                 "type": "Signature Lines",
                 "status": "available",
                 "delivery": "physical",
+                "digitalContent": "",
                 "image": "pink-cloudberry-bx1.jpg",
                 "additionalImages": [
                     "pink-cloudberry-bx1-detail1.jpg",
@@ -447,17 +448,26 @@
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
-                        "regularPrice": 48,
-                        "salePrice": 42
+                        "regularPrice": 60,
+                        "salePrice": 50
                     },
                     {
                         "size": "12 Pack Advanced Hunter",
-                        "regularPrice": 85,
-                        "salePrice": 75
+                        "regularPrice": 120,
+                        "salePrice": 90
                     }
                 ],
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
                 "displayOrder": 9,
-                "hidden": false
+                "promotional": {
+                    "type": "none",
+                    "value": "",
+                    "discountPercent": "",
+                    "bogoType": "same",
+                    "enabled": false
+                }
             },
             "remo-chemo-mango-bubba-f2": {
                 "id": "remo-chemo-mango-bubba-f2",
@@ -465,6 +475,7 @@
                 "type": "Early Generation",
                 "status": "available",
                 "delivery": "physical",
+                "digitalContent": "",
                 "image": "remo-chemo-mango-bubba-f2.jpg",
                 "additionalImages": [
                     "rcmb-f2-detail1.jpg",
@@ -480,17 +491,26 @@
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
-                        "regularPrice": 54,
-                        "salePrice": 48
+                        "regularPrice": 50,
+                        "salePrice": 45
                     },
                     {
                         "size": "12 Pack Breeder Foundation",
-                        "regularPrice": 95,
-                        "salePrice": 85
+                        "regularPrice": 100,
+                        "salePrice": 90
                     }
                 ],
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
                 "displayOrder": 10,
-                "hidden": false
+                "promotional": {
+                    "type": "none",
+                    "value": "",
+                    "discountPercent": "",
+                    "bogoType": "same",
+                    "enabled": false
+                }
             },
             "mybrains": {
                 "id": "mybrains",
@@ -498,6 +518,7 @@
                 "type": "Early Generation",
                 "status": "available",
                 "delivery": "physical",
+                "digitalContent": "",
                 "image": "mybrains.jpg",
                 "additionalImages": [
                     "mybrains-detail1.jpg",
@@ -513,8 +534,8 @@
                 "packOptions": [
                     {
                         "size": "5 Pack Feminized",
-                        "regularPrice": 55,
-                        "salePrice": 49
+                        "regularPrice": 50,
+                        "salePrice": 45
                     },
                     {
                         "size": "10 Pack Fem Breeder",
@@ -522,8 +543,17 @@
                         "salePrice": 90
                     }
                 ],
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
                 "displayOrder": 11,
-                "hidden": false
+                "promotional": {
+                    "type": "none",
+                    "value": "",
+                    "discountPercent": "",
+                    "bogoType": "same",
+                    "enabled": false
+                }
             },
             "bizarro-brains": {
                 "id": "bizarro-brains",
@@ -531,6 +561,7 @@
                 "type": "Early Generation",
                 "status": "available",
                 "delivery": "physical",
+                "digitalContent": "",
                 "image": "bizarro-brains.jpg",
                 "additionalImages": [
                     "bizarro-detail1.jpg",
@@ -546,12 +577,26 @@
                 "packOptions": [
                     {
                         "size": "6 Pack Regular",
-                        "regularPrice": 66,
-                        "salePrice": 60
+                        "regularPrice": 60,
+                        "salePrice": 50
+                    },
+                    {
+                        "size": "12 Pack Regular",
+                        "regularPrice": 100,
+                        "salePrice": 90
                     }
                 ],
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
                 "displayOrder": 12,
-                "hidden": false
+                "promotional": {
+                    "type": "none",
+                    "value": "",
+                    "discountPercent": "",
+                    "bogoType": "same",
+                    "enabled": false
+                }
             },
             "pink-apex": {
                 "id": "pink-apex",
@@ -559,6 +604,7 @@
                 "type": "Signature Lines",
                 "status": "available",
                 "delivery": "physical",
+                "digitalContent": "",
                 "image": "pink-apex.jpg",
                 "additionalImages": [
                     "pink-apex-detail1.jpg",
@@ -575,16 +621,25 @@
                     {
                         "size": "6 Pack Regular",
                         "regularPrice": 60,
-                        "salePrice": 54
+                        "salePrice": 50
                     },
                     {
                         "size": "12 Pack Color Breeder",
-                        "regularPrice": 105,
-                        "salePrice": 95
+                        "regularPrice": 120,
+                        "salePrice": 90
                     }
                 ],
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
                 "displayOrder": 13,
-                "hidden": false
+                "promotional": {
+                    "type": "none",
+                    "value": "",
+                    "discountPercent": "",
+                    "bogoType": "same",
+                    "enabled": false
+                }
             }
         }
     },

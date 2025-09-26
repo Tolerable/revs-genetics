@@ -51,14 +51,17 @@ class GeneticsTreeVisualizer {
 			// Store tree data
 			this.strainTree = data.strainTree || { name: "Error", children: [] };
 			
-			// Only include these 6 available strains
+			// Only include these 9 available strains
 			const availableStrains = [
 				'Pink Pickles',
 				'Berry Outlaw', 
 				'Pickle Bandit',
 				'Pink Cloudberry Bx1 (Pink Zydonia F1)',
 				'Remo Chemo x Mango Bubba F2',
-				'PINK APEX'
+				'Pink Apex',
+				'Mybrains',
+				'Bizarro Brains',
+				'Forged Pickles F2 (Gardulla Phenotype)'
 			];
 			
 			// Create descriptions object from available strains only
@@ -91,7 +94,7 @@ class GeneticsTreeVisualizer {
 		}
 		
 		// Keep category nodes (parent nodes) always
-		if (node.name === "áµ—Ê°áµ‰ Revâ„¢ Auto Line" || node.name === "Foundation Photo Lines") {
+		if (node.name === "F1 Hunters" || node.name === "Early Generation" || node.name === "Signature Lines") {
 			const filteredChildren = node.children
 				.map(child => this.filterTreeForAvailableStrains(child, availableStrains))
 				.filter(child => child !== null);

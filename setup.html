@@ -2591,6 +2591,13 @@ document.createElement = function(tagName) {
 					"packOptionsSectionExists": !!packOptionsSection,
 					"packOptionsSectionDisplay": packOptionsSection ? packOptionsSection.style.display : 'N/A'
 				});
+				
+				// Trigger promotional type change to show/hide fields AFTER loading values
+				const promoTypeSelect = document.getElementById('product-promo-type');
+				if (promoTypeSelect) {
+					const changeEvent = new Event('change');
+					promoTypeSelect.dispatchEvent(changeEvent);
+				}								
 			}
 
 			function setupHoverImageHandlers() {
@@ -3000,7 +3007,13 @@ document.createElement = function(tagName) {
 					hoverImage: document.getElementById('product-enable-hover').value === 'true' ? 
 						document.getElementById('product-hover-image').value : '',
 					hidden: isHidden,  // Add the hidden flag
-					displayOrder: displayOrder  // Add the display order
+					displayOrder: displayOrder,  // Add the display order
+					promotional: {
+						type: document.getElementById('product-promo-type').value || 'none',
+						value: document.getElementById('product-promo-value').value || '',
+						discountPercent: document.getElementById('product-discount-percent').value || '',
+						bogoType: document.getElementById('product-bogo-type').value || 'same'
+					}
 				};
 				
 				// For debugging - check what's being saved

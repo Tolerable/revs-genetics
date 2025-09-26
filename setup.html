@@ -3004,7 +3004,8 @@ document.createElement = function(tagName) {
 						type: document.getElementById('product-promo-type').value || 'none',
 						value: document.getElementById('product-promo-value').value || '',
 						discountPercent: document.getElementById('product-discount-percent').value || '',
-						bogoType: document.getElementById('product-bogo-type').value || 'same'
+						bogoType: document.getElementById('product-bogo-type').value || 'same',
+						enabled: document.getElementById('product-promo-type').value !== 'none'
 					}
 				};
 				

@@ -2094,14 +2094,12 @@ function addPackToCart(packId, product) {
         imagePath = imagePath.substring(4);
     }
     
-    const actualPrice = packOption.salePrice;
-    
     const cartItem = {
         id: packId,
         productId: product.id,
         name: `${product.name} - ${packOption.size}`,
         image: imagePath,
-        price: actualPrice,
+        price: packOption.salePrice,
         type: product.type,
         quantity: 1,
         isDiscount: false,

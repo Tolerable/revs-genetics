@@ -168,7 +168,7 @@
                     }
                 ],
                 "displayOrder": 1,
-                "hidden": true
+                "hidden": false
             },
             "pink-pickles": {
                 "id": "pink-pickles",
@@ -493,7 +493,7 @@
                     }
                 ],
                 "displayOrder": 11,
-                "hidden": true
+                "hidden": false
             },
             "bizarro-brains": {
                 "id": "bizarro-brains",
@@ -521,7 +521,7 @@
                     }
                 ],
                 "displayOrder": 12,
-                "hidden": true
+                "hidden": false
             },
             "pink-apex": {
                 "id": "pink-apex",

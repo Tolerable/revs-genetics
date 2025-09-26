@@ -4819,6 +4819,17 @@ document.createElement = function(tagName) {
 						safeSetValue('enable-age-check', config.advanced.enableAgeCheck ? 'true' : 'false');
 						safeSetValue('age-check-minimum', config.advanced.ageCheckMinimum || 21);
 						safeSetValue('age-redirect-url', config.advanced.ageRedirectUrl || 'https://www.google.com');
+
+						safeSetValue('enable-shipping', config.advanced.enableShipping ? 'true' : 'false');
+						safeSetValue('shipping-price', config.advanced.shippingPrice || 5.99);
+						safeSetValue('show-free-shipping', config.advanced.showFreeShipping ? 'true' : 'false');
+
+						// Trigger the change event to show/hide shipping settings
+						const enableShippingSelect = document.getElementById('enable-shipping');
+						if (enableShippingSelect) {
+							const event = new Event('change');
+							enableShippingSelect.dispatchEvent(event);
+						}
 						
 						// Trigger the change event to show/hide age check settings
 						const enableAgeCheckSelect = document.getElementById('enable-age-check');

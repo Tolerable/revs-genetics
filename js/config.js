@@ -60,10 +60,10 @@
         }
     },
     "strainTree": {
-        "enabled": true,
+        "enabled": false,
         "title": "Strain Genetics Explorer",
         "description": "Explore the genetic relationships between our strains.",
-        "dataPath": "data/revs-lineage.json"
+        "dataPath": "data/straindata.json"
     },
     "legal": {
         "enableDisclaimer": true,
@@ -179,6 +179,7 @@
                 "type": "F1 Hunters",
                 "status": "available",
                 "delivery": "physical",
+                "digitalContent": "",
                 "image": "pink-pickles.jpg",
                 "additionalImages": [
                     "pink-pickles-detail1.jpg",
@@ -203,8 +204,10 @@
                         "salePrice": 70
                     }
                 ],
-                "displayOrder": 2,
-                "hidden": false
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
+                "displayOrder": 2
             },
             "eternal-forge-embers": {
                 "id": "eternal-forge-embers",
@@ -372,6 +375,7 @@
                 "type": "F1 Hunters",
                 "status": "available",
                 "delivery": "physical",
+                "digitalContent": "",
                 "image": "pickle-bandit.jpg",
                 "additionalImages": [
                     "pickle-bandit-detail1.jpg",
@@ -396,8 +400,10 @@
                         "salePrice": 65
                     }
                 ],
-                "displayOrder": 8,
-                "hidden": false
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
+                "displayOrder": 8
             },
             "pink-cloudberry-bx1": {
                 "id": "pink-cloudberry-bx1",
@@ -611,7 +617,7 @@
         "checkoutMethod": "email",
         "externalCheckoutUrl": "",
         "analyticsId": "",
-        "orderEmail": "orders@revsgeneticslab.com",
+        "orderEmail": "orders@example.com",
         "enableAgeCheck": true,
         "ageCheckMinimum": 21,
         "ageRedirectUrl": "https://www.google.com"

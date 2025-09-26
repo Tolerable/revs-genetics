@@ -515,11 +515,11 @@
                 "hidden": false,
                 "displayOrder": 10,
                 "promotional": {
-                    "type": "none",
+                    "type": "new",
                     "value": "",
                     "discountPercent": "",
                     "bogoType": "same",
-                    "enabled": false
+                    "enabled": true
                 }
             },
             "mybrains": {
@@ -558,11 +558,11 @@
                 "hidden": false,
                 "displayOrder": 11,
                 "promotional": {
-                    "type": "none",
-                    "value": "",
+                    "type": "custom",
+                    "value": "VAULT",
                     "discountPercent": "",
                     "bogoType": "same",
-                    "enabled": false
+                    "enabled": true
                 }
             },
             "bizarro-brains": {
@@ -601,11 +601,11 @@
                 "hidden": false,
                 "displayOrder": 12,
                 "promotional": {
-                    "type": "none",
-                    "value": "",
+                    "type": "custom",
+                    "value": "VAULT",
                     "discountPercent": "",
                     "bogoType": "same",
-                    "enabled": false
+                    "enabled": true
                 }
             },
             "pink-apex": {

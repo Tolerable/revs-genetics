@@ -39,9 +39,8 @@ function processPackPrice(pack, promotional) {
     
     return {
         ...pack,
-        originalRegularPrice: pack.regularPrice,
         originalSalePrice: pack.salePrice,
-        regularPrice: Math.round(pack.regularPrice * discountMultiplier * 100) / 100,
+        regularPrice: pack.regularPrice, // Keep fake retail price unchanged
         salePrice: Math.round(pack.salePrice * discountMultiplier * 100) / 100,
         isDiscounted: true
     };

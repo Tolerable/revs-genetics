@@ -2316,22 +2316,6 @@ document.createElement = function(tagName) {
 				safeSetValue('product-notes', isNewProduct ? '' : product.notes);
 				safeSetValue('product-enable-hover', isNewProduct ? 'false' : (product.enableHoverImage ? 'true' : 'false'));
 
-				// Set promotional settings - ALWAYS reset first, then set values
-				safeSetValue('product-promo-type', 'none');
-				safeSetValue('product-promo-value', '');
-				safeSetValue('product-discount-percent', '');
-				safeSetValue('product-bogo-type', 'same');
-
-				if (!isNewProduct && product.promotional) {
-					safeSetValue('product-promo-type', product.promotional.type || 'none');
-					safeSetValue('product-promo-value', product.promotional.value || '');
-					safeSetValue('product-discount-percent', product.promotional.discountPercent || '');
-					safeSetValue('product-bogo-type', product.promotional.bogoType || 'same');
-				}
-
-				// Set hidden flag - determine if product should be hidden
-				const isHidden = isNewProduct ? false : !!product.hidden;
-				
 				// Create or update the visibility control
 				let visibilityGroup = document.getElementById('product-visibility-group');
 				if (!visibilityGroup) {
@@ -2342,8 +2326,8 @@ document.createElement = function(tagName) {
 					visibilityGroup.innerHTML = `
 						<label for="product-visibility" style="color: var(--secondary-color);">Product Visibility</label>
 						<select id="product-visibility">
-							<option value="visible" ${!isHidden ? 'selected' : ''}>Visible - Show in product list</option>
-							<option value="hidden" ${isHidden ? 'selected' : ''}>Hidden - Keep in database but don't display</option>
+							<option value="visible">Visible - Show in product list</option>
+							<option value="hidden">Hidden - Keep in database but don't display</option>
 						</select>
 						<p style="font-size: 0.8rem; color: #aaa; margin-top: 3px;">Hidden products are saved but not displayed on your site.</p>
 					`;
@@ -2355,12 +2339,13 @@ document.createElement = function(tagName) {
 						const productIdGroup = productIdField.closest('.form-group');
 						parentNode.insertBefore(visibilityGroup, productIdGroup.nextSibling);
 					}
-				} else {
-					// If it exists, just update the select value
-					const visibilitySelect = visibilityGroup.querySelector('select');
-					if (visibilitySelect) {
-						visibilitySelect.value = isHidden ? 'hidden' : 'visible';
-					}
+				}
+				
+				// Set visibility based on product data
+				const isHidden = isNewProduct ? false : !!product.hidden;
+				const visibilitySelect = document.getElementById('product-visibility');
+				if (visibilitySelect) {
+					visibilitySelect.value = isHidden ? 'hidden' : 'visible';
 				}
 
 				const enableHoverSelect = document.getElementById('product-enable-hover');
@@ -2562,22 +2547,9 @@ document.createElement = function(tagName) {
 					});
 				}
 
-				// Force reset of promotional field visibility first
-				const valueGroup = document.getElementById('promo-value-group');
-				const discountGroup = document.getElementById('discount-group');
-				const bogoGroup = document.getElementById('bogo-type-group');
-				if (valueGroup) valueGroup.style.display = 'none';
-				if (discountGroup) discountGroup.style.display = 'none';
-				if (bogoGroup) bogoGroup.style.display = 'none';
-				// Then trigger promotional type change to show/hide fields
-				const promoTypeSelect = document.getElementById('product-promo-type');
-				if (promoTypeSelect) {
-					const changeEvent = new Event('change');
-					promoTypeSelect.dispatchEvent(changeEvent);
-				}
-				
 				// Set up event handlers for buttons
 				setupProductEditorEventHandlers();
+
 				// Show modal
 				modal.style.display = 'block';
 				
@@ -2588,6 +2560,36 @@ document.createElement = function(tagName) {
 					"packOptionsSectionExists": !!packOptionsSection,
 					"packOptionsSectionDisplay": packOptionsSection ? packOptionsSection.style.display : 'N/A'
 				});
+
+				// NOW SET PROMOTIONAL VALUES AFTER ALL FORM FIELDS ARE CREATED
+				// Reset promotional field visibility first
+				const valueGroup = document.getElementById('promo-value-group');
+				const discountGroup = document.getElementById('discount-group');
+				const bogoGroup = document.getElementById('bogo-type-group');
+				if (valueGroup) valueGroup.style.display = 'none';
+				if (discountGroup) discountGroup.style.display = 'none';
+				if (bogoGroup) bogoGroup.style.display = 'none';
+
+				// Set promotional values AFTER the form fields exist
+				if (!isNewProduct && product.promotional) {
+					safeSetValue('product-promo-type', product.promotional.type || 'none');
+					safeSetValue('product-promo-value', product.promotional.value || '');
+					safeSetValue('product-discount-percent', product.promotional.discountPercent || '');
+					safeSetValue('product-bogo-type', product.promotional.bogoType || 'same');
+				} else {
+					// Set defaults for new products
+					safeSetValue('product-promo-type', 'none');
+					safeSetValue('product-promo-value', '');
+					safeSetValue('product-discount-percent', '');
+					safeSetValue('product-bogo-type', 'same');
+				}
+
+				// Trigger promotional type change to show/hide fields AFTER setting values
+				const promoTypeSelect = document.getElementById('product-promo-type');
+				if (promoTypeSelect) {
+					const changeEvent = new Event('change');
+					promoTypeSelect.dispatchEvent(changeEvent);
+				}
 			}
 
 			function setupHoverImageHandlers() {

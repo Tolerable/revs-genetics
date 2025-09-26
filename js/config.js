@@ -402,7 +402,7 @@
             "pink-cloudberry-bx1": {
                 "id": "pink-cloudberry-bx1",
                 "name": "Pink Cloudberry Bx1 (Pink Zydonia F1)",
-                "type": "Early Generation",
+                "type": "Signature Lines",
                 "status": "available",
                 "delivery": "physical",
                 "image": "pink-cloudberry-bx1.jpg",
@@ -529,7 +529,7 @@
             "pink-apex": {
                 "id": "pink-apex",
                 "name": "PINK APEX",
-                "type": "Early Generation",
+                "type": "Signature Lines",
                 "status": "available",
                 "delivery": "physical",
                 "image": "pink-apex.jpg",

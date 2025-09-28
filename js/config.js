@@ -705,10 +705,12 @@
         "showFreeShipping": true,
         "checkoutMethod": "email",
         "externalCheckoutUrl": "",
-        "analyticsId": "",
         "orderEmail": "orders@example.com",
         "enableAgeCheck": true,
         "ageCheckMinimum": 21,
-        "ageRedirectUrl": "https://www.google.com"
+        "ageRedirectUrl": "https://www.google.com",
+        "enableCookieConsent": true,
+        "cookiePolicyUrl": "./privacy.html",
+        "cookieRedirectOnDecline": true
     }
 };

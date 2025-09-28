@@ -1221,10 +1221,31 @@ document.createElement = function(tagName) {
                     <p class="help-text">Only needed if checkout method is "External"</p>
                 </div>
                 
-                <div class="form-group">
-                    <label for="analytics-id">Google Analytics ID (Optional)</label>
-                    <input type="text" id="analytics-id" value="">
-                </div>
+				<h3>Cookie Compliance</h3>
+
+				<div class="form-group">
+					<label for="enable-cookie-consent">Enable Cookie Consent Banner</label>
+					<select id="enable-cookie-consent">
+						<option value="false" selected>No</option>
+						<option value="true">Yes</option>
+					</select>
+					<p class="help-text">Show cookie consent banner to comply with privacy laws (GDPR, CCPA, etc.)</p>
+				</div>
+
+				<div class="form-group">
+					<label for="cookie-policy-url">Cookie Policy URL (Optional)</label>
+					<input type="url" id="cookie-policy-url" value="">
+					<p class="help-text">Link to your cookie policy page. Leave blank to hide the "Learn More" link.</p>
+				</div>
+
+				<div class="form-group">
+					<label for="cookie-redirect-decline">Redirect Users Who Decline Cookies</label>
+					<select id="cookie-redirect-decline">
+						<option value="true" selected>Yes - Send to Google.com</option>
+						<option value="false">No - Disable features instead</option>
+					</select>
+					<p class="help-text">What to do when users decline cookies. Redirect is recommended for legal protection.</p>
+				</div>
                 
 				<h3>Navigation</h3>
 				<p>Add or edit navigation items. First item is always Home.</p>
@@ -3770,11 +3791,13 @@ document.createElement = function(tagName) {
 							showFreeShipping: document.getElementById('show-free-shipping').value === 'true',
 							checkoutMethod: document.getElementById('checkout-method').value,
 							externalCheckoutUrl: document.getElementById('external-checkout-url').value,
-							analyticsId: document.getElementById('analytics-id').value,
 							orderEmail: document.getElementById('order-email').value,
 							enableAgeCheck: document.getElementById('enable-age-check').value === 'true',
 							ageCheckMinimum: parseInt(document.getElementById('age-check-minimum').value) || 21,
-							ageRedirectUrl: document.getElementById('age-redirect-url').value || 'https://www.google.com'
+							ageRedirectUrl: document.getElementById('age-redirect-url').value || 'https://www.google.com',
+							enableCookieConsent: document.getElementById('enable-cookie-consent').value === 'true',
+							cookiePolicyUrl: document.getElementById('cookie-policy-url').value,
+							cookieRedirectOnDecline: document.getElementById('cookie-redirect-decline').value === 'true'
 						}
 					};
 				}
@@ -4836,7 +4859,12 @@ document.createElement = function(tagName) {
 						if (enableAgeCheckSelect) {
 							const event = new Event('change');
 							enableAgeCheckSelect.dispatchEvent(event);
-						}							
+						}
+
+						safeSetValue('enable-cookie-consent', config.advanced.enableCookieConsent ? 'true' : 'false');
+						safeSetValue('cookie-policy-url', config.advanced.cookiePolicyUrl || '');
+						safeSetValue('cookie-redirect-decline', config.advanced.cookieRedirectOnDecline !== false ? 'true' : 'false');
+						
 					}
 
 					if (config.legal) {

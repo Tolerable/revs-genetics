@@ -1,5 +1,4 @@
 // Initialize site on document load
-// In your main.js file, modify the DOMContentLoaded event handler:
 document.addEventListener('DOMContentLoaded', function() {
     // Check if we're in preview mode FIRST
     const urlParams = new URLSearchParams(window.location.search);
@@ -2330,17 +2329,26 @@ function setupEventListeners() {
         });
     }
     
-    // Checkout button
-    const checkoutBtn = document.getElementById('checkoutBtn');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', function() {
-            const cart = window.siteCart || [];
-            if (cart.length > 0) {
-                document.getElementById('cartModal').style.display = 'none';
-                document.getElementById('checkoutModal').style.display = 'block';
-            }
-        });
-    }
+	// Checkout button
+	const checkoutBtn = document.getElementById('checkoutBtn');
+	if (checkoutBtn) {
+		checkoutBtn.addEventListener('click', function() {
+			const cart = window.siteCart || [];
+			const siteConfig = window.siteConfig;
+			
+			if (cart.length > 0) {
+				document.getElementById('cartModal').style.display = 'none';
+				
+				if (siteConfig.advanced.checkoutMethod === 'payment-processor') {
+					// Payment processor checkout
+					showCustomerInfoForm(cart);
+				} else {
+					// Original email/form checkout
+					document.getElementById('checkoutModal').style.display = 'block';
+				}
+			}
+		});
+	}
 
     // Add this section to handle About link clicks
     document.querySelectorAll('a[href="#about"]').forEach(aboutLink => {
@@ -2574,6 +2582,314 @@ ORDER DETAILS:
         
         alert('Thank you for your order! Your email client has been opened with your order details. Please send the email to complete your order.');
     }
+}
+
+function initializePaymentProcessor() {
+    const siteConfig = window.siteConfig;
+    
+    if (!siteConfig.advanced || siteConfig.advanced.checkoutMethod !== 'payment-processor') {
+        return; // Not using payment processors
+    }
+    
+    const processorType = siteConfig.advanced.paymentProcessor?.type;
+    
+    switch (processorType) {
+        case 'square':
+            initializeSquare();
+            break;
+        case 'stripe':
+            initializeStripe();
+            break;
+        case 'paypal':
+            initializePayPal();
+            break;
+    }
+}
+
+// Square Integration
+function initializeSquare() {
+    const config = window.siteConfig.advanced.paymentProcessor.square;
+    
+    // Load Square SDK
+    const script = document.createElement('script');
+    script.src = 'https://web.squarecdn.com/v1/square.js';
+    script.onload = () => {
+        console.log('Square SDK loaded');
+    };
+    document.head.appendChild(script);
+}
+
+// Stripe Integration
+function initializeStripe() {
+    const config = window.siteConfig.advanced.paymentProcessor.stripe;
+    
+    // Load Stripe SDK
+    const script = document.createElement('script');
+    script.src = 'https://js.stripe.com/v3/';
+    script.onload = () => {
+        window.stripe = Stripe(config.publishableKey);
+        console.log('Stripe initialized');
+    };
+    document.head.appendChild(script);
+}
+
+// PayPal Integration
+function initializePayPal() {
+    const config = window.siteConfig.advanced.paymentProcessor.paypal;
+    
+    // Load PayPal SDK
+    const script = document.createElement('script');
+    script.src = `https://www.paypal.com/sdk/js?client-id=${config.clientId}&currency=${config.currency}`;
+    script.onload = () => {
+        console.log('PayPal SDK loaded');
+    };
+    document.head.appendChild(script);
+}
+
+function calculateCartTotal(cart) {
+    const siteConfig = window.siteConfig;
+    let subtotal = 0;
+    let totalDiscount = 0;
+    
+    cart.forEach(item => {
+        const itemSubtotal = item.quantity * item.price;
+        subtotal += itemSubtotal;
+        
+        if (item.hasPromotion && item.promotionPercent > 0) {
+            const itemDiscount = (itemSubtotal * item.promotionPercent) / 100;
+            totalDiscount += itemDiscount;
+        }
+    });
+    
+    const afterDiscountTotal = subtotal - totalDiscount;
+    
+    // Add shipping if enabled
+    let shippingCost = 0;
+    if (siteConfig.advanced && siteConfig.advanced.enableShipping && !siteConfig.advanced.showFreeShipping) {
+        shippingCost = parseFloat(siteConfig.advanced.shippingPrice) || 0;
+    }
+    
+    return afterDiscountTotal + shippingCost;
+}
+
+function showCustomerInfoForm(cart) {
+    const checkoutModal = document.getElementById('checkoutModal');
+    const modalContent = checkoutModal.querySelector('.modal-content');
+    
+    modalContent.innerHTML = `
+        <span class="close-modal" id="closeCheckout">&times;</span>
+        <h2>Customer Information</h2>
+        <form id="customer-info-form">
+            <div class="form-group">
+                <label for="customer-name">Full Name</label>
+                <input type="text" id="customer-name" required>
+            </div>
+            <div class="form-group">
+                <label for="customer-email">Email Address</label>
+                <input type="email" id="customer-email" required>
+            </div>
+            <div class="form-group">
+                <label for="customer-phone">Phone Number</label>
+                <input type="tel" id="customer-phone">
+            </div>
+            <button type="submit" class="cta-button">Continue to Payment</button>
+        </form>
+    `;
+    
+    checkoutModal.style.display = 'block';
+    
+    document.getElementById('customer-info-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const customerInfo = {
+            name: document.getElementById('customer-name').value,
+            email: document.getElementById('customer-email').value,
+            phone: document.getElementById('customer-phone').value
+        };
+        
+        // Proceed to payment processor
+        const processorType = window.siteConfig.advanced.paymentProcessor.type;
+        
+        switch (processorType) {
+            case 'square':
+                processSquarePayment(cart, customerInfo);
+                break;
+            case 'stripe':
+                processStripePayment(cart, customerInfo);
+                break;
+            case 'paypal':
+                processPayPalPayment(cart, customerInfo);
+                break;
+        }
+    });
+}
+
+function processSquarePayment(cart, customerInfo) {
+    const config = window.siteConfig.advanced.paymentProcessor.square;
+    
+    if (!window.Square) {
+        alert('Square payment system not loaded. Please try again.');
+        return;
+    }
+    
+    const total = calculateCartTotal(cart);
+    const checkoutModal = document.getElementById('checkoutModal');
+    const modalContent = checkoutModal.querySelector('.modal-content');
+    
+    modalContent.innerHTML = `
+        <span class="close-modal" id="closeCheckout">&times;</span>
+        <h2>Complete Your Payment</h2>
+        <div class="payment-summary">
+            <p><strong>Total: $${total.toFixed(2)}</strong></p>
+        </div>
+        <div id="card-container"></div>
+        <button id="card-button" type="button" class="cta-button">Pay Now</button>
+        <div id="payment-status"></div>
+    `;
+    
+    const payments = Square.payments(config.appId, config.locationId);
+    
+    payments.card().attach('#card-container').then(card => {
+        const cardButton = document.getElementById('card-button');
+        
+        cardButton.addEventListener('click', async function(event) {
+            event.preventDefault();
+            
+            try {
+                const result = await card.tokenize();
+                
+                if (result.status === 'OK') {
+                    handlePaymentSuccess({ square_token: result.token }, customerInfo);
+                } else {
+                    document.getElementById('payment-status').innerHTML = 
+                        `<p style="color: red;">Payment failed: ${result.errors}</p>`;
+                }
+            } catch (e) {
+                console.error('Payment error:', e);
+                document.getElementById('payment-status').innerHTML = 
+                    '<p style="color: red;">Payment processing error. Please try again.</p>';
+            }
+        });
+    });
+}
+
+function processStripePayment(cart, customerInfo) {
+    if (!window.stripe) {
+        alert('Stripe payment system not loaded. Please try again.');
+        return;
+    }
+    
+    const total = calculateCartTotal(cart);
+    const checkoutModal = document.getElementById('checkoutModal');
+    const modalContent = checkoutModal.querySelector('.modal-content');
+    
+    modalContent.innerHTML = `
+        <span class="close-modal" id="closeCheckout">&times;</span>
+        <h2>Complete Your Payment</h2>
+        <div class="payment-summary">
+            <p><strong>Total: $${total.toFixed(2)}</strong></p>
+        </div>
+        <form id="stripe-payment-form">
+            <div id="stripe-card-element"></div>
+            <div id="stripe-card-errors" role="alert"></div>
+            <button id="stripe-submit" type="submit" class="cta-button">Pay Now</button>
+        </form>
+        <div id="payment-status"></div>
+    `;
+    
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+    cardElement.mount('#stripe-card-element');
+    
+    const form = document.getElementById('stripe-payment-form');
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const {error, paymentMethod} = await stripe.createPaymentMethod({
+            type: 'card',
+            card: cardElement,
+            billing_details: {
+                name: customerInfo.name,
+                email: customerInfo.email
+            }
+        });
+        
+        if (error) {
+            document.getElementById('stripe-card-errors').textContent = error.message;
+        } else {
+            handlePaymentSuccess({ stripe_payment_method: paymentMethod.id }, customerInfo);
+        }
+    });
+}
+
+function processPayPalPayment(cart, customerInfo) {
+    if (!window.paypal) {
+        alert('PayPal payment system not loaded. Please try again.');
+        return;
+    }
+    
+    const total = calculateCartTotal(cart);
+    const checkoutModal = document.getElementById('checkoutModal');
+    const modalContent = checkoutModal.querySelector('.modal-content');
+    
+    modalContent.innerHTML = `
+        <span class="close-modal" id="closeCheckout">&times;</span>
+        <h2>Complete Your Payment</h2>
+        <div class="payment-summary">
+            <p><strong>Total: $${total.toFixed(2)}</strong></p>
+        </div>
+        <div id="paypal-button-container"></div>
+        <div id="payment-status"></div>
+    `;
+    
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: total.toFixed(2)
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                handlePaymentSuccess(details, customerInfo);
+            });
+        },
+        onError: function(err) {
+            console.error('PayPal error:', err);
+            document.getElementById('payment-status').innerHTML = 
+                '<p style="color: red;">Payment failed. Please try again.</p>';
+        }
+    }).render('#paypal-button-container');
+}
+
+function handlePaymentSuccess(paymentDetails, customerInfo) {
+    // Store cart for confirmation before clearing
+    window.previousCart = [...(window.siteCart || [])];
+    
+    // Clear cart
+    window.siteCart = [];
+    const siteConfig = window.siteConfig;
+    
+    if (siteConfig.advanced && siteConfig.advanced.enableLocalStorage) {
+        localStorage.setItem('siteCart', JSON.stringify([]));
+    }
+    updateCartCount([]);
+    
+    // Close checkout modal
+    document.getElementById('checkoutModal').style.display = 'none';
+    
+    // Show success message
+    alert('Payment successful! Thank you for your order.');
+    
+    // Log the order details
+    console.log('Order completed:', {
+        payment: paymentDetails,
+        customer: customerInfo,
+        cart: window.previousCart
+    });
 }
 
 function saveAndUpdateCart(cart) {

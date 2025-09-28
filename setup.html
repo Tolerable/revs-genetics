@@ -3039,7 +3039,7 @@ document.createElement = function(tagName) {
 				const productDelivery = document.getElementById('product-delivery').value;
 				const digitalContent = document.getElementById('digital-content').value;
 				
-				// Get visibility status (add this)
+				// Get visibility status
 				const visibilitySelect = document.getElementById('product-visibility');
 				const isHidden = visibilitySelect ? visibilitySelect.value === 'hidden' : false;
 				
@@ -3122,6 +3122,45 @@ document.createElement = function(tagName) {
 					displayOrder = products[productId].displayOrder;
 				}
 				
+				// Get promotional settings with proper type-based filtering
+				const promoType = document.getElementById('product-promo-type').value;
+				const promoValue = document.getElementById('product-promo-value').value;
+				const discountPercent = document.getElementById('product-discount-percent').value;
+				const bogoType = document.getElementById('product-bogo-type').value;
+				
+				// Create promotional object based on type - only include relevant fields
+				let promotional = {
+					type: promoType,
+					enabled: promoType !== 'none'
+				};
+				
+				// Only add relevant fields based on promotional type
+				switch(promoType) {
+					case 'percentage':
+						promotional.value = promoValue || '';
+						promotional.discountPercent = discountPercent || '';
+						break;
+						
+					case 'custom':
+						promotional.value = promoValue || '';
+						break;
+						
+					case 'sale':
+						promotional.discountPercent = discountPercent || '';
+						break;
+						
+					case 'bogo':
+						promotional.bogoType = bogoType || 'same';
+						break;
+						
+					case 'new':
+					case 'limited':
+					case 'none':
+					default:
+						// For these types, only type and enabled are needed
+						break;
+				}
+				
 				// Create or update product - maintain all fields
 				products[productId] = {
 					id: productId,
@@ -3143,15 +3182,9 @@ document.createElement = function(tagName) {
 					enableHoverImage: document.getElementById('product-enable-hover').value === 'true',
 					hoverImage: document.getElementById('product-enable-hover').value === 'true' ? 
 						document.getElementById('product-hover-image').value : '',
-					hidden: isHidden,  // Add the hidden flag
-					displayOrder: displayOrder,  // Add the display order
-					promotional: {
-						type: document.getElementById('product-promo-type').value || 'none',
-						value: document.getElementById('product-promo-value').value || '',
-						discountPercent: document.getElementById('product-discount-percent').value || '',
-						bogoType: document.getElementById('product-bogo-type').value || 'same',
-						enabled: document.getElementById('product-promo-type').value !== 'none'
-					}
+					hidden: isHidden,
+					displayOrder: displayOrder,
+					promotional: promotional
 				};
 				
 				// For debugging - check what's being saved

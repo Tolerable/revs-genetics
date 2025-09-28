@@ -478,9 +478,6 @@ function initializeSite() {
     
     // Apply site configuration
     applySiteConfig();
-	
-    // Initialize age check if enabled
-    initializeAgeCheck();	
 
     // Initialize about section
     initializeAboutSection();
@@ -817,26 +814,6 @@ function applySiteConfig() {
    
    // Update filter buttons
    updateFilterButtons();
-}
-
-function initializeAgeCheck() {
-    const siteConfig = window.siteConfig;
-    
-    // Check if age verification is enabled
-    if (siteConfig.advanced && siteConfig.advanced.enableAgeCheck) {
-        // Check if script is already loaded
-        if (document.querySelector('script[src="js/agecheck.js"]')) {
-            console.log('Age check script already loaded');
-            return;
-        }
-        
-        // Load the external age check script
-        const script = document.createElement('script');
-        script.src = 'js/agecheck.js';
-        script.onload = () => console.log('Age check script loaded');
-        script.onerror = () => console.error('Failed to load age check script');
-        document.head.appendChild(script);
-    }
 }
 
 // Open product modal in read-only mode (when shop is disabled)

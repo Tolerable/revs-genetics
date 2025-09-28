@@ -527,11 +527,7 @@ function initializeSite() {
                 setupEventListeners();
                 addDigitalProductStyles();
             });
-    }
-
-    setTimeout(() => {
-        updateCheckoutHandler();
-    }, 100);	
+    }	
 }
 
 function addDigitalProductStyles() {

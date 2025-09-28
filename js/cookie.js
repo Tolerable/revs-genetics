@@ -5,14 +5,28 @@
     'use strict';
     
     // Check if cookie consent is enabled in config
-    function isCookieConsentEnabled() {
-        if (typeof window.siteConfig === 'undefined' || 
-            !window.siteConfig.advanced || 
-            !window.siteConfig.advanced.enableCookieConsent) {
-            return false;
-        }
-        return true;
-    }
+	function isCookieConsentEnabled() {
+		console.log('=== COOKIE CONSENT DEBUG ===');
+		console.log('window.siteConfig exists:', typeof window.siteConfig !== 'undefined');
+		console.log('Full siteConfig:', window.siteConfig);
+		
+		if (window.siteConfig && window.siteConfig.advanced) {
+			console.log('advanced exists:', true);
+			console.log('enableCookieConsent value:', window.siteConfig.advanced.enableCookieConsent);
+			console.log('enableCookieConsent type:', typeof window.siteConfig.advanced.enableCookieConsent);
+		} else {
+			console.log('advanced missing or siteConfig missing');
+		}
+		
+		if (typeof window.siteConfig === 'undefined' || 
+			!window.siteConfig.advanced || 
+			!window.siteConfig.advanced.enableCookieConsent) {
+			console.log('Cookie consent DISABLED - returning false');
+			return false;
+		}
+		console.log('Cookie consent ENABLED - returning true');
+		return true;
+	}
     
     // Check if user has already made a choice
     function hasUserConsented() {

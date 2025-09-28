@@ -1206,21 +1206,92 @@ document.createElement = function(tagName) {
 					<p class="help-text">When shipping is free, show crossed-out price for perceived value</p>
 				</div>
                 
-                <div class="form-group">
-                    <label for="checkout-method">Checkout Method</label>
-                    <select id="checkout-method">
-                        <option value="email" selected>Email</option>
-                        <option value="form">Form Submission</option>
-                        <option value="external">External Checkout</option>
-                    </select>
-                </div>
+				<div class="form-group">
+					<label for="checkout-method">Checkout Method</label>
+					<select id="checkout-method">
+						<option value="email" selected>Email</option>
+						<option value="payment-processor">Payment Processor</option>
+						<option value="form">Form Submission</option>
+						<option value="external">External Checkout</option>
+					</select>
+				</div>
                 
                 <div class="form-group" id="external-checkout-group">
                     <label for="external-checkout-url">External Checkout URL</label>
                     <input type="url" id="external-checkout-url" value="">
                     <p class="help-text">Only needed if checkout method is "External"</p>
                 </div>
-                
+ 
+				<!-- Payment Processor Settings -->
+				<div class="form-group" id="payment-processor-group" style="display: none;">
+					<label for="payment-processor">Payment Processor</label>
+					<select id="payment-processor">
+						<option value="none">None - Email Only</option>
+						<option value="square">Square</option>
+						<option value="stripe">Stripe</option>
+						<option value="paypal">PayPal</option>
+					</select>
+					<p class="help-text">Choose your payment processor for online payments</p>
+				</div>
+
+				<!-- Square Configuration -->
+				<div class="form-group" id="square-config" style="display: none;">
+					<h4 style="color: var(--secondary-color); margin: 15px 0 10px 0;">Square Configuration</h4>
+					
+					<label for="square-app-id">Square Application ID</label>
+					<input type="text" id="square-app-id" placeholder="sandbox-sq0idb-...">
+					<p class="help-text">Your Square Application ID (use sandbox ID for testing)</p>
+					
+					<label for="square-location-id">Square Location ID</label>
+					<input type="text" id="square-location-id" placeholder="L...">
+					<p class="help-text">Your Square Location ID</p>
+					
+					<label for="square-environment">Environment</label>
+					<select id="square-environment">
+						<option value="sandbox">Sandbox (Testing)</option>
+						<option value="production">Production (Live)</option>
+					</select>
+				</div>
+
+				<!-- Stripe Configuration -->
+				<div class="form-group" id="stripe-config" style="display: none;">
+					<h4 style="color: var(--secondary-color); margin: 15px 0 10px 0;">Stripe Configuration</h4>
+					
+					<label for="stripe-publishable-key">Stripe Publishable Key</label>
+					<input type="text" id="stripe-publishable-key" placeholder="pk_test_... or pk_live_...">
+					<p class="help-text">Your Stripe Publishable Key (starts with pk_)</p>
+					
+					<label for="stripe-environment">Environment</label>
+					<select id="stripe-environment">
+						<option value="test">Test Mode</option>
+						<option value="live">Live Mode</option>
+					</select>
+				</div>
+
+				<!-- PayPal Configuration -->
+				<div class="form-group" id="paypal-config" style="display: none;">
+					<h4 style="color: var(--secondary-color); margin: 15px 0 10px 0;">PayPal Configuration</h4>
+					
+					<label for="paypal-client-id">PayPal Client ID</label>
+					<input type="text" id="paypal-client-id" placeholder="AY...">
+					<p class="help-text">Your PayPal Client ID</p>
+					
+					<label for="paypal-environment">Environment</label>
+					<select id="paypal-environment">
+						<option value="sandbox">Sandbox (Testing)</option>
+						<option value="production">Production (Live)</option>
+					</select>
+					
+					<label for="paypal-currency">Currency</label>
+					<select id="paypal-currency">
+						<option value="USD">USD</option>
+						<option value="EUR">EUR</option>
+						<option value="GBP">GBP</option>
+						<option value="CAD">CAD</option>
+						<option value="AUD">AUD</option>
+					</select>
+				</div>
+ 
 				<h3>Cookie Compliance</h3>
 
 				<div class="form-group">
@@ -1657,6 +1728,36 @@ document.createElement = function(tagName) {
 					styleGroup.style.display = 'block';
 				} else {
 					styleGroup.style.display = 'none';
+				}
+			});
+
+			// Show/hide payment processor settings based on checkout method
+			document.getElementById('checkout-method').addEventListener('change', function() {
+				const paymentProcessorGroup = document.getElementById('payment-processor-group');
+				const externalCheckoutGroup = document.getElementById('external-checkout-group');
+				
+				if (this.value === 'payment-processor') {
+					paymentProcessorGroup.style.display = 'block';
+					externalCheckoutGroup.style.display = 'none';
+				} else if (this.value === 'external') {
+					externalCheckoutGroup.style.display = 'block';
+					paymentProcessorGroup.style.display = 'none';
+				} else {
+					paymentProcessorGroup.style.display = 'none';
+					externalCheckoutGroup.style.display = 'none';
+				}
+			});
+
+			// Show/hide specific payment processor configs
+			document.getElementById('payment-processor').addEventListener('change', function() {
+				// Hide all processor configs
+				document.getElementById('square-config').style.display = 'none';
+				document.getElementById('stripe-config').style.display = 'none';
+				document.getElementById('paypal-config').style.display = 'none';
+				
+				// Show selected processor config
+				if (this.value !== 'none') {
+					document.getElementById(this.value + '-config').style.display = 'block';
 				}
 			});
 
@@ -3467,16 +3568,35 @@ document.createElement = function(tagName) {
 					}
 				});
                 
-                // Show/hide External Checkout URL based on checkout method
-                document.getElementById('checkout-method').addEventListener('change', function() {
-                    const externalCheckoutGroup = document.getElementById('external-checkout-group');
-                    
-                    if (this.value === 'external') {
-                        externalCheckoutGroup.style.display = 'block';
-                    } else {
-                        externalCheckoutGroup.style.display = 'none';
-                    }
-                });
+				// Show/hide payment processor settings based on checkout method
+				document.getElementById('checkout-method').addEventListener('change', function() {
+					const paymentProcessorGroup = document.getElementById('payment-processor-group');
+					const externalCheckoutGroup = document.getElementById('external-checkout-group');
+					
+					if (this.value === 'payment-processor') {
+						paymentProcessorGroup.style.display = 'block';
+						externalCheckoutGroup.style.display = 'none';
+					} else if (this.value === 'external') {
+						externalCheckoutGroup.style.display = 'block';
+						paymentProcessorGroup.style.display = 'none';
+					} else {
+						paymentProcessorGroup.style.display = 'none';
+						externalCheckoutGroup.style.display = 'none';
+					}
+				});
+
+				// Show/hide specific payment processor configs
+				document.getElementById('payment-processor').addEventListener('change', function() {
+					// Hide all processor configs
+					document.getElementById('square-config').style.display = 'none';
+					document.getElementById('stripe-config').style.display = 'none';
+					document.getElementById('paypal-config').style.display = 'none';
+					
+					// Show selected processor config
+					if (this.value !== 'none') {
+						document.getElementById(this.value + '-config').style.display = 'block';
+					}
+				});
 
 				// Show/hide shipping settings based on enable shipping
 				document.getElementById('enable-shipping').addEventListener('change', function() {
@@ -3792,6 +3912,26 @@ document.createElement = function(tagName) {
 							checkoutMethod: document.getElementById('checkout-method').value,
 							externalCheckoutUrl: document.getElementById('external-checkout-url').value,
 							orderEmail: document.getElementById('order-email').value,
+							
+							// Payment Processor Configuration
+							paymentProcessor: {
+								type: document.getElementById('payment-processor').value,
+								square: {
+									appId: document.getElementById('square-app-id').value,
+									locationId: document.getElementById('square-location-id').value,
+									environment: document.getElementById('square-environment').value
+								},
+								stripe: {
+									publishableKey: document.getElementById('stripe-publishable-key').value,
+									environment: document.getElementById('stripe-environment').value
+								},
+								paypal: {
+									clientId: document.getElementById('paypal-client-id').value,
+									environment: document.getElementById('paypal-environment').value,
+									currency: document.getElementById('paypal-currency').value
+								}
+							},
+							
 							enableAgeCheck: document.getElementById('enable-age-check').value === 'true',
 							ageCheckMinimum: parseInt(document.getElementById('age-check-minimum').value) || 21,
 							ageRedirectUrl: document.getElementById('age-redirect-url').value || 'https://www.google.com',
@@ -4340,15 +4480,40 @@ document.createElement = function(tagName) {
 				
 				// Function to update any UI that depends on form values
 				function updateDependentUI() {
-					// Set visibility for external checkout URL field
+					// Set visibility for payment processor fields
 					const checkoutMethod = document.getElementById('checkout-method');
+					const paymentProcessorGroup = document.getElementById('payment-processor-group');
 					const externalCheckoutGroup = document.getElementById('external-checkout-group');
-					
-					if (checkoutMethod && externalCheckoutGroup) {
-						if (checkoutMethod.value === 'external') {
-							externalCheckoutGroup.style.display = 'block';
-						} else {
+
+					if (checkoutMethod && paymentProcessorGroup && externalCheckoutGroup) {
+						if (checkoutMethod.value === 'payment-processor') {
+							paymentProcessorGroup.style.display = 'block';
 							externalCheckoutGroup.style.display = 'none';
+						} else if (checkoutMethod.value === 'external') {
+							externalCheckoutGroup.style.display = 'block';
+							paymentProcessorGroup.style.display = 'none';
+						} else {
+							paymentProcessorGroup.style.display = 'none';
+							externalCheckoutGroup.style.display = 'none';
+						}
+					}
+
+					// Set visibility for specific payment processor configs
+					const paymentProcessor = document.getElementById('payment-processor');
+					if (paymentProcessor) {
+						// Hide all processor configs first
+						const configs = ['square-config', 'stripe-config', 'paypal-config'];
+						configs.forEach(configId => {
+							const configEl = document.getElementById(configId);
+							if (configEl) configEl.style.display = 'none';
+						});
+						
+						// Show selected processor config
+						if (paymentProcessor.value !== 'none') {
+							const selectedConfig = document.getElementById(paymentProcessor.value + '-config');
+							if (selectedConfig) {
+								selectedConfig.style.display = 'block';
+							}
 						}
 					}
 					
@@ -4865,6 +5030,44 @@ document.createElement = function(tagName) {
 						safeSetValue('cookie-policy-url', config.advanced.cookiePolicyUrl || '');
 						safeSetValue('cookie-redirect-decline', config.advanced.cookieRedirectOnDecline !== false ? 'true' : 'false');
 						
+					}
+
+					// Payment Processor Settings
+					if (config.advanced && config.advanced.paymentProcessor) {
+						safeSetValue('payment-processor', config.advanced.paymentProcessor.type || 'none');
+						
+						// Square settings
+						if (config.advanced.paymentProcessor.square) {
+							safeSetValue('square-app-id', config.advanced.paymentProcessor.square.appId);
+							safeSetValue('square-location-id', config.advanced.paymentProcessor.square.locationId);
+							safeSetValue('square-environment', config.advanced.paymentProcessor.square.environment);
+						}
+						
+						// Stripe settings
+						if (config.advanced.paymentProcessor.stripe) {
+							safeSetValue('stripe-publishable-key', config.advanced.paymentProcessor.stripe.publishableKey);
+							safeSetValue('stripe-environment', config.advanced.paymentProcessor.stripe.environment);
+						}
+						
+						// PayPal settings
+						if (config.advanced.paymentProcessor.paypal) {
+							safeSetValue('paypal-client-id', config.advanced.paymentProcessor.paypal.clientId);
+							safeSetValue('paypal-environment', config.advanced.paymentProcessor.paypal.environment);
+							safeSetValue('paypal-currency', config.advanced.paymentProcessor.paypal.currency);
+						}
+					}
+
+					// Trigger change events to show/hide the appropriate sections
+					const checkoutMethodSelect = document.getElementById('checkout-method');
+					if (checkoutMethodSelect) {
+						const event = new Event('change');
+						checkoutMethodSelect.dispatchEvent(event);
+					}
+
+					const paymentProcessorSelect = document.getElementById('payment-processor');
+					if (paymentProcessorSelect) {
+						const event = new Event('change');
+						paymentProcessorSelect.dispatchEvent(event);
 					}
 
 					if (config.legal) {

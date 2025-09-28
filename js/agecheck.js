@@ -2,6 +2,12 @@
 (function() {
     'use strict';
     
+    // Prevent multiple initializations
+    if (window.ageCheckInitialized) {
+        return;
+    }
+    window.ageCheckInitialized = true;
+    
     console.log('Age check script started');
     
     // Use a UNIQUE key that no existing user could have

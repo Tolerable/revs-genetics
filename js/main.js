@@ -824,9 +824,15 @@ function initializeAgeCheck() {
     
     // Check if age verification is enabled
     if (siteConfig.advanced && siteConfig.advanced.enableAgeCheck) {
+        // Check if script is already loaded
+        if (document.querySelector('script[src="js/agecheck.js"]')) {
+            console.log('Age check script already loaded');
+            return;
+        }
+        
         // Load the external age check script
         const script = document.createElement('script');
-        script.src = 'js/agecheck.js';  // Make sure path is correct
+        script.src = 'js/agecheck.js';
         script.onload = () => console.log('Age check script loaded');
         script.onerror = () => console.error('Failed to load age check script');
         document.head.appendChild(script);

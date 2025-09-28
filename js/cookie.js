@@ -199,15 +199,21 @@
         }
     }
     
-    // Wait for config to load, then initialize
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            // Give config time to load
-            setTimeout(init, 500);
-        });
-    } else {
-        setTimeout(init, 500);
-    }
+	// Wait for config to load, then initialize
+	function waitForConfigAndInit() {
+		if (typeof window.siteConfig !== 'undefined') {
+			init();
+		} else {
+			// Check every 100ms for up to 5 seconds
+			setTimeout(waitForConfigAndInit, 100);
+		}
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', waitForConfigAndInit);
+	} else {
+		waitForConfigAndInit();
+	}
     
     // Export functions for external use
     window.CookieConsent = {

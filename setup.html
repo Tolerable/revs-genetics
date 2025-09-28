@@ -1743,8 +1743,17 @@ document.createElement = function(tagName) {
 					externalCheckoutGroup.style.display = 'block';
 					paymentProcessorGroup.style.display = 'none';
 				} else {
+					// Hide all payment processor related sections when switching to Email/Form
 					paymentProcessorGroup.style.display = 'none';
 					externalCheckoutGroup.style.display = 'none';
+					
+					// Also hide all the specific processor configs
+					document.getElementById('square-config').style.display = 'none';
+					document.getElementById('stripe-config').style.display = 'none';
+					document.getElementById('paypal-config').style.display = 'none';
+					
+					// Reset the payment processor dropdown to "none"
+					document.getElementById('payment-processor').value = 'none';
 				}
 			});
 

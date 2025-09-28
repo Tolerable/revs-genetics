@@ -1,4 +1,11 @@
-// Replace your js/agecheck.js with this simple version
+// Check if age verification is enabled
+const siteConfig = window.siteConfig || {};
+const advanced = siteConfig.advanced || {};
+
+if (!advanced.enableAgeCheck) {
+    console.log('Age check disabled in config, skipping');
+    return;
+}
 
 console.log('Age check script started');
 

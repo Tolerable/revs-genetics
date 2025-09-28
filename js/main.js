@@ -487,6 +487,9 @@ function initializeSite() {
     
     // Initialize cart
     initializeCart();
+
+    // Initialize payment processors
+    initializePaymentProcessor();
 	
     initializeFriendLinks();
 	
@@ -526,6 +529,10 @@ function initializeSite() {
                 addDigitalProductStyles();
             });
     }
+
+    setTimeout(() => {
+        updateCheckoutHandler();
+    }, 100);	
 }
 
 function addDigitalProductStyles() {

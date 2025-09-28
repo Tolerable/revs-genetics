@@ -217,9 +217,6 @@
                 "displayOrder": 2,
                 "promotional": {
                     "type": "new",
-                    "value": "10",
-                    "discountPercent": "10",
-                    "bogoType": "same",
                     "enabled": true
                 }
             },
@@ -706,6 +703,23 @@
         "checkoutMethod": "email",
         "externalCheckoutUrl": "",
         "orderEmail": "orders@example.com",
+        "paymentProcessor": {
+            "type": "none",
+            "square": {
+                "appId": "",
+                "locationId": "",
+                "environment": "sandbox"
+            },
+            "stripe": {
+                "publishableKey": "",
+                "environment": "test"
+            },
+            "paypal": {
+                "clientId": "",
+                "environment": "sandbox",
+                "currency": "USD"
+            }
+        },
         "enableAgeCheck": true,
         "ageCheckMinimum": 21,
         "ageRedirectUrl": "https://www.google.com",

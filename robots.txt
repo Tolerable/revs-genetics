@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Block configuration/setup pages from being indexed
+Disallow: /setup.html
+
+# Block any potential admin or config directories
+Disallow: /admin/
+Disallow: /config/
+
+# Allow CSS, JS, and image files to be crawled (helps with SEO)
+Allow: /css/
+Allow: /js/
+Allow: /img/
+Allow: /data/
+
+# Sitemap location
+Sitemap: http://www.revsgeneticslab.com/sitemap.xml
+
+# Crawl delay (optional - gives your server a break)
+Crawl-delay: 1

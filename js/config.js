@@ -380,7 +380,7 @@
                 ],
                 "enableHoverImage": false,
                 "hoverImage": "",
-                "hidden": false,
+                "hidden": true,
                 "displayOrder": 7,
                 "promotional": {
                     "type": "limited",
@@ -423,7 +423,7 @@
                 ],
                 "enableHoverImage": false,
                 "hoverImage": "",
-                "hidden": false,
+                "hidden": true,
                 "displayOrder": 8,
                 "promotional": {
                     "type": "limited",
@@ -509,7 +509,7 @@
                 ],
                 "enableHoverImage": false,
                 "hoverImage": "",
-                "hidden": false,
+                "hidden": true,
                 "displayOrder": 10,
                 "promotional": {
                     "type": "new",

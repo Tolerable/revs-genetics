@@ -621,7 +621,7 @@
                 "variety": "PHOTO REG",
                 "rating": "Moderate Rarity",
                 "origin": "Rev's Lab Development",
-                "rarity": "Color Photo Regular",
+                "rarity": "Photo Regular",
                 "details": "Parentage: Pink Zydonia x Remo Chemo x Mango Bubba F1. Moderate quantities available of this colorful photoperiod line. Known for producing stunning pink and purple expressions with excellent breeding potential and finished cultivar value.",
                 "notes": "Colorful photoperiod genetics combining Pink Zydonia traits with proven RCxMB F1 foundation. Regular format provides breeding opportunities for color-focused breeding programs.",
                 "packOptions": [
@@ -642,9 +642,119 @@
                 "displayOrder": 13,
                 "promotional": {
                     "type": "percentage",
+                    "enabled": true,
                     "value": "10",
-                    "discountPercent": "10",
-                    "bogoType": "same",
+                    "discountPercent": "10"
+                }
+            },
+            "product-1761173791617": {
+                "id": "product-1761173791617",
+                "name": "High Noon Berry",
+                "type": "Early Generation",
+                "status": "available",
+                "delivery": "physical",
+                "digitalContent": "",
+                "image": "high-noon-berry.jpg",
+                "additionalImages": [],
+                "description": "Photo regular from the ᵗʰᵉ Rev™ foundation program blending 12 O'Clock Grand Slam S1 with Pink Cloudberry. Expect vigorous, upright plants with berry-forward and candy-citrus terps, confident structure, and reliable resin. Built as a flexible hunter’s line—great for standout keepers or dependable breeding stock.",
+                "variety": "PHOTO REG",
+                "rating": "ᵗʰᵉ Rev™ Line",
+                "origin": "Rev's Lab Foundation",
+                "rarity": "Foundation Photo",
+                "details": "Parentage: 12 O'Clock Grand Slam S1 x Pink Cloudberry line that has contributed genetics to multiple advanced crosses in our breeding program. Excellent genetic diversity and breeding value. ",
+                "notes": "Essential ᵗʰᵉ Rev™ foundation genetics. Regular format provides breeding opportunities while offering access to the genetic foundation of advanced crosses throughout our program.",
+                "packOptions": [
+                    {
+                        "size": "6 Pack Regular",
+                        "regularPrice": 45,
+                        "salePrice": 39
+                    },
+                    {
+                        "size": "12 Pack Foundation",
+                        "regularPrice": 80,
+                        "salePrice": 70
+                    }
+                ],
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
+                "displayOrder": 14,
+                "promotional": {
+                    "type": "new",
+                    "enabled": true
+                }
+            },
+            "product-1761175196782": {
+                "id": "product-1761175196782",
+                "name": "Fruit Storm",
+                "type": "Early Generation",
+                "status": "available",
+                "delivery": "physical",
+                "digitalContent": "",
+                "image": "fruit-storm.jpg",
+                "additionalImages": [],
+                "description": "Photo regular collision of Apples & Bananas F4 with Pink Cloudberry. Delivers a fruit-punch spectrum—apple skin, banana cream, and bright berry—on top of fast, forgiving growth and strong lateral branching. A flavorful hunter’s line with vivid terp expression and dependable vigor for breeding projects.",
+                "variety": "PHOTO REG",
+                "rating": "ᵗʰᵉ Rev™ Line",
+                "origin": "Rev's Lab Foundation",
+                "rarity": "Foundation Photo",
+                "details": "Apples & Bananas F4 x Pink Cloudberry line that has contributed genetics to multiple advanced crosses in our breeding program. Excellent genetic diversity and breeding value. ",
+                "notes": "Essential ᵗʰᵉ Rev™ foundation genetics. Regular format provides breeding opportunities while offering access to the genetic foundation of advanced crosses throughout our program.",
+                "packOptions": [
+                    {
+                        "size": "6 Pack Regular",
+                        "regularPrice": 45,
+                        "salePrice": 39
+                    },
+                    {
+                        "size": "12 Pack Foundation",
+                        "regularPrice": 80,
+                        "salePrice": 70
+                    }
+                ],
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
+                "displayOrder": 15,
+                "promotional": {
+                    "type": "new",
+                    "enabled": true
+                }
+            },
+            "product-1761175540882": {
+                "id": "product-1761175540882",
+                "name": "Mekong Mist Berry",
+                "type": "Early Generation",
+                "status": "available",
+                "delivery": "physical",
+                "digitalContent": "",
+                "image": "mekong-mist-berry.jpg",
+                "additionalImages": [],
+                "description": "description": "Photo line weaving Southeast-Asian incense (Black Chiquita Vietnamese) and Banana Honey Haze through the Pink Cloudberry framework. Expect tall, expressive plants with citrus-banana haze over sweet berry undertones, lively resin, and dynamic stretch that rewards training. A discovery line for exotic daytime phenos and creative breeding.",
+                "variety": "",
+                "rating": "ᵗʰᵉ Rev™ Line",
+                "origin": "",
+                "rarity": "",
+                "details": "Parentage: (Black Chiquita Vietnamese x Banana Honey Haze) x Pink Cloudberry. This is the foundational Pink Cloudberry line that has contributed genetics to multiple advanced crosses in our breeding program. Excellent genetic diversity and breeding value.",
+                "notes": "Essential ᵗʰᵉ Rev™ foundation genetics. Regular format provides breeding opportunities while offering access to the genetic foundation of advanced crosses throughout our program.",
+                "packOptions": [
+                    {
+                        "size": "6 Pack Regular",
+                        "regularPrice": 45,
+                        "salePrice": 39
+                    },
+                    {
+                        "size": "12 Pack Foundation",
+                        "regularPrice": 80,
+                        "salePrice": 70
+                    }
+                ],
+                "enableHoverImage": false,
+                "hoverImage": "",
+                "hidden": false,
+                "displayOrder": 16,
+                "promotional": {
+                    "type": "new",
                     "enabled": true
                 }
             }

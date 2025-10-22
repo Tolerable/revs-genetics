@@ -730,7 +730,7 @@
                 "digitalContent": "",
                 "image": "mekong-mist-berry.jpg",
                 "additionalImages": [],
-                "description": "description": "Photo line weaving Southeast-Asian incense (Black Chiquita Vietnamese) and Banana Honey Haze through the Pink Cloudberry framework. Expect tall, expressive plants with citrus-banana haze over sweet berry undertones, lively resin, and dynamic stretch that rewards training. A discovery line for exotic daytime phenos and creative breeding.",
+                "description": "Photo line weaving Southeast-Asian incense (Black Chiquita Vietnamese) and Banana Honey Haze through the Pink Cloudberry framework. Expect tall, expressive plants with citrus-banana haze over sweet berry undertones, lively resin, and dynamic stretch that rewards training. A discovery line for exotic daytime phenos and creative breeding.",
                 "variety": "",
                 "rating": "ᵗʰᵉ Rev™ Line",
                 "origin": "",
